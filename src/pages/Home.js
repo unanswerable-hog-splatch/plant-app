@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import Auth from '../utils/auth';
 
-import Calendar from '../components/Calendar';
+import Calendar from '../components/calendar/Calendar';
 
 export default function Home() {
   return (
@@ -12,12 +12,12 @@ export default function Home() {
         : (
           <>
             <Link to='/login'>
-              <button className='btn btn-lg btn-primary'>
+              <button className=''>
                 Login
               </button>
             </Link>
             <Link to='/signup'>
-              <button className='btn btn-lg btn-primary'>
+              <button className=''>
                 Signup
               </button>
             </Link>
