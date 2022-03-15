@@ -5,6 +5,7 @@ import Auth from '../utils/auth';
 import { ADD_GARDENER } from '../utils/mutations';
 // export default function SignupForm() {
 
+
 const SignupForm = () => {
     const onFinish = (values) => {
         console.log('Success:', values);
@@ -15,6 +16,7 @@ const SignupForm = () => {
     };
 
     const [gardenerFormData, setGardenerFormData] = useState({ name: '', email: '', password: '' });
+
     const [validated] = useState(false);
     // const [showAlert, setShowAlert] = useState(false);
 
@@ -63,12 +65,14 @@ const SignupForm = () => {
             initialValues={{
                 remember: true,
             }}
+
             onSubmit={handleFormSubmit}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
         >
             {/* <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+
                 Something went wrong with your signup!
             </Alert> */}
             <Form.Item
@@ -133,6 +137,7 @@ const SignupForm = () => {
                     span: 16,
                 }}
             >
+
                 <Button
                     disabled={!(gardenerFormData.name && gardenerFormData.email && gardenerFormData.password)}
                     type="primary"
@@ -143,6 +148,7 @@ const SignupForm = () => {
         </Form>
     );
 };
+
 
 export default SignupForm;
 // };
