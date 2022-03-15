@@ -1,10 +1,9 @@
 import { useMutation } from '@apollo/client';
 import React, { useState } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
-import Auth from '../utils/auth';
-import { ADD_GARDENER } from '../utils/mutations';
+import Auth from '../../utils/auth';
+import { ADD_GARDENER } from '../../utils/mutations';
 // export default function SignupForm() {
-
 
 const SignupForm = () => {
     const onFinish = (values) => {
@@ -16,9 +15,6 @@ const SignupForm = () => {
     };
 
     const [gardenerFormData, setGardenerFormData] = useState({ name: '', email: '', password: '' });
-
-    const [validated] = useState(false);
-    // const [showAlert, setShowAlert] = useState(false);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -43,7 +39,6 @@ const SignupForm = () => {
             Auth.login(data.addGardener.token)
         } catch (err) {
             console.error(err);
-            // setShowAlert(true);
         }
 
         setGardenerFormData({
@@ -65,16 +60,11 @@ const SignupForm = () => {
             initialValues={{
                 remember: true,
             }}
-
             onSubmit={handleFormSubmit}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
         >
-            {/* <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-
-                Something went wrong with your signup!
-            </Alert> */}
             <Form.Item
                 label="Name"
                 name="name"
@@ -137,7 +127,6 @@ const SignupForm = () => {
                     span: 16,
                 }}
             >
-
                 <Button
                     disabled={!(gardenerFormData.name && gardenerFormData.email && gardenerFormData.password)}
                     type="primary"
@@ -148,7 +137,6 @@ const SignupForm = () => {
         </Form>
     );
 };
-
 
 export default SignupForm;
 // };
