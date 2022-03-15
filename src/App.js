@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import NavBar from './components/nav/Navbar'
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -34,6 +35,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      < NavBar />
       <Router>
         <Routes>
           <Route
