@@ -42,7 +42,7 @@ const SignupForm = () => {
         }
 
         setGardenerFormData({
-            username: '',
+            name: '',
             email: '',
             password: '',
         });
