@@ -27,12 +27,25 @@ import { Form, Input, Button, Checkbox } from 'antd';
                 autoComplete="off"
             >
                 <Form.Item
-                    label="Username"
-                    name="username"
+                    label="Name"
+                    name="name"
                     rules={[
                         {
                             required: true,
-                            message: 'Please input your username!',
+                            message: 'Please input your name!',
+                        },
+                    ]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
+                    label="Email"
+                    name="email"
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your email!',
                         },
                     ]}
                 >
@@ -52,7 +65,7 @@ import { Form, Input, Button, Checkbox } from 'antd';
                     <Input.Password />
                 </Form.Item>
 
-                <Form.Item
+                {/* <Form.Item
                     name="remember"
                     valuePropName="checked"
                     wrapperCol={{
@@ -61,7 +74,7 @@ import { Form, Input, Button, Checkbox } from 'antd';
                     }}
                 >
                     <Checkbox>Remember me</Checkbox>
-                </Form.Item>
+                </Form.Item> */}
 
                 <Form.Item
                     wrapperCol={{
