@@ -10,6 +10,8 @@ import { Form, Input, Button, Checkbox } from 'antd';
         console.log('Failed:', errorInfo);
     };
 
+    
+
         return (
             <Form
                 name="basic"
