@@ -15,7 +15,6 @@ const SignupForm = () => {
     };
 
     const [gardenerFormData, setGardenerFormData] = useState({ name: '', email: '', password: '' });
-    const [showAlert, setShowAlert] = useState(false);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -40,7 +39,6 @@ const SignupForm = () => {
             Auth.login(data.addGardener.token)
         } catch (err) {
             console.error(err);
-            setShowAlert(true);
         }
 
         setGardenerFormData({
@@ -67,9 +65,6 @@ const SignupForm = () => {
             onFinishFailed={onFinishFailed}
             autoComplete="off"
         >
-            <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-                Something went wrong with your signup!
-            </Alert>
             <Form.Item
                 label="Name"
                 name="name"
