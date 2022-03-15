@@ -12,7 +12,7 @@ export default function Home() {
       {Auth.isLoggedIn() ? <Calendar />
         : (
           <>
-            <Link to='/login'>
+            {/* <Link to='/login'>
               <button className=''>
                 Login
               </button>
@@ -21,7 +21,7 @@ export default function Home() {
               <button className=''>
                 Signup
               </button>
-            </Link>
+            </Link> */}
           </>)}
     </>
   );
