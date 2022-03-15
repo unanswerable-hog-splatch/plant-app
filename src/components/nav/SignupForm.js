@@ -15,10 +15,10 @@ const SignupForm = () => {
         console.log('Failed:', errorInfo);
     };
 
+    const [gardenerFormData, setGardenerFormData] = useState({ name: '', email: '', password: '' });
 
-    const [gardenerFormData, setGardenerFormData] = useState({ username: '', email: '', password: '' });
     const [validated] = useState(false);
-    const [showAlert, setShowAlert] = useState(false);
+    // const [showAlert, setShowAlert] = useState(false);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -43,11 +43,11 @@ const SignupForm = () => {
             Auth.login(data.addGardener.token)
         } catch (err) {
             console.error(err);
-            setShowAlert(true);
+            // setShowAlert(true);
         }
 
         setGardenerFormData({
-            username: '',
+            name: '',
             email: '',
             password: '',
         });
@@ -71,15 +71,15 @@ const SignupForm = () => {
             onFinishFailed={onFinishFailed}
             autoComplete="off"
         >
-              
-            <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+            {/* <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+
                 Something went wrong with your signup!
-            </Alert>
+            </Alert> */}
             <Form.Item
                 label="Name"
                 name="name"
                 onChange={handleInputChange}
-                value={userFormData.name}
+                value={gardenerFormData.name}
                 rules={[
                     {
                         required: true,
@@ -94,7 +94,7 @@ const SignupForm = () => {
                 label="Email"
                 name="email"
                 onChange={handleInputChange}
-                value={userFormData.username}
+                value={gardenerFormData.name}
                 rules={[
                     {
                         required: true,
@@ -109,7 +109,7 @@ const SignupForm = () => {
                 label="Password"
                 name="password"
                 onChange={handleInputChange}
-                value={userFormData.username}
+                value={gardenerFormData.name}
                 rules={[
                     {
                         required: true,
@@ -139,7 +139,7 @@ const SignupForm = () => {
             >
 
                 <Button
-                    disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+                    disabled={!(gardenerFormData.name && gardenerFormData.email && gardenerFormData.password)}
                     type="primary"
                     htmlType="submit">
                     Submit
