@@ -1,1 +1,25 @@
 import { gql } from '@apollo/client';
+
+export const GET_ME = gql `
+    query me {
+        me{
+            _id
+            name
+            email
+            plantCount
+            plants{
+                _id
+                plantType
+                category
+                nickname
+                dateAdded
+                watered
+                fertilized
+                waterFrequency
+                fertilizeFrequency
+                lastWaterDate
+                lastFertilizeDate
+            }
+        }
+    }
+`
