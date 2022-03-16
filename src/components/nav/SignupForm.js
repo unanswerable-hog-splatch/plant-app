@@ -6,15 +6,13 @@ import { ADD_GARDENER } from '../../utils/mutations';
 // export default function SignupForm() {
 
 const SignupForm = () => {
-    const onFinish = (values) => {
-        console.log('Success:', values);
-    };
 
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
 
-    const [gardenerFormData, setGardenerFormData] = useState({ name: '', email: '', password: '' });
+    let [gardenerFormData, setGardenerFormData] = useState({ name: '', email: '', password: '' });
+
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -23,19 +21,17 @@ const SignupForm = () => {
 
     const [addGardener] = useMutation(ADD_GARDENER)
 
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
+    const onFinish = async (values) => {
+        // event.preventDefault();
+        console.log(values)
+        // gardenerFormData = event
+        // console.log(gardenerFormData)
 
         try {
             const { data } = await addGardener({
-                variables: { ...gardenerFormData }
+                variables: { ...values }
             })
+            console.log(data)
             Auth.login(data.addGardener.token)
         } catch (err) {
             console.error(err);
@@ -60,7 +56,7 @@ const SignupForm = () => {
             initialValues={{
                 remember: true,
             }}
-            onSubmit={handleFormSubmit}
+            // onSubmit={handleFormSubmit}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
@@ -84,7 +80,7 @@ const SignupForm = () => {
                 label="Email"
                 name="email"
                 onChange={handleInputChange}
-                value={gardenerFormData.name}
+                value={gardenerFormData.email}
                 rules={[
                     {
                         required: true,
@@ -99,7 +95,7 @@ const SignupForm = () => {
                 label="Password"
                 name="password"
                 onChange={handleInputChange}
-                value={gardenerFormData.name}
+                value={gardenerFormData.password}
                 rules={[
                     {
                         required: true,
@@ -110,17 +106,6 @@ const SignupForm = () => {
                 <Input.Password />
             </Form.Item>
 
-            {/* <Form.Item
-                    name="remember"
-                    valuePropName="checked"
-                    wrapperCol={{
-                        offset: 8,
-                        span: 16,
-                    }}
-                >
-                    <Checkbox>Remember me</Checkbox>
-                </Form.Item> */}
-
             <Form.Item
                 wrapperCol={{
                     offset: 8,
@@ -128,7 +113,7 @@ const SignupForm = () => {
                 }}
             >
                 <Button
-                    disabled={!(gardenerFormData.name && gardenerFormData.email && gardenerFormData.password)}
+                    // disabled={!(gardenerFormData.name && gardenerFormData.email && gardenerFormData.password)}
                     type="primary"
                     htmlType="submit">
                     Submit
@@ -140,6 +125,21 @@ const SignupForm = () => {
 
 export default SignupForm;
 // };
+
+
+
+
+
+{/* <Form.Item
+                    name="remember"
+                    valuePropName="checked"
+                    wrapperCol={{
+                        offset: 8,
+                        span: 16,
+                    }}
+                >
+                    <Checkbox>Remember me</Checkbox>
+                </Form.Item> */}
 
 
 

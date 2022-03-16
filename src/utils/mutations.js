@@ -48,12 +48,12 @@ export const ADOPT_PLANT = gql `
     }
 `
 
-export const KILL_PLANT = gql `
-    killPlant($_id: ID!) {
-        killPlant($_id: _id) {
-            _id
-            plantType
-            nickname
-        }
-    }
-`
+// export const KILL_PLANT = gql `
+//     killPlant($_id: ID!) {
+//         killPlant($_id: _id) {
+//             _id
+//             plantType
+//             nickname
+//         }
+//     }
+// `
