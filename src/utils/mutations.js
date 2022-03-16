@@ -26,16 +26,17 @@ export const LOGIN_GARDENER = gql `
 `
 
 export const ADOPT_PLANT = gql `
-    mutation adoptPlant($gardenerId: ID, $species: String!, $category: String!, $nickname: String, $dateAdded: Int!, $watered: Boolean!, $fertilized: Boolean, $waterFrequency: Int!, $fertilizeFrequency: Int, $lastWaterDate: Int!, $lastFertilizeDate: Int) {
-        adoptPlant(gardenerId: $gardenerId, species: $species, category: $category, nickname: $nickname, dateAdded: $dateAdded, watered: $watered, fertilized: $fertilized, waterFrequency: $waterFrequency, fertilizeFrequency: $fertilizeFrequency, lastWaterDate: $lastWaterDate, lastFertilizeDate: $lastFertilizeDate) {
+    mutation adoptPlant($species: String!, $category: String!, $nickname: String, $plantIcon: String!, $watered: Boolean!, $fertilized: Boolean, $waterFrequency: Int!, $fertilizeFrequency: Int, $lastWaterDate: Int!, $lastFertilizeDate: Int) {
+        adoptPlant(species: $species, category: $category, nickname: $nickname, plantIcon: $plantIcon, watered: $watered, fertilized: $fertilized, waterFrequency: $waterFrequency, fertilizeFrequency: $fertilizeFrequency, lastWaterDate: $lastWaterDate, lastFertilizeDate: $lastFertilizeDate) {
             _id
             name
             plantCount
             plants {
                 _id
-                plantType
+                species
                 category
                 nickname
+                plantIcon
                 dateAdded
                 watered
                 fertilized
