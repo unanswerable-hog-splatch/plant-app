@@ -26,8 +26,8 @@ export const LOGIN_GARDENER = gql `
 `
 
 export const ADOPT_PLANT = gql `
-    mutation adoptPlant($gardenerId: ID, $plantType: String!, $category: String!, $nickname: String, $dateAdded: Int!, $watered: Boolean!, $fertilized: Boolean, $waterFrequency: Int!, $fertilizeFrequency: Int, $lastWaterDate: Int!, $lastFertilizeDate: Int) {
-        adoptPlant(gardenerId: $gardenerId, plantType: $plantType, category: $category, nickname: $nickname, dateAdded: $dateAdded, watered: $watered, fertilized: $fertilized, waterFrequency: $waterFrequency, fertilizeFrequency: $fertilizeFrequency, lastWaterDate: $lastWaterDate, lastFertilizeDate: $lastFertilizeDate) {
+    mutation adoptPlant($gardenerId: ID, $species: String!, $category: String!, $nickname: String, $dateAdded: Int!, $watered: Boolean!, $fertilized: Boolean, $waterFrequency: Int!, $fertilizeFrequency: Int, $lastWaterDate: Int!, $lastFertilizeDate: Int) {
+        adoptPlant(gardenerId: $gardenerId, species: $species, category: $category, nickname: $nickname, dateAdded: $dateAdded, watered: $watered, fertilized: $fertilized, waterFrequency: $waterFrequency, fertilizeFrequency: $fertilizeFrequency, lastWaterDate: $lastWaterDate, lastFertilizeDate: $lastFertilizeDate) {
             _id
             name
             plantCount
@@ -49,10 +49,10 @@ export const ADOPT_PLANT = gql `
 `
 
 export const KILL_PLANT = gql `
-    killPlant($_id: ID!) {
-        killPlant($_id: _id) {
+    mutation killPlant($_id: ID!) {
+        killPlant(_id: $_id) {
             _id
-            plantType
+            species
             nickname
         }
     }
