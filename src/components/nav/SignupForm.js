@@ -11,7 +11,7 @@ const SignupForm = () => {
         console.log('Failed:', errorInfo);
     };
 
-    let [gardenerFormData, setGardenerFormData] = useState({ name: '', email: '', password: '' });
+    const [gardenerFormData, setGardenerFormData] = useState({ name: '', email: '', password: '' });
 
 
     const handleInputChange = (event) => {
