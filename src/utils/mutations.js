@@ -57,3 +57,13 @@ export const KILL_PLANT = gql `
         }
     }
 `
+
+export const UPDATE_PLANT = gql `
+    mutation updatePlant($_id: ID!, $waterFrequency: Int, $lastWaterDate: Int) {
+        updatePlant(_id: $_id, waterFrequency: $waterFrequency, lastWaterDate: $lastWaterDate) {
+            _id
+            waterFrequency
+            lastWaterDate
+        }
+    }
+`
