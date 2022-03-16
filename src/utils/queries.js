@@ -9,7 +9,7 @@ export const GET_ME = gql `
             plantCount
             plants{
                 _id
-                plantType
+                species
                 category
                 nickname
                 dateAdded
