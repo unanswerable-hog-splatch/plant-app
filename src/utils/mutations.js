@@ -48,7 +48,6 @@ export const ADOPT_PLANT = gql `
         }
     }
 `
-
 export const KILL_PLANT = gql `
     mutation killPlant($_id: ID!) {
         killPlant(_id: $_id) {
@@ -68,4 +67,3 @@ export const UPDATE_PLANT = gql `
         }
     }
 `
-
