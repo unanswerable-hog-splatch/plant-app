@@ -49,11 +49,12 @@ const SignupForm = () => {
 
     return (
         <>
-            <Button type="primary" onClick={() => setVisible(true)}>
-                Open Modal of 1000px width
+            <p>Already have a shelf?</p>
+            <Button className="nav-buttons" type="primary" onClick={() => setVisible(true)}>
+                Login
             </Button>
             <Modal
-                title="Modal 1000px width"
+                title="Get back to being shelfish!"
                 centered
                 visible={visible}
                 onOk={() => setVisible(false)}
@@ -131,6 +132,7 @@ const SignupForm = () => {
                 >
                     <Button
                         // disabled={!(gardenerFormData.name && gardenerFormData.email && gardenerFormData.password)}
+                        className="nav-buttons"
                         type="primary"
                         htmlType="submit">
                         Submit
