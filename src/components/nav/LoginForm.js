@@ -19,12 +19,12 @@ const LoginForm = () => {
         setGardenerFormData({ ...gardenerFormData, [name]: value });
     };
 
-    const [login] = useMutation(LOGIN_GARDENER )
+    const [login] = useMutation(LOGIN_GARDENER)
 
     const onFinish = async (values) => {
         // event.preventDefault();
         console.log(values)
-        // gardenerFormData = event
+        // gardenerFormData = values
         // console.log(gardenerFormData)
 
         try {
@@ -32,7 +32,7 @@ const LoginForm = () => {
                 variables: { ...values }
             })
             console.log(data)
-            Auth.login(data.addGardener.token)
+            Auth.login(data.login.token)
         } catch (err) {
             console.error(err);
         }

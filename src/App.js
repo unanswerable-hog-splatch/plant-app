@@ -11,11 +11,18 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import NavBar from './components/nav/Navbar'
 
-const uri = process.env.NODE_ENV === 'development'
-  ?'/graphql' : 'https://shelf-care-backend.herokuapp.com/graphql';
+
+// COMMENT BACK IN WHEN USING HEROKU
+
+// const uri = process.env.NODE_ENV === 'development'
+//   ?'/graphql' : 'https://shelf-care-backend.herokuapp.com/graphql';
+
+
+
+//COMMENT OUT WHEN USING HEROKU
 
 const httpLink = createHttpLink({
-  uri: uri
+  uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
