@@ -10,6 +10,7 @@ export const GET_ME = gql `
             plants{
                 _id
                 species
+                plantIcon
                 category
                 nickname
                 dateAdded
