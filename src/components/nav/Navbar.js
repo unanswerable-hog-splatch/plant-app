@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
+// import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 // import './index.css';
 import { Modal, Button } from 'antd';
 import SignupForm from './SignupForm'
+
+import Auth from '../../utils/auth';
+
 
 export default function NavBar() {
     const [visible, setVisible] = useState(false);
@@ -23,6 +27,7 @@ export default function NavBar() {
                 >
                     < SignupForm />
                 </Modal>
+                <Button onClick={Auth.logout}>Logout</Button>
             </>
         </div>
     )
