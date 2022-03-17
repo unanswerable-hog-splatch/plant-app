@@ -16,14 +16,15 @@ import { ADOPT_PLANT } from '../../utils/mutations';
 
 export default function AddPlantForm() {
   const today = new Date().setHours(0, 0, 0, 0);
-  console.log('today', today / 1000)
+  // console.log('today', today / 1000)
+  const [adoptPlant] = useMutation(ADOPT_PLANT);
 
-  // Set defaults for category, plantIcon, waterFrequency, watered
+  // Set defaults for plantFormData
   const [plantFormData, setPlantFormData] = useState({
     species: '',
-    category: 'cactus',
+    category: '',
     nickname: '',
-    plantIcon: 'cactus',
+    plantIcon: '',
     watered: true,
     fertilized: false,
     waterFrequency: 1,
@@ -32,8 +33,63 @@ export default function AddPlantForm() {
     lastFertilizeDate: today
   })
 
-  const onFinish = (plantFormData) => {
-    console.log('Success:', plantFormData);
+  // Takes in a number and unit of time and returns an equivelant number of days
+  const convertFrequency = (amount, unit) => {
+    let multiplier;
+    switch (unit) {
+      case ('day'): multiplier = 1;
+        break;
+      case ('week'): multiplier = 7;
+        break;
+      case ('month'): multiplier = 30;
+        break;
+      case ('year'): multiplier = 365;
+        break;
+    }
+    return multiplier * amount;
+  }
+
+  // This is what we do instead of onSubmit I guess
+  const onFinish = async (values) => {
+
+    const token = Auth.isLoggedIn() ? Auth.getToken() : null;
+    // Stops the function if there is no auth token
+    if (!token) {
+      return false;
+    }
+
+    console.log(Auth.getProfile());
+
+    // Converts to number of days
+    const waterFrequency = convertFrequency(values.waterFrequency.amount, values.waterFrequency.unit)
+    console.log('water frequency', waterFrequency)
+    setPlantFormData({ ...plantFormData, waterFrequency });
+    console.log('values', values)
+    console.log('plantFormData', plantFormData)
+
+    try {
+      console.log(plantFormData)
+      const {data} = await adoptPlant({
+        variables: { plant: { plantFormData } },
+      });
+      console.log(data)
+    } catch (err) {
+      console.error(err);
+    }
+
+    // Resets plantForm
+    setPlantFormData({
+      species: '',
+      category: '',
+      nickname: '',
+      plantIcon: '',
+      watered: true,
+      fertilized: false,
+      waterFrequency: 1,
+      fertilizeFrequency: 180,
+      lastWaterDate: today,
+      lastFertilizeDate: today
+    })
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -42,7 +98,9 @@ export default function AddPlantForm() {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+    // console.log(name)
     setPlantFormData({ ...plantFormData, [name]: value });
+    // console.log(plantFormData)
   };
 
   return (
@@ -51,10 +109,6 @@ export default function AddPlantForm() {
       labelCol={{ span: 4 }}
       wrapperCol={{ span: 14 }}
       layout="horizontal"
-      initialValues={{
-        remember: true,
-      }}
-      // onSubmit={handleFormSubmit}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
@@ -121,19 +175,30 @@ export default function AddPlantForm() {
       {/* WATERING FREQUENCY */}
       <Form.Item
         label="Watering Frequency"
-        name="waterFrequency"
-        onChange={handleInputChange}
-        value={plantFormData.waterFrequency}
-        >
-        Every
-        <InputNumber label="#" />
-        <Select
-          defaultValue={"day(s)"}>
-          <Select.Option value="day">day(s)</Select.Option>
-          <Select.Option value="week">week(s)</Select.Option>
-          <Select.Option value="month">month(s)</Select.Option>
-          <Select.Option value="year">year(s)</Select.Option>
-        </Select>
+      // name="waterFrequency"
+      // onChange={handleInputChange}
+      // value={plantFormData.waterFrequency}
+      >
+        <Input.Group >
+          {"Every "}
+          <Form.Item
+            name={["waterFrequency", "amount"]}
+            placeholder="#"
+            noStyle>
+            <InputNumber />
+          </Form.Item>
+          <Form.Item
+            name={["waterFrequency", "unit"]}
+            noStyle
+          >
+            <Select placeholder="day(s)">
+              <Select.Option value="day">day(s)</Select.Option>
+              <Select.Option value="week">week(s)</Select.Option>
+              <Select.Option value="month">month(s)</Select.Option>
+              <Select.Option value="year">year(s)</Select.Option>
+            </Select>
+          </Form.Item>
+        </Input.Group>
       </Form.Item>
       {/* LAST WATERING DATE */}
       <Form.Item
@@ -158,7 +223,7 @@ export default function AddPlantForm() {
         Every
         <InputNumber label="#" />
         <Select
-        defaultValue={'months(s)'}>
+          defaultValue={'months(s)'}>
           <Select.Option value="day">day(s)</Select.Option>
           <Select.Option value="week">week(s)</Select.Option>
           <Select.Option value="month">month(s)</Select.Option>
@@ -166,9 +231,9 @@ export default function AddPlantForm() {
         </Select>
       </Form.Item>
       {/* LAST FERTILZING DATE */}
-      <Form.Item 
-      label="Last Fertilizing"
-      name="lastFertilizeDate"
+      <Form.Item
+        label="Last Fertilizing"
+        name="lastFertilizeDate"
         onChange={handleInputChange}
         value={plantFormData.species}
         defaultValue={today}>
@@ -177,7 +242,6 @@ export default function AddPlantForm() {
 
       <Form.Item>
         <Button
-          // disabled={!()}
           type="primary"
           htmlType='submit'>Add to Nursery</Button>
       </Form.Item>
@@ -189,21 +253,22 @@ export default function AddPlantForm() {
 
 // **********USE THIS BUTTON TO MAKE THIS FORM VISIBLE
 
-{/* <Button type="primary" onClick={() => setAddPlantVisible(true)}>
-Add Plant Child
-</Button>
-<Modal
-title='United Shelf of (name)'
-centered
-visible={addPlantVisible}
-okButtonProps={{ disabled: true }}
-onCancel={() => setAddPlantVisible(false)}
-width={1000}>
-<AddPlant/>
-</Modal> */}
+// <Button type="primary" onClick={() => setAddPlantVisible(true)}>
+// Add Plant Child
+// </Button>
+// <Modal
+// title='United Shelf of (name)'
+// centered
+// visible={addPlantVisible}
+// okButtonProps={{ disabled: true }}
+// onCancel={() => setAddPlantVisible(false)}
+// width={1000}>
+// <AddPlantForm/>
+// </Modal>
 
 // **************** NEED THESE IMPORTS AND VARIABLES FOR MODAL
 // import { Modal, Button } from 'antd';
 // import { useState } from 'react';
 // import 'antd/dist/antd.css';
 //   const [addPlantVisible, setAddPlantVisible] = useState(false);
+// import AddPlantForm from '../components/addPlant/AddPlantForm';
