@@ -12,9 +12,9 @@ import Auth from '../../utils/auth';
 export default function NavBar() {
     const [visible, setVisible] = useState(false);
     return (
-        <div>
+        <div className="main-nav">
             <>
-                <Button className="nav-buttons" type="primary" onClick={() => setVisible(true)}>
+                {/* <Button className="nav-buttons" type="primary" onClick={() => setVisible(true)}>
                     Get Gardening!
                 </Button>
                 <Modal
@@ -26,7 +26,7 @@ export default function NavBar() {
                     width={1000}
                 >
                     < SignupForm />
-                </Modal>
+                </Modal> */}
                 <Button onClick={Auth.logout}>Logout</Button>
             </>
         </div>
