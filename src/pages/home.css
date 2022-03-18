@@ -19,6 +19,10 @@ body {
     font-weight: bold;
 }
 
+.landing-buttons {
+    display: flex;
+}
+
 .login-btn {
     margin-right: 2em;
     width: 10em;
