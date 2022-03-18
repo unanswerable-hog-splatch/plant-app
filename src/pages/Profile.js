@@ -2,12 +2,12 @@ import Auth from '../utils/auth';
 import { Layout, Menu } from 'antd';
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_ME } from '../utils/queries';
+import { QUERY_ME } from '../utils/queries';
 const { Sider, Content } = Layout;
 
 export default function Profile() {
   const [ menuSelection, chooseMenuSelection ] = useState('gardener')
-  const { loading, data } = useQuery(GET_ME);
+  const { loading, data } = useQuery(QUERY_ME);
   const gardenerData = data?.me || [];
   console.log(gardenerData);
 
