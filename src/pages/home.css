@@ -2,11 +2,10 @@
     display: flex;
     justify-content: space-around;
     text-align: center;
-    /* align-items: center; */
     height: 100%;
     /* line-height: 10em; */
 }
 
 .landing-title {
-    
+    margin-top: 10em;
 }

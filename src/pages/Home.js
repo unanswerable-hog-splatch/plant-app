@@ -9,6 +9,7 @@ import { useState } from 'react';
 import 'antd/dist/antd.css';
 import AddPlantForm from '../components/addPlant/AddPlantForm';
 import SignupForm from '../components/nav/SignupForm'
+import SignupForm from '../components/nav/SignupForm'
 import './home.css'
 
 
@@ -38,26 +39,43 @@ export default function Home() {
             width={1000}>
             <AddPlantForm />
           </Modal>
+
         </>
         : (
           <>
             <div className="landing-title">
-              SHELF CARE
+              <h1 className="app-title">SHELF CARE</h1>
               <div className="sign-in-btns">
-              <Button className="nav-buttons" type="primary" onClick={() => setVisible(true)}>
-                    Get Gardening!
+
+                <Button className="nav-buttons" type="primary" onClick={() => setVisible(true)}>
+                  Login
                 </Button>
                 <Modal
-                    title="Sign up to start your shelf!"
-                    centered
-                    visible={visible}
-                    onOk={() => setVisible(false)}
-                    onCancel={() => setVisible(false)}
-                    width={1000}
+                  title="Get back to being shelfish!"
+                  centered
+                  visible={visible}
+                  onOk={() => setVisible(false)}
+                  onCancel={() => setVisible(false)}
+                  width={1000}
                 >
-                    < SignupForm />
+                  < LoginForm />
                 </Modal>
-                </div>
+
+                <Button className="nav-buttons" type="primary" onClick={() => setVisible(true)}>
+                  Get Gardening!
+                </Button>
+                <Modal
+                  title="Sign up to start your shelf!"
+                  centered
+                  visible={visible}
+                  onOk={() => setVisible(false)}
+                  onCancel={() => setVisible(false)}
+                  width={1000}
+                >
+                  < SignupForm />
+                </Modal>
+
+              </div>
             </div>
           </>
         )
