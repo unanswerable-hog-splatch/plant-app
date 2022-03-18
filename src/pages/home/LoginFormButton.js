@@ -1,24 +1,28 @@
 import React from 'react'
-import SignupForm from '../components/nav/SignupForm'
+import LoginForm from '../../components/nav/LoginForm'
 import { Modal, Button } from 'antd';
 import { useState } from 'react';
+import './home.css'
 
-export default function SignupFormButton() {
+export default function LoginFormButton() {
     const [visible, setVisible] = useState(false);
     return (
         <div>
-            <Button className="sign-in-btn" type="primary" onClick={() => setVisible(true)}>
-                Get Gardening!
+            <Button className="login-btn" type="primary" onClick={() => setVisible(true)}>
+                Login
             </Button>
             <Modal
-                title="Sign up to start your shelf!"
+                bodyStyle={{
+                    backgroundColor: 'rgb(50, 143, 50)'
+                }}
+                title="Get back to being shelfish!"
                 centered
                 visible={visible}
                 onOk={() => setVisible(false)}
                 onCancel={() => setVisible(false)}
                 width={1000}
             >
-                < SignupForm />
+                < LoginForm />
             </Modal>
         </div>
     )

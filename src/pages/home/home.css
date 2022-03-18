@@ -1,0 +1,86 @@
+body {
+    background-color: rgb(97, 235, 159);
+    font-family: 'Poppins', sans-serif;
+}
+
+.landing-screen {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    height: 100%;
+}
+
+.landing-title {
+    margin-top: 8em;
+    border: solid .3em rgb(39, 22, 8);
+    padding-bottom: 7em;
+    padding-left: 11em;
+    padding-right: 11em;
+    padding-top: 3em;
+    background-color: rgb(193, 241, 115);
+}
+
+.app-title {
+    font-size: 400%;
+    font-weight: bold;
+    color: rgb(39, 136, 0);
+    text-shadow: .08em .03em .04em #585858;
+}
+
+.landing-buttons {
+    display: flex;
+}
+
+.login-btn {
+    margin-right: 2em;
+    width: 10em;
+    height: 3em;
+    font-size: 115%;
+    background: linear-gradient( 0.25turn, rgb(196, 137, 28), rgb(117, 80, 11), rgb(196, 137, 28));
+    color: rgb(255, 255, 255);
+    border: .1em solid rgb(82, 45, 15);
+    border-radius: .25em;
+}
+.sign-in-btn {
+    margin-left: 2em;
+    width: 10em;
+    height: 3em;
+    font-size: 115%;
+    background: linear-gradient( 0.25turn, rgb(196, 137, 28), rgb(117, 80, 11), rgb(196, 137, 28));
+    color: rgb(255, 255, 255);
+    border: .1em solid rgb(82, 45, 15);
+    border-radius: .25em;
+}
+
+.login-btn:hover {
+    background: linear-gradient(0.25turn, green, rgb(133, 201, 25), green);
+    border: .1em solid rgb(196, 183, 0);
+}
+.sign-in-btn:hover {
+    background: linear-gradient(0.25turn, green, rgb(133, 201, 25), green);
+    border: .1em solid rgb(196, 183, 0);
+}
+
+.ant-modal-footer {
+    background-color: rgb(82, 126, 0);
+}
+.ant-modal-header {
+    background-color: rgb(82, 126, 0);
+}
+
+.adopt-btn {
+    width: 15em;
+    height: 2.5em;
+    font-size: 200%;
+    background: linear-gradient( 0.25turn, rgb(196, 137, 28), rgb(117, 80, 11), rgb(196, 137, 28));
+    color: rgb(255, 255, 255);
+    margin-top: .5em;
+    margin-bottom: 2em;
+    border: .1em solid rgb(230, 226, 0);
+    border-radius: .25em;
+}
+
+.adopt-btn:hover {
+    background: linear-gradient(0.25turn, green, rgb(124, 182, 31), green);
+    border: .1em solid rgb(255, 234, 45);
+}
