@@ -11,10 +11,17 @@ import {
 
 import { useQuery, useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
-import { GET_ME } from '../../utils/queries';
+import { QUERY_ME } from '../../utils/queries';
 import { ADOPT_PLANT } from '../../utils/mutations';
 
 export default function AddPlantForm() {
+  const {data} = useQuery(QUERY_ME);
+  // const token = Auth.isLoggedIn() ? Auth.getToken() : null;
+  // // Stops the function if there is no auth token
+  // if (!token) {
+  //   return false;
+  // }
+
   const today = new Date().setHours(0, 0, 0, 0);
   // console.log('today', today / 1000)
   const [adoptPlant] = useMutation(ADOPT_PLANT);
@@ -50,7 +57,9 @@ export default function AddPlantForm() {
   }
 
   // This is what we do instead of onSubmit I guess
-  const onFinish = async (values) => {
+  const onFinish = async (plantFormData) => {
+    console.log(data)
+    console.log(Auth.isLoggedIn())
 
     const token = Auth.isLoggedIn() ? Auth.getToken() : null;
     // Stops the function if there is no auth token
@@ -58,21 +67,29 @@ export default function AddPlantForm() {
       return false;
     }
 
+    console.log(token)
+
     console.log(Auth.getProfile());
 
     // Converts to number of days
-    const waterFrequency = convertFrequency(values.waterFrequency.amount, values.waterFrequency.unit)
-    console.log('water frequency', waterFrequency)
-    setPlantFormData({ ...plantFormData, waterFrequency });
-    console.log('values', values)
+    plantFormData.waterFrequency = convertFrequency(plantFormData.waterFrequency.amount, plantFormData.waterFrequency.unit)
+    // plantFormData.waterFrequency = test
+    plantFormData.lastWaterDate = Number(plantFormData.lastWaterDate.startOf("day").format("X"))
+    console.log(plantFormData.lastWaterDate)
+    console.log(plantFormData.waterFrequency)
     console.log('plantFormData', plantFormData)
+    plantFormData.lastFertilizeDate = 0
+    plantFormData.fertilizeFrequency = 0
+    plantFormData.watered = true
+    plantFormData.fertilized = false
+    // setPlantFormData({ plantFormData });
+
 
     try {
       console.log(plantFormData)
-      const {data} = await adoptPlant({
-        variables: { plant: { plantFormData } },
+        await adoptPlant({
+        variables: { ...plantFormData },
       });
-      console.log(data)
     } catch (err) {
       console.error(err);
     }
@@ -205,8 +222,8 @@ export default function AddPlantForm() {
         label="Last Watering"
         name="lastWaterDate"
         onChange={handleInputChange}
-        value={plantFormData.lastWaterDate}
-        defaultValue={today}>
+        value={Date.parse(plantFormData.lastWaterDate)}
+        defaultValue={Date.parse(today)}>
         <DatePicker />
       </Form.Item>
       {/* This button will make the fertilizer section appear/disappear */}
@@ -218,8 +235,8 @@ export default function AddPlantForm() {
         label="Fertilizing"
         name="fertilizeFrequency"
         onChange={handleInputChange}
-        value={plantFormData.species}
-        defaultValue={today}>
+        value={plantFormData.fertilizeFrequency}
+        defaultValue={0}>
         Every
         <InputNumber label="#" />
         <Select
@@ -235,7 +252,7 @@ export default function AddPlantForm() {
         label="Last Fertilizing"
         name="lastFertilizeDate"
         onChange={handleInputChange}
-        value={plantFormData.species}
+        value={plantFormData.lastFertilizeDate}
         defaultValue={today}>
         <DatePicker />
       </Form.Item>
@@ -253,18 +270,18 @@ export default function AddPlantForm() {
 
 // **********USE THIS BUTTON TO MAKE THIS FORM VISIBLE
 
-// <Button type="primary" onClick={() => setAddPlantVisible(true)}>
-// Add Plant Child
-// </Button>
-// <Modal
-// title='United Shelf of (name)'
-// centered
-// visible={addPlantVisible}
-// okButtonProps={{ disabled: true }}
-// onCancel={() => setAddPlantVisible(false)}
-// width={1000}>
-// <AddPlantForm/>
-// </Modal>
+{/* <Button type="primary" onClick={() => setAddPlantVisible(true)}>
+Add Plant Child
+</Button>
+<Modal
+title='United Shelf of (name)'
+centered
+visible={addPlantVisible}
+okButtonProps={{ disabled: true }}
+onCancel={() => setAddPlantVisible(false)}
+width={1000}>
+<AddPlantForm/>
+</Modal> */}
 
 // **************** NEED THESE IMPORTS AND VARIABLES FOR MODAL
 // import { Modal, Button } from 'antd';

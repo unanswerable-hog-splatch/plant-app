@@ -37,7 +37,6 @@ export const ADOPT_PLANT = gql `
                 category
                 nickname
                 plantIcon
-                dateAdded
                 watered
                 fertilized
                 waterFrequency
