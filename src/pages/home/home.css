@@ -21,10 +21,11 @@ body {
 }
 
 .app-title {
-    font-size: 400%;
+    font-size: 500%;
     font-weight: bold;
-    color: rgb(39, 136, 0);
-    text-shadow: .08em .03em .04em #585858;
+    color: rgb(46, 158, 1);
+    -webkit-text-stroke: .03px rgb(51, 35, 15);
+    text-shadow: .08em .03em .06em #636363;
 }
 
 .landing-buttons {
