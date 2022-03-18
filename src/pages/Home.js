@@ -10,13 +10,15 @@ import 'antd/dist/antd.css';
 import AddPlantForm from '../components/addPlant/AddPlantForm';
 import SignupForm from '../components/nav/SignupForm'
 import LoginForm from '../components/nav/LoginForm'
+import LoginFormButton from './LoginFormButton'
 import './home.css'
+import SignupFormButton from './SignupFormButton';
 
 
 
 export default function Home() {
   const [addPlantVisible, setAddPlantVisible] = useState(false);
-  const [visible, setVisible] = useState(false);
+  // const [visible, setVisible] = useState(false);
 
 
   return (
@@ -46,39 +48,15 @@ export default function Home() {
             <div className="landing-title">
               <h1 className="app-title">SHELF CARE</h1>
               <div className="landing-buttons">
-                  <Button className="login-btn" type="primary" onClick={() => setVisible(true)}>
-                    Login
-                  </Button>
-                  <Modal
-                    title="Get back to being shelfish!"
-                    centered
-                    visible={visible}
-                    onOk={() => setVisible(false)}
-                    onCancel={() => setVisible(false)}
-                    width={1000}
-                  >
-                    < LoginForm />
-                  </Modal>
+                < LoginFormButton />
 
-                  <Button className="sign-in-btn" type="primary" onClick={() => setVisible(true)}>
-                    Get Gardening!
-                  </Button>
-                  <Modal
-                    title="Sign up to start your shelf!"
-                    centered
-                    visible={visible}
-                    onOk={() => setVisible(false)}
-                    onCancel={() => setVisible(false)}
-                    width={1000}
-                  >
-                    < SignupForm />
-                  </Modal>
+                < SignupFormButton />
 
-                </div>
               </div>
+            </div>
           </>
-            )
+        )
       }
-          </div>
-        );
+    </div>
+  );
 }

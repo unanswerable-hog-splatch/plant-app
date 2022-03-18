@@ -1,5 +1,6 @@
 body {
     background-color: rgb(97, 235, 159);
+    font-family: 'Poppins', sans-serif;
 }
 
 .landing-screen {
@@ -14,7 +15,8 @@ body {
 }
 
 .app-title {
-    font-size: 300%;
+    font-size: 400%;
+    font-weight: bold;
 }
 
 .login-btn {
