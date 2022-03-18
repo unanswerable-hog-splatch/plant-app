@@ -49,7 +49,7 @@ const SignupForm = () => {
 
     return (
         <>
-            <p>Already have a shelf?</p>
+            {/* <p>Already have a shelf?</p>
             <Button className="nav-buttons" type="primary" onClick={() => setVisible(true)}>
                 Login
             </Button>
@@ -62,7 +62,7 @@ const SignupForm = () => {
                 width={1000}
             >
                 < LoginForm />
-            </Modal>
+            </Modal> */}
             <Form
                 name="basic"
                 labelCol={{

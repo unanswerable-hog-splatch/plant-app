@@ -12,7 +12,7 @@ import Auth from '../../utils/auth';
 export default function NavBar() {
     const [visible, setVisible] = useState(false);
     return (
-        <div>
+        <div className="main-nav">
             <>
                 {/* <Button className="nav-buttons" type="primary" onClick={() => setVisible(true)}>
                     Get Gardening!
