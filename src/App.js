@@ -46,6 +46,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       < NavBar />
+      <Profile />
       <Router>
         <Routes>
           <Route

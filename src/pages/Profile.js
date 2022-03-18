@@ -9,7 +9,7 @@ export default function Profile() {
   const [ menuSelection, chooseMenuSelection ] = useState('gardener')
   const { loading, data } = useQuery(GET_ME);
   const gardenerData = data?.me || [];
-  console.log(gardenerData)
+  console.log(gardenerData);
 
   return (
     <Layout>
