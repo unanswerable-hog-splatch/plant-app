@@ -1,11 +1,29 @@
+body {
+    background-color: rgb(97, 235, 159);
+}
+
 .landing-screen {
     display: flex;
     justify-content: space-around;
     text-align: center;
     height: 100%;
-    /* line-height: 10em; */
 }
 
 .landing-title {
     margin-top: 10em;
+}
+
+.app-title {
+    font-size: 300%;
+}
+
+.login-btn {
+    margin-right: 2em;
+    width: 10em;
+    background-color: green;
+}
+.sign-in-btn {
+    margin-left: 2em;
+    width: 10em;
+    background-color: green;
 }
