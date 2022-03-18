@@ -14,7 +14,7 @@ export default function NavBar() {
     return (
         <div>
             <>
-                <Button className="nav-buttons" type="primary" onClick={() => setVisible(true)}>
+                {/* <Button className="nav-buttons" type="primary" onClick={() => setVisible(true)}>
                     Get Gardening!
                 </Button>
                 <Modal
@@ -26,7 +26,7 @@ export default function NavBar() {
                     width={1000}
                 >
                     < SignupForm />
-                </Modal>
+                </Modal> */}
                 <Button onClick={Auth.logout}>Logout</Button>
             </>
         </div>
