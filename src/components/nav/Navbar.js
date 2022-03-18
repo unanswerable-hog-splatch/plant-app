@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 // import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
-// import './index.css';
+import './navbar.css';
 import { Modal, Button } from 'antd';
 import SignupForm from './SignupForm'
 
@@ -14,11 +14,11 @@ export default function NavBar() {
     return (
         <div>
             <>
-                <Button type="primary" onClick={() => setVisible(true)}>
-                    Open Modal of 1000px width
+                <Button className="nav-buttons" type="primary" onClick={() => setVisible(true)}>
+                    Get Gardening!
                 </Button>
                 <Modal
-                    title="Modal 1000px width"
+                    title="Sign up to start your shelf!"
                     centered
                     visible={visible}
                     onOk={() => setVisible(false)}

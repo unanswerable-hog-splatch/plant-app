@@ -22,11 +22,7 @@ const LoginForm = () => {
     const [login] = useMutation(LOGIN_GARDENER)
 
     const onFinish = async (values) => {
-        // event.preventDefault();
         console.log(values)
-        // gardenerFormData = values
-        // console.log(gardenerFormData)
-
         try {
             const { data } = await login({
                 variables: { ...values }
@@ -97,8 +93,9 @@ const LoginForm = () => {
                     span: 16,
                 }}
             >
-                <Button
-                    // disabled={!(gardenerFormData.name && gardenerFormData.email && gardenerFormData.password)}
+                    <Button
+                        // disabled={!(gardenerFormData.name && gardenerFormData.email && gardenerFormData.password)}
+                    className="nav-buttons"
                     type="primary"
                     htmlType="submit">
                     Submit
