@@ -13,7 +13,10 @@ export default function SignupFormButton() {
             </Button>
             <Modal
                 bodyStyle={{
-                    backgroundColor: 'rgb(50, 143, 50)'
+                    backgroundColor: 'rgb(228, 175, 77)',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    textAlign: 'center'
                 }}
                 className='signup-modal modal'
                 title="Sign up to start your shelf!"
@@ -21,7 +24,7 @@ export default function SignupFormButton() {
                 visible={visible}
                 onOk={() => setVisible(false)}
                 onCancel={() => setVisible(false)}
-                width={1000}
+                width={800}
             >
                 < SignupForm />
             </Modal>

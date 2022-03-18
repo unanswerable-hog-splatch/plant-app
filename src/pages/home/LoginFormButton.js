@@ -13,14 +13,17 @@ export default function LoginFormButton() {
             </Button>
             <Modal
                 bodyStyle={{
-                    backgroundColor: 'rgb(50, 143, 50)'
+                    backgroundColor: 'rgb(228, 175, 77)',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    textAlign: 'center'
                 }}
                 title="Get back to being shelfish!"
                 centered
                 visible={visible}
                 onOk={() => setVisible(false)}
                 onCancel={() => setVisible(false)}
-                width={1000}
+                width={800}
             >
                 < LoginForm />
             </Modal>
