@@ -1,10 +1,18 @@
 
 
-export default function Gardener() {
+export default function Gardener({ gardener }) {
 
     return (
         <div>
-            GARDENER!
+            <h2>
+                {gardener.name}
+            </h2>
+            <h3>
+                {gardener.email}
+            </h3>
+            <h3>
+                Plants: {gardener.plantCount}
+            </h3>
         </div>
     )
 }

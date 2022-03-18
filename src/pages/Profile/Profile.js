@@ -16,10 +16,10 @@ export default function Profile() {
   function Content() {
     switch (menuSelection) {
       case 'gardener' :
-        return <Gardener />;
+        return <Gardener gardener={gardenerData} />;
         break;
       case 'plants' :
-        return <Plants />;
+        return <Plants plants={gardenerData.plants}/>;
         break;
     }
   }
