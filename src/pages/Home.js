@@ -9,6 +9,7 @@ import { useState } from 'react';
 import 'antd/dist/antd.css';
 import AddPlantForm from '../components/addPlant/AddPlantForm';
 import SignupForm from '../components/nav/SignupForm'
+import './home.css'
 
 
 
