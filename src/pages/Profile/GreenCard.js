@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Modal, Button } from "antd";
 
-export default function Plant({ plant }) {
+export default function GreenCard({ plant }) {
     const [ greenCardVisible, setGreenCardVisible ] = useState(false);
     console.log(plant)
     return (

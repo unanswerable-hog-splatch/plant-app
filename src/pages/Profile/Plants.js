@@ -1,5 +1,5 @@
 
-import Plant from "./Plant"
+import GreenCard from "./GreenCard"
 
 export default function Plants({ plants }) {
     
@@ -17,7 +17,7 @@ export default function Plants({ plants }) {
                 <h3>
                     Added to shelf on: {unixTime.toLocaleDateString("en-US")}
                 </h3>
-                <Plant plant={plant} />
+                <GreenCard plant={plant} />
             </div>
         )
     });
