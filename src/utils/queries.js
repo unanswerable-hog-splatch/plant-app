@@ -24,3 +24,22 @@ export const QUERY_ME = gql`
         }
     }
 `
+
+// export const QUERY_PLANTS = gql `
+//     query plants($name: String) {
+//         plants(name: $name){
+//             _id
+//             species
+//             plantIcon
+//             category
+//             nickname
+//             dateAdded
+//             watered
+//             fertilized
+//             waterFrequency
+//             fertilizeFrequency
+//             lastWaterDate
+//             lastFertilizeDate
+//         }
+//     }
+// `
