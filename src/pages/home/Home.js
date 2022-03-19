@@ -12,12 +12,13 @@ import AddPlantForm from '../../components/addPlant/AddPlantForm';
 import LoginFormButton from './LoginFormButton'
 import './home.css'
 import SignupFormButton from './SignupFormButton';
-
-
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../../utils/queries';
 
 export default function Home() {
   const [addPlantVisible, setAddPlantVisible] = useState(false);
-  // const [visible, setVisible] = useState(false);
+  const {loading, data} = useQuery(QUERY_ME);
+  const gardenerData = data?.me || [];
 
 
   return (
@@ -33,13 +34,22 @@ export default function Home() {
             Add Plant Child
           </Button>
           <Modal
-            title='United Shelf of (name)'
+
+            title={`United Shelves of ${gardenerData.name}`}
             centered
             visible={addPlantVisible}
-            okButtonProps={{ disabled: true }}
+            maskClosable={true}
+            footer={null}
+            closable={true}
             onCancel={() => setAddPlantVisible(false)}
-            width={1000}>
-            <AddPlantForm />
+            width={1000}
+            // Unmounts PlantForm from the DOM
+            destroyOnClose={true}
+            >
+            <AddPlantForm 
+            setAddPlantVisible={setAddPlantVisible}
+            addPlantVisible={addPlantVisible}
+            />
           </Modal>
         </div>
         </>

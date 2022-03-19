@@ -6,45 +6,27 @@ import {
   Select,
   DatePicker,
   InputNumber,
-  Switch,
+  Switch
 } from 'antd';
 
-import { useQuery, useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
-import { QUERY_ME } from '../../utils/queries';
 import { ADOPT_PLANT } from '../../utils/mutations';
 
-export default function AddPlantForm() {
-  const {data} = useQuery(QUERY_ME);
-  // const token = Auth.isLoggedIn() ? Auth.getToken() : null;
-  // // Stops the function if there is no auth token
-  // if (!token) {
-  //   return false;
-  // }
-
-  const today = new Date().setHours(0, 0, 0, 0);
-  // console.log('today', today / 1000)
+export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
+  const today = (new Date().setHours(0, 0, 0, 0))/1000;
   const [adoptPlant] = useMutation(ADOPT_PLANT);
+  const [fertilizerVisible, setFertilizerVisible] = useState(false);
 
-  // Set defaults for plantFormData
-  const [plantFormData, setPlantFormData] = useState({
-    species: '',
-    category: '',
-    nickname: '',
-    plantIcon: '',
-    watered: true,
-    fertilized: false,
-    waterFrequency: 1,
-    fertilizeFrequency: 180,
-    lastWaterDate: today,
-    lastFertilizeDate: today
-  })
+  const categories = ['Cactus', 'Shrubbery', 'Herb', 'Succulent', 'Tree', 'Medicinal', 'Flower', 'Foliage', 'Fern', 'Hanging', 'Fake', 'Christmas'];
+  const plantIcons = ['Cactus', 'Snake Plant', 'Aloe Vera', 'Bonsai Tree', 'Basil'];
+  const frequencyUnits = ['day', 'week', 'month', 'year'];
 
   // Takes in a number and unit of time and returns an equivelant number of days
   const convertFrequency = (amount, unit) => {
     let multiplier;
     switch (unit) {
-      case ('day'): multiplier = 1;
+      default: multiplier = 1;
         break;
       case ('week'): multiplier = 7;
         break;
@@ -56,122 +38,106 @@ export default function AddPlantForm() {
     return multiplier * amount;
   }
 
-  // This is what we do instead of onSubmit I guess
-  const onFinish = async (plantFormData) => {
-    console.log(data)
-    console.log(Auth.isLoggedIn())
+  // Converts a string to camel case for select option values
+  const camelCase = (str) => {
+    const words = str.toLowerCase().split(' ');
+    let result = words[0];
+    for (let i = 1; i < words.length; i++) {
+      result += words[i].charAt(0).toUpperCase();
+      result += words[i].slice(1);
+    }
+    return result;
+  }
 
+  // This is what we do instead of onSubmit I guess
+  const onFinish = async (values) => {
     const token = Auth.isLoggedIn() ? Auth.getToken() : null;
     // Stops the function if there is no auth token
     if (!token) {
       return false;
     }
+    // Formatting dates
+    values.waterFrequency = convertFrequency(values.waterFrequency.amount, values.waterFrequency.unit)
+    values.fertilizeFrequency = convertFrequency(values.fertilizeFrequency.amount, values.fertilizeFrequency.unit)
+    values.lastWaterDate = Number(values.lastWaterDate.startOf("day").format("X"));
+    if(fertilizerVisible) values.lastFertilizeDate = Number(values.lastFertilizeDate.startOf("day").format("X"));
 
-    console.log(token)
-
-    console.log(Auth.getProfile());
-
-    // Converts to number of days
-    plantFormData.waterFrequency = convertFrequency(plantFormData.waterFrequency.amount, plantFormData.waterFrequency.unit)
-    // plantFormData.waterFrequency = test
-    plantFormData.lastWaterDate = Number(plantFormData.lastWaterDate.startOf("day").format("X"))
-    console.log(plantFormData.lastWaterDate)
-    console.log(plantFormData.waterFrequency)
-    console.log('plantFormData', plantFormData)
-    plantFormData.lastFertilizeDate = 0
-    plantFormData.fertilizeFrequency = 0
-    plantFormData.watered = true
-    plantFormData.fertilized = false
-    // setPlantFormData({ plantFormData });
-
+    // Determines if plant was watered or fertilized today
+    values.watered = values.lastWaterDate === today;
+    values.fertilized = values.lastFertilizeDate === today;
 
     try {
-      console.log(plantFormData)
-        await adoptPlant({
-        variables: { ...plantFormData },
+      await adoptPlant({
+        variables: { ...values },
       });
     } catch (err) {
       console.error(err);
     }
 
-    // Resets plantForm
-    setPlantFormData({
-      species: '',
-      category: '',
-      nickname: '',
-      plantIcon: '',
-      watered: true,
-      fertilized: false,
-      waterFrequency: 1,
-      fertilizeFrequency: 180,
-      lastWaterDate: today,
-      lastFertilizeDate: today
-    })
+    // Destroys modal
+    setAddPlantVisible(!addPlantVisible)
   };
 
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    // console.log(name)
-    setPlantFormData({ ...plantFormData, [name]: value });
-    // console.log(plantFormData)
-  };
-
   return (
     <Form
-      // 
       labelCol={{ span: 4 }}
       wrapperCol={{ span: 14 }}
       layout="horizontal"
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
+      initialValues={{
+        species: '',
+        category: '',
+        nickname: '',
+        plantIcon: '',
+        waterFrequency: 1,
+        fertilizeFrequency: 180,
+      }}
     >
       {/* PLANT SPECIES */}
       <Form.Item
         label="Species"
         name="species"
-        onChange={handleInputChange}
-        value={plantFormData.species}
         rules={[
           {
             required: true,
             message: 'Please input a species name.'
           }
-        ]}>
+        ]}
+      >
         <Input />
       </Form.Item>
       {/* PLANT CATEGORY */}
       <Form.Item
         label="Category"
         name="category"
-        onChange={handleInputChange}
-        value={plantFormData.category}
+        rules={[
+          {
+            required: true,
+            message: 'Please select a category.'
+          }
+        ]}
       >
         <Select placeholder="Select a category for your plant">
-          <Select.Option value="cactus">Cactus</Select.Option>
-          <Select.Option value="shrubbery">Shrubbery</Select.Option>
-          <Select.Option value="herb">Herb</Select.Option>
-          <Select.Option value="succulent">Succulent</Select.Option>
-          <Select.Option value="tree">Tree</Select.Option>
-          <Select.Option value="medicinal">Medicinal</Select.Option>
-          <Select.Option value="flower">Flower</Select.Option>
-          <Select.Option value="foliage">Foliage</Select.Option>
-          <Select.Option value="fern">Fern</Select.Option>
-          <Select.Option value="hanging">Hanging</Select.Option>
-          <Select.Option value="fake">Fake</Select.Option>
-          <Select.Option value="christmas">Christmas</Select.Option>
+          {/* Creates a select option for each category */}
+          {categories.map((category, index) => <Select.Option key={index} value={camelCase(category)}>{category}</Select.Option>)}
         </Select>
       </Form.Item>
       {/* NICKNAME */}
       <Form.Item
         label="Nickname"
         name="nickname"
-        onChange={handleInputChange}
-        value={plantFormData.nickname}
+        rules={[
+          {
+            required: true,
+            message: 'Please create a nickname.'
+          }
+        ]}
       >
         <Input />
       </Form.Item>
@@ -179,22 +145,28 @@ export default function AddPlantForm() {
       <Form.Item
         label="Plant Icon"
         name="plantIcon"
-        onChange={handleInputChange}
-        value={plantFormData.plantIcon}>
+        rules={[
+          {
+            required: true,
+            message: 'Please select an icon.'
+          }
+        ]}
+      >
         <Select placeholder="Select a plant icon">
-          <Select.Option value="cactus">Cactus</Select.Option>
-          <Select.Option value="snakePlant">Snake Plant</Select.Option>
-          <Select.Option value="aloeVera">Aloe Vera</Select.Option>
-          <Select.Option value="bonsaiTree">Bonsai Tree</Select.Option>
-          <Select.Option value="basil">Basil</Select.Option>
+          {plantIcons.map((icon, index) => <Select.Option key={index} value={camelCase(icon)}>{icon}</Select.Option>)}
+
         </Select>
       </Form.Item>
       {/* WATERING FREQUENCY */}
       <Form.Item
         label="Watering Frequency"
-      // name="waterFrequency"
-      // onChange={handleInputChange}
-      // value={plantFormData.waterFrequency}
+        name="waterFrequency"
+        rules={[
+          {
+            required: true,
+            message: 'Create a schedule.'
+          }
+        ]}
       >
         <Input.Group >
           {"Every "}
@@ -208,11 +180,10 @@ export default function AddPlantForm() {
             name={["waterFrequency", "unit"]}
             noStyle
           >
-            <Select placeholder="day(s)">
-              <Select.Option value="day">day(s)</Select.Option>
-              <Select.Option value="week">week(s)</Select.Option>
-              <Select.Option value="month">month(s)</Select.Option>
-              <Select.Option value="year">year(s)</Select.Option>
+            <Select
+              placeholder="day(s)"
+              noStyle>
+              {frequencyUnits.map((unit, index) => <Select.Option key={index} value={camelCase(unit)}>{`${unit}(s)`}</Select.Option>)}
             </Select>
           </Form.Item>
         </Input.Group>
@@ -221,39 +192,57 @@ export default function AddPlantForm() {
       <Form.Item
         label="Last Watering"
         name="lastWaterDate"
-        onChange={handleInputChange}
-        value={Date.parse(plantFormData.lastWaterDate)}
-        defaultValue={Date.parse(today)}>
+        rules={[
+          {
+            required: true,
+            message: 'Select your best guess for last watered date.'
+          }
+        ]}
+      >
         <DatePicker />
       </Form.Item>
       {/* This button will make the fertilizer section appear/disappear */}
       <Form.Item label="Fertilizer?" valuePropName="checked">
-        <Switch />
+        <Switch defaultChecked={false} onChange={() => setFertilizerVisible(!fertilizerVisible)} />
       </Form.Item>
       {/* FERTILIZER FREQUENCY */}
       <Form.Item
-        label="Fertilizing"
+        label="Fertilize Frequency"
         name="fertilizeFrequency"
-        onChange={handleInputChange}
-        value={plantFormData.fertilizeFrequency}
-        defaultValue={0}>
-        Every
-        <InputNumber label="#" />
-        <Select
-          defaultValue={'months(s)'}>
-          <Select.Option value="day">day(s)</Select.Option>
-          <Select.Option value="week">week(s)</Select.Option>
-          <Select.Option value="month">month(s)</Select.Option>
-          <Select.Option value="year">year(s)</Select.Option>
-        </Select>
+        style={ fertilizerVisible ? null : {display: 'none'}}
+        rules={[
+          {
+            required: true,
+            message: 'Create a schedule.'
+          }
+        ]}
+      >
+        <Input.Group >
+          {"Every "}
+          <Form.Item
+            name={["fertilizeFrequency", "amount"]}
+            placeholder="#"
+            noStyle>
+            <InputNumber />
+          </Form.Item>
+          <Form.Item
+            name={["fertilizeFrequency", "unit"]}
+            noStyle
+          >
+            <Select
+              placeholder="month(s)"
+              noStyle>
+              {frequencyUnits.map((unit, index) => <Select.Option key={index} value={camelCase(unit)}>{`${unit}(s)`}</Select.Option>)}
+            </Select>
+          </Form.Item>
+        </Input.Group>
       </Form.Item>
       {/* LAST FERTILZING DATE */}
       <Form.Item
         label="Last Fertilizing"
         name="lastFertilizeDate"
-        onChange={handleInputChange}
-        value={plantFormData.lastFertilizeDate}
-        defaultValue={today}>
+        style={ fertilizerVisible ? null : {display: 'none'}}
+        >
         <DatePicker />
       </Form.Item>
 
@@ -266,26 +255,3 @@ export default function AddPlantForm() {
     </Form>
   )
 }
-
-
-// **********USE THIS BUTTON TO MAKE THIS FORM VISIBLE
-
-{/* <Button type="primary" onClick={() => setAddPlantVisible(true)}>
-Add Plant Child
-</Button>
-<Modal
-title='United Shelf of (name)'
-centered
-visible={addPlantVisible}
-okButtonProps={{ disabled: true }}
-onCancel={() => setAddPlantVisible(false)}
-width={1000}>
-<AddPlantForm/>
-</Modal> */}
-
-// **************** NEED THESE IMPORTS AND VARIABLES FOR MODAL
-// import { Modal, Button } from 'antd';
-// import { useState } from 'react';
-// import 'antd/dist/antd.css';
-//   const [addPlantVisible, setAddPlantVisible] = useState(false);
-// import AddPlantForm from '../components/addPlant/AddPlantForm';
