@@ -95,8 +95,7 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
   };
 
   const handleChange = (value) => {
-    setPlantIconClass(value);
-    console.log(plantIconClass)
+    setPlantIcon(value);
   }
 
 
