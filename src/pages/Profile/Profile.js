@@ -1,8 +1,10 @@
-import Auth from '../utils/auth';
+import Auth from '../../utils/auth';
 import { Layout, Menu } from 'antd';
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_ME } from '../utils/queries';
+import { QUERY_ME } from '../../utils/queries';
+import Gardener from './Gardener'
+import Plants from './Plants'
 const { Sider, Content } = Layout;
 
 export default function Profile() {
@@ -10,6 +12,17 @@ export default function Profile() {
   const { loading, data } = useQuery(QUERY_ME);
   const gardenerData = data?.me || [];
   console.log(gardenerData);
+
+  function Content() {
+    switch (menuSelection) {
+      case 'gardener' :
+        return <Gardener gardener={gardenerData} />;
+        break;
+      case 'plants' :
+        return <Plants plants={gardenerData.plants}/>;
+        break;
+    }
+  }
 
   return (
     <Layout>
@@ -28,7 +41,7 @@ export default function Profile() {
         </Menu>
       </Sider>
       <Content>
-        {`${menuSelection}`}
+        {Content()}
       </Content>
     </Layout>
   )

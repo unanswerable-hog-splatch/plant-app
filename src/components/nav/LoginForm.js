@@ -4,7 +4,6 @@ import { Form, Input, Button, Checkbox } from 'antd';
 import Auth from '../../utils/auth';
 import { LOGIN_GARDENER } from '../../utils/mutations';
 // export default function SignupForm() {
-
 const LoginForm = () => {
 
     const onFinishFailed = (errorInfo) => {

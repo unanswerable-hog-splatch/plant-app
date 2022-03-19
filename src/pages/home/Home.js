@@ -8,6 +8,7 @@ import { Modal, Button } from 'antd';
 import { useState } from 'react';
 import 'antd/dist/antd.css';
 import AddPlantForm from '../../components/addPlant/AddPlantForm';
+
 import LoginFormButton from './LoginFormButton'
 import './home.css'
 import SignupFormButton from './SignupFormButton';
@@ -33,6 +34,7 @@ export default function Home() {
             Add Plant Child
           </Button>
           <Modal
+
             title={`United Shelves of ${gardenerData.name}`}
             centered
             visible={addPlantVisible}
