@@ -10,7 +10,7 @@ import {
   Switch
 } from 'antd';
 
-import cactus from '../../img/cactus-1.png';
+// import cactus from '../../img/cactus-1.png';
 import aloeVera from '../../img/aloe-vera.png';
 import basil from '../../img/basil.jpg';
 import bonsaiTree from '../../img/bonsai-tree.png';
@@ -272,10 +272,10 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
 
       </Form>
       <img
-      alt={'test'}
+      alt={plantIcon}
       // Sets the image source depending on plant icon
       src={
-          plantIcon === 'cactus' ? cactus
+          plantIcon === 'cactus' ? null
         : plantIcon === 'aloeVera' ? aloeVera 
         : plantIcon === 'basil' ? basil
         : plantIcon === 'snakePlant' ? snakePlant
