@@ -180,9 +180,7 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
             name={["waterFrequency", "unit"]}
             noStyle
           >
-            <Select
-              placeholder="day(s)"
-              noStyle>
+            <Select placeholder="day(s)">
               {frequencyUnits.map((unit, index) => <Select.Option key={index} value={camelCase(unit)}>{`${unit}(s)`}</Select.Option>)}
             </Select>
           </Form.Item>
@@ -229,9 +227,7 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
             name={["fertilizeFrequency", "unit"]}
             noStyle
           >
-            <Select
-              placeholder="month(s)"
-              noStyle>
+            <Select placeholder="month(s)">
               {frequencyUnits.map((unit, index) => <Select.Option key={index} value={camelCase(unit)}>{`${unit}(s)`}</Select.Option>)}
             </Select>
           </Form.Item>
