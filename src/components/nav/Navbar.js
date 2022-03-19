@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 // import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 import './navbar.css';
-import { Modal, Button } from 'antd';
-import SignupForm from './SignupForm'
+import MainNav from './DropDown'
 
 import Auth from '../../utils/auth';
 
@@ -15,7 +14,7 @@ export default function NavBar() {
         <div className="main-nav">
             {Auth.isLoggedIn() ?
                 <>
-                    <Button onClick={Auth.logout}>Logout</Button>
+                    < MainNav />
                 </>
                 : (
                     <>

@@ -13,7 +13,7 @@ export default function SignupFormButton() {
             </Button>
             <Modal
                 bodyStyle={{
-                    backgroundColor: 'rgb(228, 175, 77)',
+                    backgroundColor: 'rgb(98, 218, 98)',
                     display: 'flex',
                     justifyContent: 'center',
                     textAlign: 'center'
@@ -24,7 +24,7 @@ export default function SignupFormButton() {
                 visible={visible}
                 onOk={() => setVisible(false)}
                 onCancel={() => setVisible(false)}
-                width={800}
+                width={600}
             >
                 < SignupForm />
             </Modal>
