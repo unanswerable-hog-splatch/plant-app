@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 // import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 import './navbar.css';
-import MainNav from './MainNav'
+import MainNav from './DropDown'
 
 import Auth from '../../utils/auth';
 
