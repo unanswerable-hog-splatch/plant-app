@@ -25,7 +25,7 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
   const oneDay = 60 * 60 * 24;
   const [adoptPlant] = useMutation(ADOPT_PLANT);
   const [fertilizerVisible, setFertilizerVisible] = useState(false);
-  const [plantIconClass, setPlantIconClass] = useState('cactus');
+  const [plantIcon, setPlantIcon] = useState('cactus');
 
   const categories = ['Cactus', 'Shrubbery', 'Herb', 'Succulent', 'Tree', 'Medicinal', 'Flower', 'Foliage', 'Fern', 'Hanging', 'Fake', 'Christmas'];
   const plantIcons = ['Cactus', 'Snake Plant', 'Aloe Vera', 'Bonsai Tree', 'Basil'];
@@ -274,12 +274,13 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
       </Form>
       <img
       alt={'test'}
+      // Sets the image source depending on plant icon
       src={
-          plantIconClass === 'cactus' ? cactus
-        : plantIconClass === 'aloeVera' ? aloeVera 
-        : plantIconClass === 'basil' ? basil
-        : plantIconClass === 'snakePlant' ? snakePlant
-        : plantIconClass === 'bonsaiTree' ? bonsaiTree
+          plantIcon === 'cactus' ? cactus
+        : plantIcon === 'aloeVera' ? aloeVera 
+        : plantIcon === 'basil' ? basil
+        : plantIcon === 'snakePlant' ? snakePlant
+        : plantIcon === 'bonsaiTree' ? bonsaiTree
         : null }/>
     </div>
 
