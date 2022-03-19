@@ -7,7 +7,7 @@ export default function Plants({ plants }) {
         const unixTime = new Date(plant.dateAdded * 1000);
 
         return (
-            <div key={i}>
+            <div key={plant._id}>
                 <h1>
                     {plant.species}
                 </h1>
