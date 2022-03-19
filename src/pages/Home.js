@@ -21,9 +21,6 @@ export default function Home() {
   const [addPlantVisible, setAddPlantVisible] = useState(false);
   const { loading, data } = useQuery(QUERY_ME);
   const gardenerData = data?.me || [];
-  console.log(gardenerData)
-  // const [visible, setVisible] = useState(false);
-
 
   return (
 
@@ -45,6 +42,7 @@ export default function Home() {
             maskClosable={true}
             closable={true}
             width={1000}
+            // Unmounts PlantForm from the DOM 
             destroyOnClose={true}
             >
             <AddPlantForm 

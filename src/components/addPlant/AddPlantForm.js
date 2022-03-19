@@ -14,6 +14,7 @@ import Auth from '../../utils/auth';
 import { ADOPT_PLANT } from '../../utils/mutations';
 
 export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
+  const today = (new Date().setHours(0, 0, 0, 0))/1000;
   const [adoptPlant] = useMutation(ADOPT_PLANT);
   const [fertilizerVisible, setFertilizerVisible] = useState(false);
 
@@ -37,6 +38,7 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
     return multiplier * amount;
   }
 
+  // Converts a string to camel case for select option values
   const camelCase = (str) => {
     const words = str.toLowerCase().split(' ');
     let result = words[0];
@@ -59,8 +61,10 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
     values.fertilizeFrequency = convertFrequency(values.fertilizeFrequency.amount, values.fertilizeFrequency.unit)
     values.lastWaterDate = Number(values.lastWaterDate.startOf("day").format("X"));
     if(fertilizerVisible) values.lastFertilizeDate = Number(values.lastFertilizeDate.startOf("day").format("X"));
-    values.watered = true;
-    values.fertilized = false;
+
+    // Determines if plant was watered or fertilized today
+    values.watered = values.lastWaterDate === today;
+    values.fertilized = values.lastFertilizeDate === today;
 
     try {
       await adoptPlant({
