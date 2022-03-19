@@ -1,0 +1,15 @@
+.addPlantModal {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.addPlantModal Form {
+  width: 50%;
+}
+
+.addPlantModal img {
+  width: 33%;
+  height:fit-content;
+}
