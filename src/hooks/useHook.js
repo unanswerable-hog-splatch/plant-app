@@ -27,6 +27,15 @@ export default function useHook() {
     return multiplier * amount;
   }
 
+  const selectIcon = (iconStr) => {
+    return iconStr === 'cactus' ? null
+        : iconStr === 'aloeVera' ? aloeVera 
+        : iconStr === 'basil' ? basil
+        : iconStr === 'snakePlant' ? snakePlant
+        : iconStr === 'bonsaiTree' ? bonsaiTree
+        : null
+  }
+
   // Converts a string to camel case for select option values
   const camelCase = (str) => {
     const words = str.toLowerCase().split(' ');
@@ -41,6 +50,7 @@ export default function useHook() {
   return {
     convertFrequency,
     camelCase,
+    selectIcon,
     oneDay,
     today,
     aloeVera,
