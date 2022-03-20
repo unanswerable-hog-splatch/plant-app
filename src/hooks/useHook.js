@@ -51,6 +51,7 @@ export default function useHook() {
     convertFrequency,
     camelCase,
     selectIcon,
+    plantIcons,
     oneDay,
     today,
     frequencyUnits
