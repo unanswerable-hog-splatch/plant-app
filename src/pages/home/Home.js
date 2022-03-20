@@ -29,7 +29,7 @@ export default function Home() {
       {gardenerData ?
         <>
           <div className="home-screen">
-            <Calendar />
+            <Calendar gardenerData={gardenerData} loading={loading} />
             <Button className="adopt-btn" type="primary" onClick={() => setAddPlantVisible(true)}>
               Add Plant Child
             </Button>

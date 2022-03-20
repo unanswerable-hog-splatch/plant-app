@@ -1,7 +1,7 @@
 import CalendarDay from "../day/CalendarDay"
 import './calendar.css'
 
-export default function Calendar() {
+export default function Calendar({ loading, gardenerData }) {
 
   // Info from current month
   const today = new Date().setHours(0, 0, 0, 0);
@@ -19,11 +19,11 @@ export default function Calendar() {
   const monthArray = [new Array(7), new Array(7), new Array(7), new Array(7), new Array(7), new Array(7)];
 
   // Fill first week with 'filler' until it hits the actual first day of the month
-  monthArray[0].fill(<CalendarDay week={currentWeek} day={'filler'}/>, 0, firstDayOfWeek)
+  monthArray[0].fill(<CalendarDay week={currentWeek} day={'filler'} />, 0, firstDayOfWeek)
 
   // Loop until last day of month is hit
   for (let i = 0; i < lastDayOfMonth; i++) {
-    monthArray[currentWeek][currentDayOfWeek] = <CalendarDay week={currentWeek} day={i+1}/>;
+    monthArray[currentWeek][currentDayOfWeek] = <CalendarDay week={currentWeek} day={i + 1} />;
 
     // Tried doing this in a ternary, react didn't like it
     // (currentDayOfWeek >= 6) ? (saturdayCount++, currentDayOfWeek = 0) : currentDayOfWeek++;
@@ -36,12 +36,12 @@ export default function Calendar() {
     }
     // If we hit the end of the month, fill in the rest of the current week array
     if (i + 1 === lastDayOfMonth) {
-      monthArray[currentWeek].fill(<CalendarDay week={currentWeek} day={'filler'}/>, currentDayOfWeek);
+      monthArray[currentWeek].fill(<CalendarDay week={currentWeek} day={'filler'} />, currentDayOfWeek);
     }
 
   }
   console.log(monthArray)
-  if(currentWeek < 5) monthArray[5].fill(<CalendarDay week={currentWeek} day={'filler'}/>)
+  if (currentWeek < 5) monthArray[5].fill(<CalendarDay week={currentWeek} day={'filler'} />)
   // currentWeek < 5 ? monthArray[5].fill('filler') : null
 
   return (
@@ -51,8 +51,8 @@ export default function Calendar() {
         // Week class is a flex row
         return (<div className="week">
           {week}
-          </div>
-          )
+        </div>
+        )
       })}
     </div>
   )
