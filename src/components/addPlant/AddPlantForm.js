@@ -25,12 +25,9 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
 
   const { convertFrequency,
     camelCase,
+    selectIcon,
     oneDay,
     today,
-    aloeVera,
-    basil,
-    bonsaiTree,
-    snakePlant,
     plantIcons,
     frequencyUnits } = useHook();
 
@@ -250,13 +247,7 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
       <img
       alt={plantIcon}
       // Sets the image source depending on plant icon
-      src={
-          plantIcon === 'cactus' ? null
-        : plantIcon === 'aloeVera' ? aloeVera 
-        : plantIcon === 'basil' ? basil
-        : plantIcon === 'snakePlant' ? snakePlant
-        : plantIcon === 'bonsaiTree' ? bonsaiTree
-        : null }/>
+      src={selectIcon(plantIcon)}/>
     </div>
 
   )
