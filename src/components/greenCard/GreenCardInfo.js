@@ -16,7 +16,7 @@ export default function GreenCardInfo ({plant}) {
                 <h3>{plant.category.toUpperCase()}</h3>
                 <h3>Last Watering: {givenTime(plant.lastWaterDate)}</h3>
                 <h3>Water Frequency: Every {plant.waterFrequency} days</h3>
-                {plant.lastFertilizeDate ? <h3>Last Fertilized: {plant.lastFertilizeDate}</h3> : <h3>Not Fertilized</h3>}
+                {plant.lastFertilizeDate ? <h3>Last Fertilized: {givenTime(plant.lastFertilizeDate)}</h3> : <h3>Not Fertilized</h3>}
                 {plant.fertilizeFrequenccy ? <h3>Fertilize Frequency: Every {plant.fertilizeFrequenccy} days</h3> : ""}
             </div>
             <img alt={plant.plantIcon} src={selectIcon(plant.plantIcon)} />
