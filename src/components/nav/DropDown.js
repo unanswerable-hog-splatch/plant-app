@@ -2,28 +2,52 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 // import './index.css';
+import './navbar.css'
 import { Menu, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+// import { DownOutlined } from '@ant-design/icons';
 import Auth from '../../utils/auth'
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../../utils/queries';
 
-export default function MainNav () {
+
+
+
+export default function MainNav() {
+
+  const { data } = useQuery(QUERY_ME);
+  console.log(data)
+  console.log(data?.me.name)
+  const firstLetter = data?.me.name.split('').shift()
+  // const plant = data?.me.plants[0].plantIcon
+  console.log(firstLetter)
+
   const menu = (
     <Menu>
-      <Menu.Item key="0">
+      <Menu.Item
+        className="dropdown-item"
+        key="0">
         <a href="/">Home</a>
       </Menu.Item>
-      <Menu.Item key="1">
+      <Menu.Divider />
+      <Menu.Item
+        className="dropdown-item"
+        key="1">
         <a href="/profile">Profile</a>
       </Menu.Item>
       <Menu.Divider />
-      <Menu.Item onClick={Auth.logout} key="3">Logout</Menu.Item>
+      <Menu.Item
+        className="dropdown-item"
+        key="2"
+        onClick={Auth.logout}>
+        Logout
+      </Menu.Item>
     </Menu>
   )
 
-    return (
+  return (
     <Dropdown overlay={menu} trigger={['click']}>
-      <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-        Click me <DownOutlined />
+      <a className="ant-dropdown-link profile-dropdown" onClick={e => e.preventDefault()}>
+        {firstLetter}
       </a>
     </Dropdown>
   )

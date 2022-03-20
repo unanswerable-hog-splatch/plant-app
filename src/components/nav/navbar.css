@@ -6,3 +6,27 @@
 .nav-buttons {
     background-color: green;
 }
+
+.profile-dropdown {
+    font-size: 300%;
+    margin-right: 1em;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    background-color: rgb(243, 242, 182);
+    border: .05em solid rgb(6, 107, 11);
+    color: rgb(6, 107, 11);
+    padding: .5em;
+    padding-top: unset;
+    padding-bottom: unset;
+    border-radius: 3em;
+}
+
+.profile-dropdown:hover {
+    background-color: rgb(6, 107, 11);
+    border: .05em solid rgb(243, 242, 182);
+    color: rgb(243, 242, 182);
+}
+
+.dropdown-item {
+    width: 10em;
+}
