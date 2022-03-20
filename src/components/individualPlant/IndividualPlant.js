@@ -1,7 +1,9 @@
+import GreenCard from '../../pages/Profile/Profile';
+
 export default function IndividualPlant({ plant }) {
   return (
     <>
-      INDIVIDUALPLANT
+      <GreenCard plant={plant} />
     </>
   )
 }
