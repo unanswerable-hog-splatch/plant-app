@@ -53,11 +53,6 @@ export default function useHook() {
     selectIcon,
     oneDay,
     today,
-    aloeVera,
-    basil,
-    bonsaiTree,
-    snakePlant,
-    plantIcons,
     frequencyUnits
   }
 }
