@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginForm from '../../components/nav/LoginForm'
+import LoginForm from '../../components/user-form/LoginForm'
 import { Modal, Button } from 'antd';
 import { useState } from 'react';
 import './home.css'
