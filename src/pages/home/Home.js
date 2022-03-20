@@ -26,7 +26,7 @@ export default function Home() {
     <div className="landing-screen">
       {/* <Calendar /> */}
       {/* If user is logged in, the calendar is displayed. If not, Login and Sign Up buttons are displayed */}
-      {Auth.isLoggedIn() ?
+      {gardenerData ?
         <>
           <div className="home-screen">
             <Calendar />
