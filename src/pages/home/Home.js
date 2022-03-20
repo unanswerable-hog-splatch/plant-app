@@ -20,12 +20,11 @@ export default function Home() {
   const { loading, data } = useQuery(QUERY_ME);
   const gardenerData = data?.me || [];
 
-
   return (
 
     <div className="landing-screen">
       {/* If user is logged in, the calendar is displayed. If not, Login and Sign Up buttons are displayed */}
-      {gardenerData ?
+      {Auth.isLoggedIn() ?
         <>
           <div className="home-screen">
             <Calendar gardenerData={gardenerData} loading={loading} />

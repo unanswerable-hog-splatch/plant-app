@@ -10,12 +10,6 @@ import {
   Switch
 } from 'antd';
 
-// import cactus from '../../img/cactus-1.png';
-import aloeVera from '../../img/aloe-vera.png';
-import basil from '../../img/basil.jpg';
-import bonsaiTree from '../../img/bonsai-tree.png';
-import snakePlant from '../../img/snake-plant.jpg';
-
 import { useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
 import { ADOPT_PLANT } from '../../utils/mutations';
@@ -27,13 +21,18 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
   const [fertilizerVisible, setFertilizerVisible] = useState(false);
   const [plantIcon, setPlantIcon] = useState('cactus');
 
-  const { convertFrequency, camelCase, today, oneDay } = useHook();
-
   const categories = ['Cactus', 'Shrubbery', 'Herb', 'Succulent', 'Tree', 'Medicinal', 'Flower', 'Foliage', 'Fern', 'Hanging', 'Fake', 'Christmas'];
-  const plantIcons = ['Cactus', 'Snake Plant', 'Aloe Vera', 'Bonsai Tree', 'Basil'];
-  const frequencyUnits = ['day', 'week', 'month', 'year'];
 
-
+  const { convertFrequency,
+    camelCase,
+    oneDay,
+    today,
+    aloeVera,
+    basil,
+    bonsaiTree,
+    snakePlant,
+    plantIcons,
+    frequencyUnits } = useHook();
 
   // This is what we do instead of onSubmit I guess
   const onFinish = async (values) => {
