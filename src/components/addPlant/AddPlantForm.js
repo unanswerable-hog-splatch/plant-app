@@ -42,13 +42,10 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
     values.waterFrequency = convertFrequency(values.waterFrequency.amount, values.waterFrequency.unit)
     values.fertilizeFrequency = convertFrequency(values.fertilizeFrequency.amount, values.fertilizeFrequency.unit)
     values.lastWaterDate = Number(values.lastWaterDate.startOf("day").format("X"));
-    if (fertilizerVisible) values.lastFertilizeDate = Number(values.lastFertilizeDate.startOf("day").format("X"));
-
+    values.lastFertilizeDate = fertilizerVisible ? Number(values.lastFertilizeDate.startOf("day").format("X")) : null ;
+    
     // Determines if plant was watered or fertilized today
     values.watered = values.lastWaterDate <= today - (oneDay * values.waterFrequency);
-    console.log(values.lastWaterDate)
-    console.log(today - (oneDay * values.waterFrequency))
-    console.log(values.watered);
     values.fertilized = values.lastFertilizeDate === today;
 
     try {
