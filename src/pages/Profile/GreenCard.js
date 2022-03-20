@@ -3,7 +3,9 @@ import {
     Modal, 
     Button,
     Form,
-    Input
+    Input,
+    InputNumber,
+    Select
 } from "antd";
 import { useMutation } from "@apollo/client";
 import { UPDATE_PLANT } from "../../utils/mutations";
@@ -29,6 +31,15 @@ export default function GreenCard({ plant }) {
         }
         return multiplier * amount;
     }
+
+    const onFinish = async (values) => {
+        console.log(values)
+    }
+
+    const onFinishFailed = (errorInfo) => {
+        console.log('Failed', errorInfo)
+    };
+
     return (
         <>
             <Button type="primary" onClick={() => setGreenCardVisible(true)}>
@@ -45,22 +56,49 @@ export default function GreenCard({ plant }) {
                 <h2>{plant.species}</h2>
                 <h3>RESIDENT SINCE: {unixTime(plant.dateAdded)}</h3>
                 <h3>{plant.category.toUpperCase()}</h3>
-                <h3>Watered Date: {unixTime(plant.lastWaterDate)}</h3>
+                <h3>Last Watering: {unixTime(plant.lastWaterDate)}</h3>
                 <Form
-                    labelCol={{ span: 4 }}
+                    labelCol={{ span: 6 }}
                     wrapperCol={{ span: 14 }}
                     layout="horizontal"
+                    onFinish={onFinish}
+                    onFinishFailed={onFinishFailed}
+                    autoComplete="off"
+                    initialValues={{
+                        _id: plant._id,
+                        waterFrequency: plant.waterFrequency,
+                    }}
                 >
                     <Form.Item
                         label="Change Water Frequency"
                         name="waterFrequency"
                     >
                         <Input.Group>
-                            {" Every"}
+                            {" Every "}
                             <Form.Item
-                                
-                            />
+                                name={["waterFrequency", "amount"]}
+                                noStyle
+                            >
+                                <InputNumber />
+                            </Form.Item>
+                            <Form.Item
+                                name={["waterFrequency", "unit"]}
+                                noStyle
+                            >
+                                <Select
+                                    placeholder="day(s)"
+                                    noStyle>
+                                        {frequencyUnits.map((unit, index) => <Select.Option key={index} values={unit}>{`${unit}`}</Select.Option>)}
+                                    </Select>
+                            </Form.Item>
                         </Input.Group>
+                    </Form.Item>
+                    <Form.Item>
+                        <Button
+                            type="primary"
+                            htmlType="submit">
+                                Update Plant
+                            </Button>
                     </Form.Item>
                 </Form>
             </Modal>
