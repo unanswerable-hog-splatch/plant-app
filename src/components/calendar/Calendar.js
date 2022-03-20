@@ -12,17 +12,23 @@ export default function Calendar({ loading, gardenerData }) {
   const firstDayOfWeek = new Date(firstDay).getDay();
   const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
 
+  // //List of month names to populate in front of number
+  // const monthList = ['Jan', 'Feb', 'March', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
   let currentWeek = 0;
   let currentDayOfWeek = firstDayOfWeek;
 
   // Empty array full of empty arrays for each week
   const monthArray = [new Array(7), new Array(7), new Array(7), new Array(7), new Array(7), new Array(7)];
 
+/*-------------------------------- ADD NUMBERS TO EACH CALENDAR DAY -----------------------------------*/
+
   // Fill first week with 'filler' until it hits the actual first day of the month
   monthArray[0].fill(<CalendarDay week={currentWeek} day={'filler'} />, 0, firstDayOfWeek)
 
   // Loop until last day of month is hit
   for (let i = 0; i < lastDayOfMonth; i++) {
+    // monthArray[currentWeek][currentDayOfWeek] = <CalendarDay week={currentWeek} day={`${monthList[currentMonth]} ${i + 1}`} />;
     monthArray[currentWeek][currentDayOfWeek] = <CalendarDay week={currentWeek} day={i + 1} />;
 
     // Tried doing this in a ternary, react didn't like it
@@ -43,10 +49,13 @@ export default function Calendar({ loading, gardenerData }) {
   console.log(monthArray)
   if (currentWeek < 5) monthArray[5].fill(<CalendarDay week={currentWeek} day={'filler'} />)
   // currentWeek < 5 ? monthArray[5].fill('filler') : null
-
+  
+/*------------------------------- CALENDAR JSX -------------------------------*/
   return (
     // Calendar class is a flex column
+    /* Create the header with each individual week day name - should be inside the calendar div but no styling the same of the day */
     <div className="calendar">
+      {/* Add in the days of the week here in its own div so that the flex column align with the daily ones */}
       {monthArray.map(week => {
         // Week class is a flex row
         return (<div className="week">
