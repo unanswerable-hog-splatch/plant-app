@@ -24,7 +24,6 @@ export default function Home() {
   return (
 
     <div className="landing-screen">
-      {/* <Calendar /> */}
       {/* If user is logged in, the calendar is displayed. If not, Login and Sign Up buttons are displayed */}
       {gardenerData ?
         <>
@@ -42,7 +41,7 @@ export default function Home() {
               closable={true}
               onCancel={() => setAddPlantVisible(false)}
               width={'80%'}
-              // Unmounts PlantForm from the DOM
+              // Unmounts PlantForm from the DOM on close
               destroyOnClose={true}
             >
               <AddPlantForm
