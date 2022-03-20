@@ -17,41 +17,39 @@ import { QUERY_ME } from '../../utils/queries';
 
 export default function Home() {
   const [addPlantVisible, setAddPlantVisible] = useState(false);
-  const {loading, data} = useQuery(QUERY_ME);
+  const { loading, data } = useQuery(QUERY_ME);
   const gardenerData = data?.me || [];
 
 
   return (
 
     <div className="landing-screen">
-      {/* <Calendar /> */}
       {/* If user is logged in, the calendar is displayed. If not, Login and Sign Up buttons are displayed */}
-      {Auth.isLoggedIn() ?
+      {gardenerData ?
         <>
-        <div className="home-screen">
-          <Calendar />
-          <Button className="adopt-btn" type="primary" onClick={() => setAddPlantVisible(true)}>
-            Add Plant Child
-          </Button>
-          <Modal
-
-            title={`United Shelves of ${gardenerData.name}`}
-            centered
-            visible={addPlantVisible}
-            maskClosable={true}
-            footer={null}
-            closable={true}
-            onCancel={() => setAddPlantVisible(false)}
-            width={1000}
-            // Unmounts PlantForm from the DOM
-            destroyOnClose={true}
+          <div className="home-screen">
+            <Calendar gardenerData={gardenerData} loading={loading} />
+            <Button className="adopt-btn" type="primary" onClick={() => setAddPlantVisible(true)}>
+              Add Plant Child
+            </Button>
+            <Modal
+              title={`United Shelves of ${gardenerData.name}`}
+              style={{ top: 20 }}
+              visible={addPlantVisible}
+              maskClosable={true}
+              footer={null}
+              closable={true}
+              onCancel={() => setAddPlantVisible(false)}
+              width={'80%'}
+              // Unmounts PlantForm from the DOM on close
+              destroyOnClose={true}
             >
-            <AddPlantForm 
-            setAddPlantVisible={setAddPlantVisible}
-            addPlantVisible={addPlantVisible}
-            />
-          </Modal>
-        </div>
+              <AddPlantForm
+                setAddPlantVisible={setAddPlantVisible}
+                addPlantVisible={addPlantVisible}
+              />
+            </Modal>
+          </div>
         </>
         : (
           <>
