@@ -33,7 +33,19 @@ export default function GreenCard({ plant }) {
     }
 
     const onFinish = async (values) => {
-        console.log(values)
+        (values.waterFrequency.amount && values.waterFrequency.unit) ?
+            values.waterFrequency = convertFrequency(values.waterFrequency.amount, values.waterFrequency.unit) :
+            values.waterFrequency = plant.waterFrequency
+
+        try {
+            await updatePlant({
+                variables: { ...values, _id: plant._id }
+            })
+        } catch (err) {
+            console.error(err)
+        }
+
+        setGreenCardVisible(!greenCardVisible);
     }
 
     const onFinishFailed = (errorInfo) => {
@@ -64,10 +76,6 @@ export default function GreenCard({ plant }) {
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
                     autoComplete="off"
-                    initialValues={{
-                        _id: plant._id,
-                        waterFrequency: plant.waterFrequency,
-                    }}
                 >
                     <Form.Item
                         label="Change Water Frequency"
@@ -88,7 +96,7 @@ export default function GreenCard({ plant }) {
                                 <Select
                                     placeholder="day(s)"
                                     noStyle>
-                                        {frequencyUnits.map((unit, index) => <Select.Option key={index} values={unit}>{`${unit}`}</Select.Option>)}
+                                        {frequencyUnits.map((unit, index) => <Select.Option key={index} value={unit}>{`${unit}`}</Select.Option>)}
                                     </Select>
                             </Form.Item>
                         </Input.Group>

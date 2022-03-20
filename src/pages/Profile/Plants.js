@@ -1,5 +1,5 @@
 
-import GreenCard from "./GreenCard"
+import GreenCard from "../../components/greenCard/GreenCard"
 
 export default function Plants({ plants }) {
     
