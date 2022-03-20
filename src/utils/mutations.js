@@ -53,11 +53,13 @@ export const KILL_PLANT = gql `
 `
 
 export const UPDATE_PLANT = gql `
-    mutation updatePlant($_id: ID!, $waterFrequency: Int, $lastWaterDate: Int) {
-        updatePlant(_id: $_id, waterFrequency: $waterFrequency, lastWaterDate: $lastWaterDate) {
+    mutation updatePlant($_id: ID!, $waterFrequency: Int, $lastWaterDate: Int, $watered: Boolean, $fertilized: Boolean) {
+        updatePlant(_id: $_id, waterFrequency: $waterFrequency, lastWaterDate: $lastWaterDate, watered: $watered, fertilized: $fertilized) {
             _id
             waterFrequency
             lastWaterDate
+            watered
+            fertilized
         }
     }
 `
