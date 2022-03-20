@@ -1,4 +1,4 @@
-export default function useTime() {
+export default function useHook() {
 
     // Takes in a number and unit of time and returns an equivelant number of days
     const convertFrequency = (amount, unit) => {
