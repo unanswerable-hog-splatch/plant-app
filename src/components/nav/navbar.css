@@ -15,9 +15,9 @@
     background-color: rgb(243, 242, 204);
     border: .04em solid rgb(6, 107, 11);
     color: rgb(6, 107, 11);
-    padding: .5em;
-    padding-top: unset;
-    padding-bottom: unset;
+    padding: .45em;
+    padding-top: .2em;
+    padding-bottom: .2em;
     border-radius: 3em;
 }
 
@@ -29,4 +29,10 @@
 
 .dropdown-item {
     width: 10em;
+}
+
+.dropdown-letter {
+    text-align: center;
+    width: 1em;
+    height: 1.5em;
 }

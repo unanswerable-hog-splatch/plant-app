@@ -46,9 +46,14 @@ export default function MainNav() {
 
   return (
     <Dropdown overlay={menu} trigger={['click']}>
+      {/* <div className="dropdown-circle"> */}
       <a className="ant-dropdown-link profile-dropdown" onClick={e => e.preventDefault()}>
-        {firstLetter}
+        <div className="dropdown-letter">
+          {firstLetter}
+        </div>
+
       </a>
+      {/* </div> */}
     </Dropdown>
   )
 
