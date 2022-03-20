@@ -1,3 +1,4 @@
+import cactus from '../img/cactus-1.png';
 import aloeVera from '../img/aloe-vera.png'
 import basil from '../img/basil.jpg';
 import bonsaiTree from '../img/bonsai-tree.png';
@@ -28,7 +29,7 @@ export default function useHook() {
   }
 
   const selectIcon = (iconStr) => {
-    return iconStr === 'cactus' ? null
+    return iconStr === 'cactus' ? cactus
         : iconStr === 'aloeVera' ? aloeVera 
         : iconStr === 'basil' ? basil
         : iconStr === 'snakePlant' ? snakePlant
