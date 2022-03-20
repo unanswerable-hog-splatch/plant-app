@@ -1,5 +1,5 @@
 import React from 'react'
-import SignupForm from '../../components/nav/SignupForm'
+import SignupForm from '../../components/user-form/SignupForm'
 import { Modal, Button } from 'antd';
 import { useState } from 'react';
 import './home.css'
