@@ -7,9 +7,9 @@ import useHook from "../../hooks/useHook";
 
 export default function ViewPlantBtn({ plant, gardenerName }) {
   const [greenCardVisible, setGreenCardVisible] = useState(false);
-
   const { selectIcon } = useHook();
 
+  // Sets modal to be visible
   const onClick = (event) => {
     event.preventDefault();
     setGreenCardVisible(true)
@@ -17,7 +17,8 @@ export default function ViewPlantBtn({ plant, gardenerName }) {
 
 
   return (
-    <div>
+    //Image you need to click for ViewPlant modal to pop up
+    <>
       <img
         onClick={onClick}
         alt={plant.plantIcon}
@@ -35,7 +36,18 @@ export default function ViewPlantBtn({ plant, gardenerName }) {
       >
         <ViewPlant plant={plant} />
       </Modal>
-      {/* </Avatar> */}
-    </div>
+    </>
   )
 }
+
+
+
+// ***************** YOU NEED THIS STUFF TO MAKE BUTTONS AND MODALS APPEAR
+
+// import ViewPlantBtn from "../viewPlant/ViewPlantBtn";
+
+// {loading ? 'Something wonderful is happening' :
+//   gardenerData.plants.map(plant=> <ViewPlantBtn 
+//   key={plant._id} 
+//   plant={plant}
+//   gardenerName={gardenerData.name} />)}
