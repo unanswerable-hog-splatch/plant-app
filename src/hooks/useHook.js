@@ -68,6 +68,7 @@ export default function useHook() {
       }
  
     }
+    console.log(dailyPlantList)
     return dailyPlantList
   }
 
