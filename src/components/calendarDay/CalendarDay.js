@@ -1,5 +1,4 @@
 import './calendarDay.css'
-// import 
 import useHook from '../../hooks/useHook'
 import DayModal from '../dayModal/DayModal'
 import { useState } from "react";
@@ -10,15 +9,13 @@ import { Button } from "antd";
 */
 export default function CalendarDay({ day, plantList, gardenerData }) {
   const { selectIcon } = useHook()
-  const plantListNoNull = []
+  const dailyPlantList = []
 
   const [ calendarDayVisible, setCalendarDayVisible] = useState(false);
 
   //added mapping up here to create new list with only plants in it and no nulls
   for (let i=0; i<plantList.length; i++) {
-    if (typeof(plantList) !== 'number') {
-      plantListNoNull.push(plantList[i])
-    }
+      dailyPlantList.push(plantList[i])
   }
   return (
     <>
@@ -26,7 +23,7 @@ export default function CalendarDay({ day, plantList, gardenerData }) {
       <Button className="day-modal-button" type="primary" onClick={() => { setCalendarDayVisible(true) }}>
         <div className="calendar-day-flex"> 
         {/* Changed the mapping of the plants to only grab the ones that have plants populating. Determined the type outside of loop */}
-           {plantListNoNull.slice(0,3).map(plant => {return (<img alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)}/>)})}
+           {dailyPlantList.slice(0,3).map((plant,i) => {return (<img alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)} key={i}/>)})}
           </div>
 
           <div className='plaque'>
@@ -35,14 +32,14 @@ export default function CalendarDay({ day, plantList, gardenerData }) {
        
       </Button>
 
-      <DayModal dailyPlantList={plantListNoNull} day={day} setCalendarDayVisible={setCalendarDayVisible} calendarDayVisible={calendarDayVisible} gardenerData={gardenerData}/>
+      <DayModal dailyPlantList={dailyPlantList} day={day} setCalendarDayVisible={setCalendarDayVisible} calendarDayVisible={calendarDayVisible} gardenerData={gardenerData}/>
       </div>
       
     </>
 
   )
 }
-{/*
+/*
 
   -add a button tag around each
     -- CONDITIONS:
@@ -52,10 +49,10 @@ export default function CalendarDay({ day, plantList, gardenerData }) {
       --<div> with dots indicating if need water or fertiziler. </div>
         --dots with be determined by the same conditions as the plant. 
       --<div> with plant icon  
-*/}
+*/
 
 
-{/* Add div tag around date */}
+/* Add div tag around date */
 /*
   STYLING
     -add another div around the calendar day data so that we can add a border around the number 

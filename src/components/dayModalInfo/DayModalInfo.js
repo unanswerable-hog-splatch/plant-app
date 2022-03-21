@@ -6,7 +6,6 @@ import ViewPlantBtn from '../viewPlant/ViewPlantBtn'
 export default function DayModalInfo ({ dailyPlantList, gardenerData }) {
 
   const { selectIcon } = useHook()
-  // console.log('day modal info:',dailyPlantList[0][0])
   
   const [ greenCardVisible, setGreenCardVisible] = useState(false);
   return(

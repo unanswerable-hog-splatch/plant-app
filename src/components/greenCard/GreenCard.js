@@ -2,16 +2,9 @@ import { useState } from "react";
 import {
     Modal,
     Button,
-    Form,
-    Input,
-    InputNumber,
-    Select,
-    DatePicker
 } from "antd";
 import useHook from '../../hooks/useHook'
 
-import { useMutation } from "@apollo/client";
-import { UPDATE_PLANT } from "../../utils/mutations";
 import GreenCardInfo from "./GreenCardInfo";
 import FrequencyForm from "./FrequencyForm";
 import LastWaterForm from "./LastWaterForm";
@@ -19,9 +12,7 @@ import './greencard.css'
 
 export default function GreenCard({ plant }) {
     const { selectIcon } = useHook();
-
-    console.log(plant)
-    const [greenCardVisible, setGreenCardVisible] = useState(false);
+    const [ greenCardVisible, setGreenCardVisible ] = useState(false);
 
     return (
         <>

@@ -1,15 +1,11 @@
 import './dayModal.css'
-import  { Modal } from 'antd'
-import { useState } from "react";
-import useHook from '../../hooks/useHook'
+import  { Modal, Button } from 'antd'
 import DayModalInfo from '../dayModalInfo/DayModalInfo'
-// let setCalendarDayVisible;
 /*
 -Wrap each one in a button that can be clicked. 
   --on click each button opens a modal for that specfic day. 
 */
 export default function DayModal({ dailyPlantList, day,setCalendarDayVisible, calendarDayVisible, gardenerData }) {
-  const { selectIcon } = useHook()
 
   const today = new Date()
   const currentMonth = new Date(today).getMonth();
@@ -32,14 +28,23 @@ export default function DayModal({ dailyPlantList, day,setCalendarDayVisible, ca
   }
   const dateTitle = `${monthList[currentMonth]} ${day}${selectSuffix(day)}, ${currentYear}`
 
+  const handleOk = (e) => {
+    e.preventDefault();
+    setCalendarDayVisible(false)
+  }
+
   return (
 <>
     <Modal 
       title={dateTitle}
       centered
       visible={calendarDayVisible}
-      okButtonProps={{ disabled: true }}
-      onCancel={() => setCalendarDayVisible(false)}
+      onOk={handleOk}
+      maskClosable={true}
+      closable={true}
+      footer={<Button key="submit" onClick={handleOk}>
+      Ok
+    </Button>}
       width={1500}>
       <DayModalInfo dailyPlantList={dailyPlantList} gardenerData={gardenerData} />
     </Modal>

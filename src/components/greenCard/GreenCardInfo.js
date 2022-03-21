@@ -1,10 +1,6 @@
-import useHook from '../../hooks/useHook'
 import './greencard.css'
 
-
 export default function GreenCardInfo ({plant}) {
-    const { selectIcon } = useHook();
-    console.log(selectIcon)
 
     const givenTime = (date) => new Date(date * 1000).toLocaleDateString("en-US")
 
