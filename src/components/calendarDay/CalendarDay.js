@@ -3,9 +3,7 @@ import './calendarDay.css'
 import useHook from '../../hooks/useHook'
 import DayModal from '../dayModal/DayModal'
 import { useState } from "react";
-import { 
-  Modal, 
-  Button } from "antd";
+import { Button } from "antd";
 /*
 -Wrap each one in a button that can be clicked. 
   --on click each button opens a modal for that specfic day. 
@@ -28,7 +26,7 @@ export default function CalendarDay({ day, plantList }) {
       <Button className="day-modal-button" type="primary" onClick={() => {
           setCalendarDayVisible(true);
           return(
-            <DayModal />
+            <DayModal plantList={plantListNoNull} day={day}/>
           )}}>
 
         <div className="calendar-day-flex"> 

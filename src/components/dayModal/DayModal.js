@@ -1,16 +1,25 @@
 import './dayModal.css'
+import  { Modal } from 'antd'
+import { useState } from "react";
+import useHook from '../../hooks/useHook'
 /*
 -Wrap each one in a button that can be clicked. 
   --on click each button opens a modal for that specfic day. 
 */
-export default function DayModal({ day }) {
-
+export default function DayModal({ plantList, day }) {
+  const { selectIcon } = useHook()
   return (
-
-    <div >
+<>
+    <Modal 
+      title="Sunday"
+      centered
+      visible
+    >
+    </Modal>
     
+</>
 
-{/*
+/*{/*
   -add a button tag around each
   --modal should be inside each button
   -- ONCLICK: The date of the specific day clicked should show
@@ -23,9 +32,8 @@ export default function DayModal({ day }) {
       --<div> with dots indicating if need water or fertiziler. </div>
         --dots with be determined by the same conditions as the plant. 
       --<div> with plant icon  
-*/}
+*/
 
-    </div>
   )
 }
 
