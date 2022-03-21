@@ -9,7 +9,13 @@ footer {
     width: 100%;
     /* margin-top: rem; */
     margin-top: 3em;
-    position: relative;
+    /* position: absolute;
+    vertical-align: bottom; */
+    /* position:fixed; */
+    position:absolute;
+left:0;
+bottom:0;
+right:0;
 }
 
 

@@ -14,9 +14,10 @@ code {
 }
 
 #root {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+  padding-bottom:60px;
 }
 .ant-modal-root {
   height: 0 !important;
