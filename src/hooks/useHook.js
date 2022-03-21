@@ -58,19 +58,22 @@ export default function useHook() {
     
     for (let i =0 ; i < plantData.length ; i++) {
       const watering = ((targetDate - plantData[i].lastWaterDate) / oneDay % plantData[i].waterFrequency) === 0
-      // if (plantData[i].fertilized) {
-      //   fertilizing = ((targetDate - plantData[i].lastFertilizeDate) / oneDay % plantData[i].fertilizeFrequency) === 0
-      // } else {
-      //   fertilizing = false
-      // }
+      
+      // console.log(watering)
       const fertilizing = plantData[i].fertilized ? ((targetDate - plantData[i].lastFertilizeDate) / oneDay % plantData[i].fertilizeFrequency) === 0 : false
+      // console.log(fertilizing)
       if (fertilizing || watering) {
         dailyPlantList.push([plantData[i],{wateringDay: watering}, {fertilizingDay: fertilizing}])
       }
  
     }
-    // console.log(dailyPlantList)
-    return dailyPlantList
+    // console.log(dailyPlantList.length)
+
+      return dailyPlantList
+
+
+
+      
   }
 
   
