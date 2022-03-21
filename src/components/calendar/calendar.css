@@ -1,11 +1,13 @@
 .calendar{
   display: flex;
   flex-direction: column;
+  width:100%;
 }
 
 .week{
   display: flex;
   flex: row;
+  width: 100%;
 }
 
 .currentMonth {

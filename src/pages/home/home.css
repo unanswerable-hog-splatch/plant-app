@@ -5,6 +5,9 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.home-screen {
+    width: 100%;
+}
 .landing-screen {
     display: flex;
     justify-content: space-around;
