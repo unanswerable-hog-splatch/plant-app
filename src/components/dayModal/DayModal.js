@@ -9,20 +9,16 @@ import DayModalInfo from '../dayModalInfo/DayModalInfo'
   --on click each button opens a modal for that specfic day. 
 */
 export default function DayModal({ dailyPlantList, day,setCalendarDayVisible, calendarDayVisible }) {
-  // [ calendarDayVisible, setCalendarDayVisible] = useState(false);
-  // [calendarDayVisible,setCalendarDayVisible]=useState();
-  // console.log(calendarDayVisible)
   const { selectIcon } = useHook()
-  // console.log('plantlist:',dailyPlantList)
+
   const today = new Date()
   const currentMonth = new Date(today).getMonth();
   const currentYear = new Date(today).getFullYear();
   const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  
   const suffixesList = ['st','nd', 'rd', 'th']
   let suffix;
-  // console.log(day, 'A')
   const selectSuffix = (day) => {
-
     switch(day) {
       case (1 || 21 || 31) : suffix = suffixesList[0];
         break;
@@ -35,6 +31,7 @@ export default function DayModal({ dailyPlantList, day,setCalendarDayVisible, ca
     return suffix
   }
   const dateTitle = `${monthList[currentMonth]} ${day}${selectSuffix(day)}, ${currentYear}`
+
   return (
 <>
     <Modal 
@@ -43,10 +40,9 @@ export default function DayModal({ dailyPlantList, day,setCalendarDayVisible, ca
       visible={calendarDayVisible}
       okButtonProps={{ disabled: true }}
       onCancel={() => setCalendarDayVisible(false)}
-      width={800}>
-      <DayModalInfo dailyPlantList={dailyPlantList} day={day} />
+      width={1500}>
+      <DayModalInfo dailyPlantList={dailyPlantList} />
     </Modal>
-    
 </>
 
 /*{/*

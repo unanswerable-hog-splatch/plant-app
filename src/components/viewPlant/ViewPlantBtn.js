@@ -5,7 +5,7 @@ import useHook from "../../hooks/useHook";
 
 
 
-export default function ViewPlantBtn({ plant, gardenerName }) {
+export default function ViewPlantBtn({ plant, gardenerName}) {
   const [greenCardVisible, setGreenCardVisible] = useState(false);
   const { selectIcon } = useHook();
 
