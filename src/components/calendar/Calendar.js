@@ -1,6 +1,8 @@
 import CalendarDay from "../calendarDay/CalendarDay"
 import './calendar.css'
 
+import { Modal, Button } from 'antd';
+import AddPlantButton from "../addPlantButton/AddPlantButton";
 
 export default function Calendar({ loading, gardenerData }) {
 
@@ -14,8 +16,9 @@ export default function Calendar({ loading, gardenerData }) {
   const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
 
   // List of month names to populate in front of number
-  // const monthList = ['Jan', 'Feb', 'March', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
+  const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  const currentMonthName = monthList[currentMonth].toUpperCase()
+  
   let currentWeek = 0;
   let currentDayOfWeek = firstDayOfWeek;
 
@@ -53,7 +56,7 @@ export default function Calendar({ loading, gardenerData }) {
   if (currentWeek < 5) monthArray[5].fill(<CalendarDay week={currentWeek} day={'filler'} />)
   // currentWeek < 5 ? monthArray[5].fill('filler') : null
 
-  /*------------------------------- CALENDAR JSX -------------------------------*/
+/*------------------------------- CALENDAR JSX -------------------------------*/
   return (
     // Calendar class is a flex column
 
@@ -65,8 +68,15 @@ export default function Calendar({ loading, gardenerData }) {
     */
     <>
 
-      <div className="calendar">
-        {/* Add in the days of the week here in its own div so that the flex column align with the daily ones */}
+      <div className="calendar-header">
+        <div className="calendar-add"> 
+       <AddPlantButton loading={loading} gardenerData={gardenerData} />
+            </div>
+        <h1 className="currentMonth">{currentMonthName}</h1>
+      </div>
+      
+      <div className="calendar-day">
+      {/* Add in the days of the week here in its own div so that the flex column align with the daily ones */}
         {monthArray.map(week => {
           // Week class is a flex row
           /* Would it make since to have the day be living ere and then within the created boxes have the plants and date stuff??? */
