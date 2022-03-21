@@ -10,16 +10,19 @@ import {
   Switch
 } from 'antd';
 
-import { useMutation } from '@apollo/client';
+import { useMutation, useLazyQuery } from '@apollo/client';
+import { QUERY_ME } from '../../utils/queries';
 import Auth from '../../utils/auth';
 import { ADOPT_PLANT } from '../../utils/mutations';
 
 import useHook from '../../hooks/useHook';
 
-export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
+export default function AddPlantForm({ setGardenerData, addPlantVisible, setAddPlantVisible }) {
   const [adoptPlant] = useMutation(ADOPT_PLANT);
   const [fertilizerVisible, setFertilizerVisible] = useState(false);
   const [plantIcon, setPlantIcon] = useState('cactus');
+  const [getMe, { loading, error, data }] = useLazyQuery(QUERY_ME);
+
 
   const categories = ['Cactus', 'Shrubbery', 'Herb', 'Succulent', 'Tree', 'Medicinal', 'Flower', 'Foliage', 'Fern', 'Hanging', 'Fake', 'Christmas'];
 
@@ -42,8 +45,8 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
     values.waterFrequency = convertFrequency(values.waterFrequency.amount, values.waterFrequency.unit)
     values.fertilizeFrequency = convertFrequency(values.fertilizeFrequency.amount, values.fertilizeFrequency.unit)
     values.lastWaterDate = Number(values.lastWaterDate.startOf("day").format("X"));
-    values.lastFertilizeDate = fertilizerVisible ? Number(values.lastFertilizeDate.startOf("day").format("X")) : null ;
-    
+    values.lastFertilizeDate = fertilizerVisible ? Number(values.lastFertilizeDate.startOf("day").format("X")) : null;
+
     // Determines if plant was watered or fertilized today
     values.watered = values.lastWaterDate >= today - (oneDay * values.waterFrequency);
     values.fertilized = fertilizerVisible;
@@ -56,7 +59,8 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
       console.error(err);
     }
 
-    // window.location.reload()
+    const { data } = await getMe();
+    setGardenerData(data.me);
 
     // Destroys modal
     setAddPlantVisible(!addPlantVisible)
@@ -239,14 +243,15 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
         <Form.Item>
           <Button
             type="primary"
-            htmlType='submit'>Add to Nursery</Button>
+            htmlType='submit'
+            onClick={() => getMe()}>Add to Nursery</Button>
         </Form.Item>
 
       </Form>
       <img
-      alt={plantIcon}
-      // Sets the image source depending on plant icon
-      src={selectIcon(plantIcon)}/>
+        alt={plantIcon}
+        // Sets the image source depending on plant icon
+        src={selectIcon(plantIcon)} />
     </div>
 
   )
