@@ -27,8 +27,7 @@ export default function CalendarDay({ day, plantList }) {
         <div className="calendar-day-flex"> 
         {/* Changed the mapping of the plants to only grab the ones that have plants populating. Determined the type outside of loop */}
            {plantListNoNull.slice(0,3).map(plant => {return (<img alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)}/>)})}
-            
-            </div>
+          </div>
 
           <div className='plaque'>
             <p>{day}</p> 
@@ -36,7 +35,7 @@ export default function CalendarDay({ day, plantList }) {
        
       </Button>
 
-      <DayModal plantList={plantListNoNull} day={day} setCalendarDayVisible={setCalendarDayVisible} calendarDayVisible={calendarDayVisible}/>
+      <DayModal dailyPlantList={plantListNoNull} day={day} setCalendarDayVisible={setCalendarDayVisible} calendarDayVisible={calendarDayVisible}/>
       </div>
       
     </>
