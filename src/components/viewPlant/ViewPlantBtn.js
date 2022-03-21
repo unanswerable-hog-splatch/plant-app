@@ -11,10 +11,9 @@ export default function ViewPlantBtn({ plant, gardenerName, greenCardVisible, se
     setGreenCardVisible(false);
   }
 
-  const destroyAll = () => {
-    // e.preventDefault();
-    Modal.destroyAll();
-  }
+  // const destroyAll = () => {
+  //   Modal.destroyAll();
+  // }
 
   return (
     //Image you need to click for ViewPlant modal to pop up

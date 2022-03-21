@@ -1,16 +1,7 @@
-// import '../../components/nav/navbar.css'
 import './profile.css'
-import { useQuery } from '@apollo/client';
-import { QUERY_ME } from '../../utils/queries';
 import cactus from '../../img/cactus-1.png'
 
 export default function Gardener({ gardener }) {
-    const { data } = useQuery(QUERY_ME);
-    console.log(data)
-    console.log(data?.me.name)
-    const firstLetter = data?.me.name.split('').shift()
-    // const plant = data?.me.plants[0].plantIcon
-    console.log(firstLetter)
 
     return (
         <div className='my-info'>
