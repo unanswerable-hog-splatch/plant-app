@@ -14,15 +14,15 @@ import Footer from './components/footer/Footer';
 
 // COMMENT BACK IN WHEN USING HEROKU
 
-// const uri = process.env.NODE_ENV === 'development'
-//   ?'/graphql' : 'https://shelf-care-backend.herokuapp.com/graphql';
+const uri = process.env.NODE_ENV === 'development'
+  ?'/graphql' : 'https://shelf-care-backend.herokuapp.com/graphql';
 
 
 
 //COMMENT OUT WHEN USING HEROKU
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: uri,
 });
 
 const authLink = setContext((_, { headers }) => {
