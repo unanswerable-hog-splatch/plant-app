@@ -36,6 +36,7 @@ No installation required. The application is deployed on Heroku.
 A lot of credit to my instructor, TAs, and my study group. This one was difficult, but fun. Thank you, beautiful people!
 ## Questions
 Have any questions? <br/>
+
 Github: https://github.com/unanswerable-hog-splatch/plant-app-frontend <br/>
 Github: https://github.com/unanswerable-hog-splatch/plant-app-backend
 ## Screenshots

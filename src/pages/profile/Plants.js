@@ -13,11 +13,11 @@ export default function Plants({ plants }) {
         return (
             <div className='ind-plant' key={plant._id}>
                 <div>
-                    <h1>
-                        {plant.species}
+                    <h1 className='plant-nick'>
+                        {plant.nickname}
                     </h1>
                     <h3>
-                        {plant.nickname}
+                    {plant.species}
                     </h3>
                 </div>
                 <img className='ind-plant-img' src={selectIcon(plant.plantIcon)} />
