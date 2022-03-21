@@ -1,6 +1,5 @@
 import CalendarDay from "../calendarDay/CalendarDay"
 import './calendar.css'
-import ViewPlantBtn from "../viewPlant/ViewPlantBtn";
 
 
 export default function Calendar({ loading, gardenerData }) {
@@ -77,11 +76,6 @@ export default function Calendar({ loading, gardenerData }) {
           )
         })}
       </div>
-      {loading ? 'Something wonderful is happening' :
-        gardenerData.plants.map(plant => <ViewPlantBtn
-          key={plant._id}
-          plant={plant}
-          gardenerName={gardenerData.name} />)}
     </>
   )
 }
