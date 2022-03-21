@@ -8,7 +8,9 @@ export default function CalendarDay({ day }) {
   return (
     <>
       <div className='calendar-day'>
-        {day} {/*day should be on the bottom of the flex box so that the plants are sitting on top of each number/filler like a shelf so all other code goes above*/}
+        <div className='plaque'>
+          <p>{day}</p> 
+        </div>{/*day should be on the bottom of the flex box so that the plants are sitting on top of each number/filler like a shelf so all other code goes above*/}
       </div>
     </>
 

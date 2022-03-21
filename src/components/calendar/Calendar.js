@@ -2,6 +2,7 @@ import CalendarDay from "../calendarDay/CalendarDay"
 import './calendar.css'
 import { Modal, Button } from 'antd';
 import AddPlantButton from "../addPlantButton/AddPlantButton";
+import dailyPlants from '../../hooks/useHook'
 export default function Calendar({ loading, gardenerData }) {
 
   // Info from current month
