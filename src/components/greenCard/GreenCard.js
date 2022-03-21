@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { 
-    Modal, 
+import {
+    Modal,
     Button,
     Form,
     Input,
@@ -15,12 +15,13 @@ import { UPDATE_PLANT } from "../../utils/mutations";
 import GreenCardInfo from "./GreenCardInfo";
 import FrequencyForm from "./FrequencyForm";
 import LastWaterForm from "./LastWaterForm";
+import './greencard.css'
 
 export default function GreenCard({ plant }) {
     const { selectIcon } = useHook();
 
     console.log(plant)
-    const [ greenCardVisible, setGreenCardVisible ] = useState(false);
+    const [greenCardVisible, setGreenCardVisible] = useState(false);
 
     return (
         <>
@@ -28,16 +29,29 @@ export default function GreenCard({ plant }) {
                 Green Card
             </Button>
             <Modal
+                bodyStyle={{
+                    backgroundColor: 'rgb(98, 218, 98)',
+                    // display: 'flex',
+                    // justifyContent: 'center',
+                    // textAlign: 'center'
+                }}
                 title="Permanent Plant Residency"
                 centered
                 visible={greenCardVisible}
                 okButtonProps={{ disabled: true }}
                 onCancel={() => setGreenCardVisible(false)}
                 width={800}>
-                <GreenCardInfo plant={plant}/>
-                <FrequencyForm plant={plant} />
-                <LastWaterForm plant={plant} />
-                <img alt={plant.plantIcon} src={selectIcon(plant.plantIcon)} />
+                <div className='greencard-format'>
+                <div>
+                    <GreenCardInfo plant={plant} />
+                    <FrequencyForm plant={plant} />
+                    <LastWaterForm plant={plant} />
+                </div>
+
+                <div>
+                    <img className='greencard-img' alt={plant.plantIcon} src={selectIcon(plant.plantIcon)} />
+                </div>
+                </div>
             </Modal>
         </>
     )

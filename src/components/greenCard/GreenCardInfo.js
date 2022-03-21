@@ -1,4 +1,6 @@
 import useHook from '../../hooks/useHook'
+import './greencard.css'
+
 
 export default function GreenCardInfo ({plant}) {
     const { selectIcon } = useHook();
@@ -8,9 +10,9 @@ export default function GreenCardInfo ({plant}) {
 
 
     return (
-        <div>
+        <div className='greencard-info'>
             <div>
-                <h1>{plant.nickname}</h1>
+                <h1 className='greencard-plant-name'>{plant.nickname}</h1>
                 <h2>{plant.species}</h2>
                 <h3>RESIDENT SINCE: {givenTime(plant.dateAdded)}</h3>
                 <h3>{plant.category.toUpperCase()}</h3>
