@@ -1,5 +1,9 @@
 .view-plant{
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
+
+/* .view-plant img {
+  align-self:flex-end;
+} */
