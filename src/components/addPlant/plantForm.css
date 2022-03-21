@@ -24,7 +24,7 @@
   font-weight: bolder !important;
 }
 
-.add-btn:hover {
-  background-color: rgb(37, 85, 58); 
-  color: rgb(238, 235, 230);
+.add-plant-btn:hover {
+  background-color: rgb(37, 85, 58) !important; 
+  color: rgb(238, 235, 230) !important;
 }
