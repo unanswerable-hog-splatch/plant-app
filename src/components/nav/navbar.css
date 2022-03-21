@@ -27,8 +27,8 @@
 
 .profile-dropdown {
     font-size: 300%;
-    background-color: rgb(243, 242, 204);
-    border: .04em solid rgb(6, 107, 11);
+    background-color: rgb(229, 250, 170);
+    border: .06em solid rgb(6, 107, 11);
     color: rgb(6, 107, 11);
     padding: .45em; 
     padding-top: .2em;
@@ -37,9 +37,9 @@
 }
 
 .profile-dropdown:hover {
-    background-color: rgb(6, 107, 11);
-    border: .05em solid rgb(243, 242, 182);
-    color: rgb(243, 242, 182);
+    background-color: rgb(37, 85, 58) !important; 
+    color: rgb(238, 235, 230) !important;
+    border: .06em solid rgb(243, 242, 182) !important;
 }
 
 .dropdown-item {

@@ -31,7 +31,7 @@ export default function Calendar({ loading, gardenerData }) {
 let plantList;  
 plantList=1
   // Fill first week with 'filler' until it hits the actual first day of the month
-  monthArray[0].fill(<CalendarDay week={currentWeek} day={'filler'} plantList={plantList}/>, 0, firstDayOfWeek)
+  monthArray[0].fill(<CalendarDay week={currentWeek} day={'filler'} plantList={1}/>, 0, firstDayOfWeek)
  
   const { dailyPlants } = useHook()
   // Loop until last day of month is hit
@@ -44,8 +44,7 @@ plantList=1
     const targetDate = new Date(targetDateBuild).setHours(0,0,0,0) / 1000
     // console.log('Target Date:',targetDate)
     plantList = dailyPlants(targetDate)
-
-    // console.log(plantList.length)
+    
     if (plantList.length == 0){
       plantList = 1
     }
@@ -67,16 +66,15 @@ plantList=1
     }
     // If we hit the end of the month, fill in the rest of the current week array
     if (i + 1 === lastDayOfMonth) {
-      monthArray[currentWeek].fill(<CalendarDay week={currentWeek} day={'filler'} plantList= {plantList}  />, currentDayOfWeek);
+      monthArray[currentWeek].fill(<CalendarDay week={currentWeek} day={'filler'} plantList= {1}  />, currentDayOfWeek);
     }
 
   }
   // console.log(monthArray)
-  if (currentWeek < 5) monthArray[5].fill(<CalendarDay week={currentWeek} day={'filler'}  plantList={plantList} />)
+  if (currentWeek < 5) monthArray[5].fill(<CalendarDay week={currentWeek} day={'filler'}  plantList={1} />)
   // currentWeek < 5 ? monthArray[5].fill('filler') : null
 
 /*------------------------------- CALENDAR JSX -------------------------------*/
-  return (
     // Calendar class is a flex column
 
     /* 
@@ -85,8 +83,8 @@ plantList=1
     - Create the header with each individual week day name - should be inside the calendar div but no styling the same of the day
     
     */
+  return (
     <>
-
       <div className="calendar-header">
         <div className="calendar-add"> 
        <AddPlantButton loading={loading} gardenerData={gardenerData} />
@@ -95,11 +93,13 @@ plantList=1
       </div>
       
       <div className="calendar-day-day">
+
       {/* Add in the days of the week here in its own div so that the flex column align with the daily ones */}
         {monthArray.map(week => {
           // Week class is a flex row
           /* Would it make since to have the day be living ere and then within the created boxes have the plants and date stuff??? */
           return (<div className="week">
+
             {week}
           </div>
           )
