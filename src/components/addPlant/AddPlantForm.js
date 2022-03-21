@@ -21,7 +21,7 @@ export default function AddPlantForm({ setGardenerData, addPlantVisible, setAddP
   const [adoptPlant] = useMutation(ADOPT_PLANT);
   const [fertilizerVisible, setFertilizerVisible] = useState(false);
   const [plantIcon, setPlantIcon] = useState('cactus');
-  const [getMe, { loading, error, data }] = useLazyQuery(QUERY_ME);
+  const [getMe] = useLazyQuery(QUERY_ME);
 
 
   const categories = ['Cactus', 'Shrubbery', 'Herb', 'Succulent', 'Tree', 'Medicinal', 'Flower', 'Foliage', 'Fern', 'Hanging', 'Fake', 'Christmas'];

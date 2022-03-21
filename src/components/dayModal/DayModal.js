@@ -1,8 +1,6 @@
 import './dayModal.css'
 import  { Modal, Button } from 'antd'
-import useHook from '../../hooks/useHook'
 import DayModalInfo from '../dayModalInfo/DayModalInfo'
-// let setCalendarDayVisible;
 /*
 -Wrap each one in a button that can be clicked. 
   --on click each button opens a modal for that specfic day. 
