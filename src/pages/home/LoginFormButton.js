@@ -3,21 +3,17 @@ import LoginForm from '../../components/user-form/LoginForm'
 import { Modal, Button } from 'antd';
 import { useState } from 'react';
 import './home.css'
+import './form.css'
 
 export default function LoginFormButton() {
     const [visible, setVisible] = useState(false);
     return (
         <>
-            <Button type="primary" onClick={() => setVisible(true)}>
+            <Button  type="primary" onClick={() => setVisible(true)}>
                 Login
             </Button>
             <Modal
-                bodyStyle={{
-                    backgroundColor: 'rgb(98, 218, 98)',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    textAlign: 'center'
-                }}
+                className="form"
                 title="Get back to being shelfish!"
                 centered
                 visible={visible}

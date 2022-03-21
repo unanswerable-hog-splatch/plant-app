@@ -10,6 +10,8 @@ import {
 } from "antd";
 import { useMutation } from "@apollo/client";
 import { UPDATE_PLANT } from "../../utils/mutations";
+import './greencard.css'
+
 
 export default function FrequencyForm({ plant }) {
     console.log(plant)
@@ -55,7 +57,7 @@ export default function FrequencyForm({ plant }) {
 
 
     return (
-        <div>
+        <div className='freq-form'>
             <Form
                     labelCol={{ span: 6 }}
                     wrapperCol={{ span: 14 }}
