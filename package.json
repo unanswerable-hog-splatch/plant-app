@@ -2,7 +2,7 @@
   "name": "plant-app-client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": "https://shelf-care-backend.herokuapp.com",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@apollo/client": "^3.5.10",
