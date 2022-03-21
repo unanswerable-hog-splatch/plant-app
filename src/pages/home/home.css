@@ -3,10 +3,12 @@ body {
     /* background-color: rgb(178,233,209); */
     /* background-color: rgb(174,229,205); */
     font-family: 'Poppins', sans-serif;
+    height:100%;
 }
 
 .home-screen {
     width: 100%;
+    /* height:max-content; */
 }
 .landing-screen {
     display: flex;

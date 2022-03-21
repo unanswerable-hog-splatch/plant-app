@@ -7,7 +7,7 @@ import Calendar from '../../components/calendar/Calendar';
 import { Modal, Button } from 'antd';
 import { useState } from 'react';
 import 'antd/dist/antd.css';
-import AddPlantForm from '../../components/addPlant/AddPlantForm';
+// import AddPlantForm from '../../components/addPlant/AddPlantForm';
 
 import LoginFormButton from './LoginFormButton'
 import './home.css'
@@ -16,7 +16,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
 
 export default function Home() {
-  const [addPlantVisible, setAddPlantVisible] = useState(false);
+
   const { loading, data } = useQuery(QUERY_ME);
   const gardenerData = data?.me || [];
 
@@ -28,26 +28,7 @@ export default function Home() {
         <>
           <div className="home-screen">
             <Calendar gardenerData={gardenerData} loading={loading} />
-            <Button className="adopt-btn" type="primary" onClick={() => setAddPlantVisible(true)}>
-              Add Plant Child
-            </Button>
-            <Modal
-              title={`United Shelves of ${gardenerData.name}`}
-              style={{ top: 20 }}
-              visible={addPlantVisible}
-              maskClosable={true}
-              footer={null}
-              closable={true}
-              onCancel={() => setAddPlantVisible(false)}
-              width={'80%'}
-              // Unmounts PlantForm from the DOM on close
-              destroyOnClose={true}
-            >
-              <AddPlantForm
-                setAddPlantVisible={setAddPlantVisible}
-                addPlantVisible={addPlantVisible}
-              />
-            </Modal>
+           
           </div>
         </>
         : (
