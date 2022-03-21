@@ -2,19 +2,28 @@ import './dayModal.css'
 import  { Modal } from 'antd'
 import { useState } from "react";
 import useHook from '../../hooks/useHook'
+import DayModalInfo from '../dayModalInfo/DayModalInfo'
+// let setCalendarDayVisible;
 /*
 -Wrap each one in a button that can be clicked. 
   --on click each button opens a modal for that specfic day. 
 */
-export default function DayModal({ plantList, day }) {
+export default function DayModal({ plantList, day,setCalendarDayVisible, calendarDayVisible }) {
+  // [ calendarDayVisible, setCalendarDayVisible] = useState(false);
+  // [calendarDayVisible,setCalendarDayVisible]=useState();
+  console.log(calendarDayVisible)
   const { selectIcon } = useHook()
+  // console.log('plantlist:',plantList)
   return (
 <>
     <Modal 
-      title="Sunday"
+      title={day}
       centered
-      visible
-    >
+      visible={calendarDayVisible}
+      okButtonProps={{ disabled: true }}
+      onCancel={() => setCalendarDayVisible(false)}
+      width={800}>
+      <DayModalInfo />
     </Modal>
     
 </>

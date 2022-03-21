@@ -23,12 +23,7 @@ export default function CalendarDay({ day, plantList }) {
   return (
     <>
       <div className='calendar-day'>
-      <Button className="day-modal-button" type="primary" onClick={() => {
-          setCalendarDayVisible(true);
-          return(
-            <DayModal plantList={plantListNoNull} day={day}/>
-          )}}>
-
+      <Button className="day-modal-button" type="primary" onClick={() => { setCalendarDayVisible(true) }}>
         <div className="calendar-day-flex"> 
         {/* Changed the mapping of the plants to only grab the ones that have plants populating. Determined the type outside of loop */}
            {plantListNoNull.slice(0,3).map(plant => {return (<img alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)}/>)})}
@@ -40,6 +35,8 @@ export default function CalendarDay({ day, plantList }) {
           </div>{/*day should be on the bottom of the flex box so that the plants are sitting on top of each number/filler like a shelf so all other code goes above*/}
        
       </Button>
+
+      <DayModal plantList={plantListNoNull} day={day} setCalendarDayVisible={setCalendarDayVisible} calendarDayVisible={calendarDayVisible}/>
       </div>
       
     </>
