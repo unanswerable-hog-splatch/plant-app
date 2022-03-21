@@ -1,5 +1,4 @@
 import './calendarDay.css'
-// import 
 import useHook from '../../hooks/useHook'
 import DayModal from '../dayModal/DayModal'
 import { useState } from "react";
@@ -40,7 +39,7 @@ export default function CalendarDay({ day, plantList, gardenerData }) {
 
   )
 }
-{/*
+/*
 
   -add a button tag around each
     -- CONDITIONS:
@@ -50,10 +49,10 @@ export default function CalendarDay({ day, plantList, gardenerData }) {
       --<div> with dots indicating if need water or fertiziler. </div>
         --dots with be determined by the same conditions as the plant. 
       --<div> with plant icon  
-*/}
+*/
 
 
-{/* Add div tag around date */}
+/* Add div tag around date */
 /*
   STYLING
     -add another div around the calendar day data so that we can add a border around the number 

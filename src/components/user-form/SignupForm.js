@@ -1,14 +1,11 @@
 import { useMutation } from '@apollo/client';
 import React, { useState } from 'react';
-import { Form, Input, Button, Modal, Checkbox } from 'antd';
+import { Form, Input, Button } from 'antd';
 import Auth from '../../utils/auth';
 import { ADD_GARDENER } from '../../utils/mutations';
-import LoginForm from './LoginForm';
 
-// export default function SignupForm() {
 
 const SignupForm = () => {
-    const [visible, setVisible] = useState(false);
 
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
@@ -29,7 +26,6 @@ const SignupForm = () => {
             const { data } = await addGardener({
                 variables: { ...values }
             })
-            console.log(data)
             Auth.login(data.addGardener.token)
         } catch (err) {
             console.error(err);
@@ -123,12 +119,3 @@ const SignupForm = () => {
 };
 
 export default SignupForm;
-// };
-
-
-
-
-
-
-
-
