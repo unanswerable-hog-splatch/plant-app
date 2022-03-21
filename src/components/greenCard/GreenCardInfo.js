@@ -19,7 +19,6 @@ export default function GreenCardInfo ({plant}) {
                 {plant.lastFertilizeDate ? <h3>Last Fertilized: {plant.lastFertilizeDate}</h3> : <h3>Not Fertilized</h3>}
                 {plant.fertilizeFrequenccy ? <h3>Fertilize Frequency: Every {plant.fertilizeFrequenccy} days</h3> : ""}
             </div>
-            <img alt={plant.plantIcon} src={selectIcon(plant.plantIcon)} />
         </div>
     )
 }

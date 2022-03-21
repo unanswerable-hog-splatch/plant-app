@@ -5,10 +5,10 @@ export default function Gardener({ gardener }) {
     return (
         <div>
             <h2>
-                {gardener.name}
+                Name: {gardener.name}
             </h2>
             <h3>
-                {gardener.email}
+                Email: {gardener.email}
             </h3>
             <h3>
                 Plant Count: {gardener.plantCount}
