@@ -45,7 +45,7 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
     values.lastFertilizeDate = fertilizerVisible ? Number(values.lastFertilizeDate.startOf("day").format("X")) : null ;
     
     // Determines if plant was watered or fertilized today
-    values.watered = values.lastWaterDate <= today - (oneDay * values.waterFrequency);
+    values.watered = values.lastWaterDate >= today - (oneDay * values.waterFrequency);
     values.fertilized = fertilizerVisible;
 
     try {
