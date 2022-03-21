@@ -1,5 +1,5 @@
 import ViewPlant from "./ViewPlant";
-import { Modal } from 'antd';
+import { Modal, Button } from 'antd';
 import { useState } from "react";
 import useHook from "../../hooks/useHook";
 
@@ -32,8 +32,12 @@ export default function ViewPlantBtn({ plant, gardenerName }) {
         maskClosable={true}
         closable={true}
         onCancel={() => setGreenCardVisible(false)}
-        width={'75%'}
-      >
+        width={'85%'}
+        // footer={
+        //   <Button key='back' onClick={onClick}>
+        //     Return to shelf
+        //   </Button> }
+        >
         <ViewPlant plant={plant} />
       </Modal>
     </>
