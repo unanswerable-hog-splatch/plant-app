@@ -15,14 +15,25 @@
 
 .calendar-day p {
   background-color: rgb(105, 66, 21);
+  /* padding: 0 !important; */
 }
 
 .calendar-day:hover p {
   background: linear-gradient(rgb(105, 66, 21), rgb(255, 140, 8));
 }
 
+.plaque {
+  width: 100%;
+  /* vertical-align: bottom; */
+  /* display: flex; 
+  justify-content: flex-end; 
+  align-items: flex-end; */
+}
 
-
+.plaque p {
+  padding: 0 !important;
+  margin: 0 !important;
+}
 .calendar-day img {
 width:5rem;
 height:5rem;
@@ -40,4 +51,10 @@ calendar-day-flex{
   border: none;
   width:100% !important;
   height:100% !important;
+  border: none !important;
+  padding: 0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items: center!important;
+  justify-content: flex-end !important;
 }
