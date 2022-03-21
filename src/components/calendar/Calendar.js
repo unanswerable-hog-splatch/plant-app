@@ -31,7 +31,7 @@ export default function Calendar({ loading, gardenerData }) {
 let plantList;  
 plantList=1
   // Fill first week with 'filler' until it hits the actual first day of the month
-  monthArray[0].fill(<CalendarDay week={currentWeek} day={'filler'} plantList={plantList}/>, 0, firstDayOfWeek)
+  monthArray[0].fill(<CalendarDay week={currentWeek} day={'filler'} plantList={1}/>, 0, firstDayOfWeek)
  
   const { dailyPlants } = useHook()
   // Loop until last day of month is hit
@@ -66,12 +66,12 @@ plantList=1
     }
     // If we hit the end of the month, fill in the rest of the current week array
     if (i + 1 === lastDayOfMonth) {
-      monthArray[currentWeek].fill(<CalendarDay week={currentWeek} day={'filler'} plantList= {plantList}  />, currentDayOfWeek);
+      monthArray[currentWeek].fill(<CalendarDay week={currentWeek} day={'filler'} plantList= {1}  />, currentDayOfWeek);
     }
 
   }
   // console.log(monthArray)
-  if (currentWeek < 5) monthArray[5].fill(<CalendarDay week={currentWeek} day={'filler'}  plantList={plantList} />)
+  if (currentWeek < 5) monthArray[5].fill(<CalendarDay week={currentWeek} day={'filler'}  plantList={1} />)
   // currentWeek < 5 ? monthArray[5].fill('filler') : null
 
 /*------------------------------- CALENDAR JSX -------------------------------*/
@@ -99,7 +99,7 @@ plantList=1
           // Week class is a flex row
           /* Would it make since to have the day be living ere and then within the created boxes have the plants and date stuff??? */
           return (<div className="week">
-            
+
             {week}
           </div>
           )

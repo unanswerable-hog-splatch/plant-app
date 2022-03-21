@@ -12,10 +12,16 @@ import {
 */
 export default function CalendarDay({ day, plantList }) {
   const { selectIcon } = useHook()
-  const plantIconList = []
-// console.log(plantList)
+  const plantListNoNull = []
+
   const [ calendarDayVisible, setCalendarDayVisible] = useState(false);
 
+  //added mapping up here to create new list with only plants in it and no nulls
+  for (let i=0; i<plantList.length; i++) {
+    if (typeof(plantList) !== 'number') {
+      plantListNoNull.push(plantList[i])
+    }
+  }
   return (
     <>
       <div className='calendar-day'>
@@ -26,10 +32,8 @@ export default function CalendarDay({ day, plantList }) {
           )}}>
 
         <div className="calendar-day-flex"> 
-          {  
-            (typeof(plantList) !== 'number' ) ? 
-            plantList.slice(0,3).map(plant => {return (<img alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)}/>)}): null
-          }
+        {/* Changed the mapping of the plants to only grab the ones that have plants populating. Determined the type outside of loop */}
+           {plantListNoNull.slice(0,3).map(plant => {return (<img alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)}/>)})}
             
             </div>
 
