@@ -16,6 +16,8 @@ export default function Profile() {
   const gardenerData = data?.me || [];
   console.log(gardenerData);
 
+  console.log(data)
+
   function Content() {
     switch (menuSelection) {
       case 'gardener':

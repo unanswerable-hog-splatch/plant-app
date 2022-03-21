@@ -3,9 +3,11 @@ import aloeVera from '../img/aloe-vera.png'
 import basil from '../img/basil.jpg';
 import bonsaiTree from '../img/bonsai-tree.png';
 import snakePlant from '../img/snake-plant.jpg';
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../utils/queries';
 
 export default function useHook() {
-
+  const { data } = useQuery(QUERY_ME);
   const today = (new Date().setHours(0, 0, 0, 0)) / 1000;
   const oneDay = 60 * 60 * 24;
   
@@ -47,7 +49,29 @@ export default function useHook() {
     }
     return result;
   }
+/* function that returns an array of plants that should populate for a specific day */
+  const dailyPlants = (targetDate) => {
+ 
+    const plantData = data?.me.plants || [];
+    const dailyPlantList = []
+    // let fertilizing;
+    for (let i =0 ; i < plantData.length ; i++) {
+      const watering = ((targetDate - plantData[i].lastWaterDate) / oneDay % plantData[i].waterFrequency) === 0
+      // if (plantData[i].fertilized) {
+      //   fertilizing = ((targetDate - plantData[i].lastFertilizeDate) / oneDay % plantData[i].fertilizeFrequency) === 0
+      // } else {
+      //   fertilizing = false
+      // }
+      const fertilizing = plantData[i].fertilized ? ((targetDate - plantData[i].lastFertilizeDate) / oneDay % plantData[i].fertilizeFrequency) === 0 : false
+      if (fertilizing || watering) {
+        dailyPlantList.push( plantData[i],{wateringDay: watering}, {fertilizingDay: fertilizing})
+      }
+ 
+    }
+    return dailyPlantList
+  }
 
+  
   return {
     convertFrequency,
     camelCase,
@@ -55,6 +79,10 @@ export default function useHook() {
     plantIcons,
     oneDay,
     today,
-    frequencyUnits
+    frequencyUnits,
+    dailyPlants
   }
+
+  
+
 }
