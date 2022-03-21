@@ -1,11 +1,13 @@
-.calendar{
+.calendar-day{
   display: flex;
   flex-direction: column;
+  width:100%;
 }
 
 .week{
   display: flex;
   flex: row;
+  width: 100%;
 }
 
 .currentMonth {
@@ -14,7 +16,24 @@
   font-weight:bold;
   color:azure;
   text-shadow: 2px 2px 2px rgb(141, 105, 52);
+  justify-self: center;
+  width: 50%;
+}
+
+
+.calendar-header {
+  display:flex;
+  flex-direction: row;
   background-color: rgb(62, 143, 97); 
   border: 5px solid rgb(119, 201, 130); 
   border-bottom: unset;
+  padding: 0.5rem;
+}
+
+.calendar-add {
+  width: 25%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 1rem;
+  align-items: center;
 }

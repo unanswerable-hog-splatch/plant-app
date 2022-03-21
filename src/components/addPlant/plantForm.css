@@ -13,3 +13,18 @@
   width: 33%;
   height:fit-content;
 }
+
+.add-plant-btn {
+  border-radius:50px !important;
+  width: 4rem!important;
+  height:4rem!important;
+  background-color: rgb(238, 235, 230) !important;
+  color:rgb(37, 85, 58) !important;  
+  font-size: 2.25rem !important;
+  font-weight: bolder !important;
+}
+
+.add-plant-btn:hover {
+  background-color: rgb(37, 85, 58) !important; 
+  color: rgb(238, 235, 230) !important;
+}

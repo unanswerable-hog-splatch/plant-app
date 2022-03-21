@@ -4,6 +4,8 @@ footer {
     padding: 1em;
     background-color: rgb(21, 92, 65);
     color: rgb(239,223,170);
+    align-self: flex-end;
+    margin-bottom: 0;
 }
 
 

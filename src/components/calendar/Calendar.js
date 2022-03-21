@@ -1,6 +1,7 @@
 import CalendarDay from "../calendarDay/CalendarDay"
 import './calendar.css'
-
+import { Modal, Button } from 'antd';
+import AddPlantButton from "../addPlantButton/AddPlantButton";
 export default function Calendar({ loading, gardenerData }) {
 
   // Info from current month
@@ -50,7 +51,8 @@ export default function Calendar({ loading, gardenerData }) {
   console.log(monthArray)
   if (currentWeek < 5) monthArray[5].fill(<CalendarDay week={currentWeek} day={'filler'} />)
   // currentWeek < 5 ? monthArray[5].fill('filler') : null
-  
+
+
 /*------------------------------- CALENDAR JSX -------------------------------*/
   return (
     // Calendar class is a flex column
@@ -62,8 +64,14 @@ export default function Calendar({ loading, gardenerData }) {
     
     */
     <>
-      <div><h1 className="currentMonth">{currentMonthName}</h1></div>
-      <div className="calendar">
+      <div className="calendar-header">
+        <div className="calendar-add"> 
+       <AddPlantButton loading={loading} gardenerData={gardenerData} />
+            </div>
+        <h1 className="currentMonth">{currentMonthName}</h1>
+      </div>
+      
+      <div className="calendar-day">
       {/* Add in the days of the week here in its own div so that the flex column align with the daily ones */}
         {monthArray.map(week => {
         // Week class is a flex row
