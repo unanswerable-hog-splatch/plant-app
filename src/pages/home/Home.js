@@ -26,7 +26,7 @@ export default function Home() {
   useEffect(() => {
   setGardenerData(userData);
 
-  }, {})
+  }, [])
   return (
 
     <div className="landing-screen">
