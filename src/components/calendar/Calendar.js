@@ -2,7 +2,7 @@ import CalendarDay from "../calendarDay/CalendarDay"
 import './calendar.css'
 import { Modal, Button } from 'antd';
 import AddPlantButton from "../addPlantButton/AddPlantButton";
-import dailyPlants from '../../hooks/useHook'
+import useHook from '../../hooks/useHook'
 export default function Calendar({ loading, gardenerData }) {
 
   // Info from current month
@@ -23,16 +23,39 @@ export default function Calendar({ loading, gardenerData }) {
 
   // Empty array full of empty arrays for each week
   const monthArray = [new Array(7), new Array(7), new Array(7), new Array(7), new Array(7), new Array(7)];
+/* ------------------------------- ADD PLANTS TO EACH CALENDAR DAY ---------------------------------*/
+
 
 /*-------------------------------- ADD NUMBERS TO EACH CALENDAR DAY -----------------------------------*/
 
   // Fill first week with 'filler' until it hits the actual first day of the month
   monthArray[0].fill(<CalendarDay week={currentWeek} day={'filler'} />, 0, firstDayOfWeek)
-
+ 
+  const { dailyPlants } = useHook()
   // Loop until last day of month is hit
+  // let plantList=[]
+  const targetDateBuild = `${currentMonth+1}/20/${currentYear}`
+  // console.log('Target Date Build:', targetDateBuild)
+  const targetDate = new Date(targetDateBuild).setHours(0,0,0,0) / 1000
+  // console.log('Target Date:',targetDate)
+  const plantList = dailyPlants(targetDate)
+  // console.log(plantList)
+  
   for (let i = 0; i < lastDayOfMonth; i++) {
+    // const
+    /* grab plants for each day */ 
+    const targetDateBuild = `${currentMonth+1}/${i+1}/${currentYear}`
+    // console.log('Target Date Build:', targetDateBuild)
+    const targetDate = new Date(targetDateBuild).setHours(0,0,0,0) / 1000
+    // console.log('Target Date:',targetDate)
+    const plantList = dailyPlants(targetDate)
+    if (plantList.length>0) {
+      console.log(plantList)
+    }
+
+    
     // monthArray[currentWeek][currentDayOfWeek] = <CalendarDay week={currentWeek} day={`${monthList[currentMonth]} ${i + 1}`} />;
-    monthArray[currentWeek][currentDayOfWeek] = <CalendarDay week={currentWeek} day={i + 1} />;
+    monthArray[currentWeek][currentDayOfWeek] = <CalendarDay week={currentWeek} day={i + 1} plants= {plantList} />;
 
     // Tried doing this in a ternary, react didn't like it
     // (currentDayOfWeek >= 6) ? (saturdayCount++, currentDayOfWeek = 0) : currentDayOfWeek++;
@@ -49,7 +72,7 @@ export default function Calendar({ loading, gardenerData }) {
     }
 
   }
-  console.log(monthArray)
+  // console.log(monthArray)
   if (currentWeek < 5) monthArray[5].fill(<CalendarDay week={currentWeek} day={'filler'} />)
   // currentWeek < 5 ? monthArray[5].fill('filler') : null
 

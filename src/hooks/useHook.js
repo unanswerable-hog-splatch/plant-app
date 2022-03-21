@@ -53,8 +53,9 @@ export default function useHook() {
   const dailyPlants = (targetDate) => {
  
     const plantData = data?.me.plants || [];
+    // console.log(targetDate,plantData)
     const dailyPlantList = []
-    // let fertilizing;
+    
     for (let i =0 ; i < plantData.length ; i++) {
       const watering = ((targetDate - plantData[i].lastWaterDate) / oneDay % plantData[i].waterFrequency) === 0
       // if (plantData[i].fertilized) {
@@ -64,11 +65,11 @@ export default function useHook() {
       // }
       const fertilizing = plantData[i].fertilized ? ((targetDate - plantData[i].lastFertilizeDate) / oneDay % plantData[i].fertilizeFrequency) === 0 : false
       if (fertilizing || watering) {
-        dailyPlantList.push( plantData[i],{wateringDay: watering}, {fertilizingDay: fertilizing})
+        dailyPlantList.push([plantData[i],{wateringDay: watering}, {fertilizingDay: fertilizing}])
       }
  
     }
-    console.log(dailyPlantList)
+    // console.log(dailyPlantList)
     return dailyPlantList
   }
 
@@ -77,11 +78,12 @@ export default function useHook() {
     convertFrequency,
     camelCase,
     selectIcon,
+    dailyPlants,
     plantIcons,
     oneDay,
     today,
-    frequencyUnits,
-    dailyPlants
+    frequencyUnits
+
   }
 
   
