@@ -21,15 +21,18 @@ export default function Profile() {
   function Content() {
     switch (menuSelection) {
       case 'gardener':
-        return <Gardener gardener={gardenerData} />;
+        return (
+          <div className='my-info-list'>
+            <Gardener gardener={gardenerData} />
+          </div>
+        );
         break;
       case 'plants':
         return (
-          <div  className='profile-list'>
-        <Plants plants={gardenerData.plants} />
-        </div>
-        )
-        ;
+          <div className='profile-list'>
+            <Plants plants={gardenerData.plants} />
+          </div>
+        );
         break;
     }
   }
@@ -44,11 +47,11 @@ export default function Profile() {
         >
           <Menu.Divider />
           <Menu.Item key='gardener' onClick={() => chooseMenuSelection('gardener')}>
-            My Info
+            Info
           </Menu.Item>
           <Menu.Divider />
           <Menu.Item key='plants' onClick={() => chooseMenuSelection('plants')}>
-            My Plants
+            Greenery
           </Menu.Item>
           <Menu.Divider />
 

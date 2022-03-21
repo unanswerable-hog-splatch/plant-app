@@ -15,9 +15,13 @@
 
 .calendar-day p {
   background-color: rgb(105, 66, 21);
-
-
 }
+
+.calendar-day:hover p {
+  background: linear-gradient(rgb(105, 66, 21), rgb(255, 140, 8));
+}
+
+
 
 .calendar-day img {
 width:5rem;

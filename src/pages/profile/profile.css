@@ -45,6 +45,84 @@
     padding-bottom: .5em;
 }
 
+.plant-nick {
+    color: rgb(0, 97, 0);
+    font-weight: bolder;
+}
+
+.my-info {
+    display: flex;
+    justify-content: space-around;
+    height: 50em;
+    margin-top: 2em;
+    margin-left: 5em;
+    background: linear-gradient( 0.25turn, rgba(245, 208, 165, 0.911), rgb(253, 223, 188), rgba(245, 208, 165, 0.911)) !important;
+    border: solid .25em rgb(10, 94, 10);
+    border-radius: 1em;
+    width: 50em;
+    padding: 2em;
+    overflow-y: scroll;
+}
+
+.info-subject{
+    margin-bottom: 5em;    
+}
+
+/* this is the outer border around letter */
+.info-icon {
+    padding: .4em;
+    border-radius: 25em;
+    background-color: rgb(37, 116, 0);
+    margin-bottom: 3em;
+}
+
+/* This is the inner border around letter to keep from morphing shape of icon circle */
+.icon-letter {
+    font-size: 800%;
+    background-color: rgb(244, 250, 226);
+    color: green;
+    padding: .25em;
+    padding-left: .7em;
+    padding-right: .7em;
+    border-radius: 20em;
+}
+
+.icon-and-btn {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+}
+
+.icon-and-btn button {
+    background-color: rgb(55, 226, 107);
+    color: rgb(0, 0, 0);
+}
+
+h1 {
+    margin-bottom: unset;
+    font-size: 120%;
+    margin-bottom: 0.5em;
+}
+
+
+.info-title {
+    font-size: 150%;
+    /* background-color: rgb(87, 204, 58) !important; */
+    color: rgb(6, 136, 13);
+    /* text-align: center; */
+    width: auto;
+    padding-left: .2em;
+    padding-right: .2em;
+    border-radius: .2em;
+}
+
+.info-data {
+    background-color: rgba(144, 238, 144, 0.329);
+    padding: 1em;
+    border: solid .05em black;
+}
+
+
 
 /* .ind-plant .ind-plant-btn {
     align-self: flex-end;

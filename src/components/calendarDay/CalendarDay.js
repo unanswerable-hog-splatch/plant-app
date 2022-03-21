@@ -7,6 +7,8 @@ import useHook from '../../hooks/useHook'
 export default function CalendarDay({ day, plantList }) {
   const { selectIcon } = useHook()
   const plantIconList = []
+  console.log(plantList)
+
 
   return (
     <>
