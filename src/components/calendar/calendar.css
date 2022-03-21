@@ -7,3 +7,14 @@
   display: flex;
   flex: row;
 }
+
+.currentMonth {
+  margin-bottom: 0;
+  font-size: 3rem;
+  font-weight:bold;
+  color:azure;
+  text-shadow: 2px 2px 2px rgb(141, 105, 52);
+  background-color: rgb(62, 143, 97); 
+  border: 5px solid rgb(119, 201, 130); 
+  border-bottom: unset;
+}
