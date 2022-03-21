@@ -1,13 +1,16 @@
-.calendar-day{
+.calendar-day-day{
   display: flex;
   flex-direction: column;
   width:100%;
+  height:100%;
 }
 
 .week{
   display: flex;
   flex: row;
   width: 100%;
+  /* height:100%; */
+  height: 16%;
 }
 
 .currentMonth {
