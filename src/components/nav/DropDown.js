@@ -45,7 +45,9 @@ export default function MainNav() {
   )
 
   return (
-    <Dropdown overlay={menu} trigger={['click']}>
+    
+    <>
+          <Dropdown overlay={menu} trigger={['click']}>
       {/* <div className="dropdown-circle"> */}
       <a className="ant-dropdown-link profile-dropdown" onClick={e => e.preventDefault()}>
         <div className="dropdown-letter">
@@ -55,6 +57,8 @@ export default function MainNav() {
       </a>
       {/* </div> */}
     </Dropdown>
+    </>
+
   )
 
 }

@@ -7,8 +7,8 @@ import './home.css'
 export default function LoginFormButton() {
     const [visible, setVisible] = useState(false);
     return (
-        <div>
-            <Button className="login-btn" type="primary" onClick={() => setVisible(true)}>
+        <>
+            <Button type="primary" onClick={() => setVisible(true)}>
                 Login
             </Button>
             <Modal
@@ -27,6 +27,6 @@ export default function LoginFormButton() {
             >
                 < LoginForm />
             </Modal>
-        </div>
+        </>
     )
 }

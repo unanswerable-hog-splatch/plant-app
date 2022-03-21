@@ -1,83 +1,80 @@
 body {
     background-color: rgb(239,223,170);
-    /* background-color: rgb(178,233,209); */
-    /* background-color: rgb(174,229,205); */
-
     font-family: 'Poppins', sans-serif;
     height:100%;
 }
 
 .home-screen {
     width: 100%;
-    /* height:max-content; */
+    height:max-content;
 }
 .landing-screen {
     display: flex;
-    justify-content: space-around;
-    text-align: center;
-    height: 100%;
+    flex-direction: column;
+
+    border: solid .3em rgb(39, 22, 8);
+    margin:5em 15rem;
+    padding: 5rem;
+
+    background-color: rgb(23, 88, 52,0.7);
+    justify-content: space-between;
 }
 
 .landing-title {
-    margin-top: 8em;
-    border: solid .3em rgb(39, 22, 8);
-    padding-bottom: 7em;
-    padding-left: 11em;
-    padding-right: 11em;
-    padding-top: 3em;
-    background-color: rgb(193, 241, 115);
-}
-
-.app-title {
-    font-size: 500%;
+    display: flex;
+    justify-content:center;
+    
+    font-size: 3.5rem !important;
     font-weight: bold;
-    color: rgb(46, 158, 1);
-    -webkit-text-stroke: .03px rgb(51, 35, 15);
-    text-shadow: .08em .03em .06em #636363;
+
+    text-shadow: 3px 3px rgb(28, 107, 64);
+    text-decoration: 12px underline rgb(95, 69, 47);
+
+    padding: 1rem;
+}
+.landing-title h1{
+    margin-bottom: 0 !important;
+    text-align: end;
+    align-self: bottom;
+    line-height: 100%;
+    vertical-align: bottom;
+    color: rgb(183, 212, 216) !important;
+}
+.landing-title img {
+    width: 5rem;
+    height: 7rem;
 }
 
 .landing-buttons {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.login-btn {
-    margin-right: 2em;
-    width: 10em;
-    height: 3em;
-    font-size: 115%;
-    background: linear-gradient( 0.25turn, rgb(196, 137, 28), rgb(117, 80, 11), rgb(196, 137, 28));
-    color: rgb(255, 255, 255);
-    border: .1em solid rgb(82, 45, 15);
+.landing-buttons button {
+    margin: 3rem 5rem;
+    width: 100%;
+    height: 5rem;
+    font-size: 2rem;
+    background: rgb(21, 92, 65);
+    color: rgb(183, 212, 216);
+    border: 5px solid rgb(198,128,88);
     border-radius: .25em;
-}
-.sign-in-btn {
-    margin-left: 2em;
-    width: 10em;
-    height: 3em;
-    font-size: 115%;
-    background: linear-gradient( 0.25turn, rgb(196, 137, 28), rgb(117, 80, 11), rgb(196, 137, 28));
-    color: rgb(255, 255, 255);
-    border: .1em solid rgb(82, 45, 15);
-    border-radius: .25em;
+    text-align: center;
+    padding:0.25rem;
+  
 }
 
-.login-btn:hover {
-    background: linear-gradient(0.25turn, green, rgb(133, 201, 25), green);
-    border: .1em solid rgb(196, 183, 0);
-}
-.sign-in-btn:hover {
-    background: linear-gradient(0.25turn, green, rgb(133, 201, 25), green);
-    border: .1em solid rgb(196, 183, 0);
+.landing-buttons button:hover {
+    background: rgb(21, 92, 65);
+    border: 5px solid rgb(198,128,88);
+    color: rgb(183, 212, 216);
+    box-shadow: 0px 0px 8px 3px rgb(95, 69, 47);
+
 }
 
-.ant-modal-footer {
-    background-color: rgb(47, 187, 47);
-}
-.ant-modal-header {
-    background-color: rgb(47, 187, 47);
-}
 
-.adopt-btn {
+/* .adopt-btn {
     width: 15em;
     height: 2.5em;
     font-size: 200%;
@@ -92,4 +89,4 @@ body {
 .adopt-btn:hover {
     background: linear-gradient(0.25turn, green, rgb(124, 182, 31), green);
     border: .1em solid rgb(255, 234, 45);
-}
+} */
