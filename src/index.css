@@ -13,3 +13,9 @@ code {
     monospace;
 }
 
+#root {
+  padding-bottom:60px;
+}
+.ant-modal-root {
+  height: 0 !important;
+}
