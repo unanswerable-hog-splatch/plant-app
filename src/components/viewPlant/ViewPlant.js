@@ -20,8 +20,6 @@ export default function ViewPlant({ plant }) {
 
   const onClick = async (e) => {
     e.preventDefault();
-    console.log(watered)
-    console.log(_id)
     if (!watered) {
       watered = true;
 

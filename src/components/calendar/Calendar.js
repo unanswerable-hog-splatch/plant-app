@@ -1,11 +1,9 @@
 import CalendarDay from "../calendarDay/CalendarDay"
 import './calendar.css'
 
-import { Modal, Button } from 'antd';
 import AddPlantButton from "../addPlantButton/AddPlantButton";
-
 import useHook from '../../hooks/useHook'
-export default function Calendar({ loading, gardenerData }) {
+export default function Calendar({ setGardenerData, loading, gardenerData }) {
 
   // Info from current month
   const today = new Date().setHours(0, 0, 0, 0);
@@ -37,22 +35,17 @@ plantList=1
   // Loop until last day of month is hit
 
   for (let i = 0; i < lastDayOfMonth; i++) {
-    // const
     /* grab plants for each day */ 
     const targetDateBuild = `${currentMonth+1}/${i+1}/${currentYear}`
-    // console.log('Target Date Build:', targetDateBuild)
     const targetDate = new Date(targetDateBuild).setHours(0,0,0,0) / 1000
-    // console.log('Target Date:',targetDate)
     plantList = dailyPlants(targetDate)
     
-    if (plantList.length == 0){
+    if (plantList.length === 0){
       plantList = 1
     }
   
     monthArray[currentWeek][currentDayOfWeek] = <CalendarDay week={currentWeek} day={i + 1} plantList= {plantList} gardenerData={gardenerData} />;
 
-    // console.log(plantList)
-    // monthArray[currentWeek][currentDayOfWeek] = <CalendarDay week={currentWeek} day={`${monthList[currentMonth]} ${i + 1}`} />;
    
 
     // Tried doing this in a ternary, react didn't like it
@@ -70,7 +63,6 @@ plantList=1
     }
 
   }
-  // console.log(monthArray)
   if (currentWeek < 5) monthArray[5].fill(<CalendarDay week={currentWeek} day={'filler'}  plantList={[]} gardenerData={gardenerData} />)
   // currentWeek < 5 ? monthArray[5].fill('filler') : null
 
@@ -87,7 +79,7 @@ plantList=1
     <>
       <div className="calendar-header">
         <div className="calendar-add"> 
-       <AddPlantButton loading={loading} gardenerData={gardenerData} />
+       <AddPlantButton setGardenerData={setGardenerData} loading={loading} gardenerData={gardenerData} />
             </div>
         <h1 className="currentMonth">{currentMonthName}</h1>
       </div>
