@@ -1,9 +1,40 @@
-.view-plant{
+.view-plant {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
+.view-plant img {
+  width: 27em;
+  height: 25em; 
+  /* background-color: rgb(231, 97, 63); */
+  padding: 1em;
+  border: solid .1em black;
+  border-radius: 2em;
+}
+.view-plant img:hover {
+  cursor: pointer;
+}
+
+.water-me{
+  text-align: center;
+}
+
+.thirsty {
+  background: linear-gradient( 0.25turn, rgba(240, 48, 23, 0), rgb(240, 48, 23), rgba(240, 48, 23, 0));
+  color: white;
+}
+.not-thirsty {
+  background: linear-gradient( 0.25turn, rgb(30, 159, 219, 0), rgb(30, 159, 219), rgb(30, 159, 219, 0));
+  color: white;
+}
+
+.thirsty-img {
+background-color: rgb(240, 48, 23);
+}
+.not-thirsty-img {
+  background-color: rgb(30, 159, 219);
+}
 /* .view-plant img {
   align-self:flex-end;
 } */

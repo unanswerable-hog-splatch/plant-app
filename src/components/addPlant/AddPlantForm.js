@@ -56,6 +56,8 @@ export default function AddPlantForm({ addPlantVisible, setAddPlantVisible }) {
       console.error(err);
     }
 
+    // window.location.reload()
+
     // Destroys modal
     setAddPlantVisible(!addPlantVisible)
   };

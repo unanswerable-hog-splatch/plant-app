@@ -32,7 +32,7 @@ export default function ViewPlantBtn({ plant, gardenerName }) {
         maskClosable={true}
         closable={true}
         onCancel={() => setGreenCardVisible(false)}
-        width={'85%'}
+        width={'80%'}
         // footer={
         //   <Button key='back' onClick={onClick}>
         //     Return to shelf
