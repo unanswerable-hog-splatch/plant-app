@@ -3,7 +3,7 @@ import './dayModal.css'
 -Wrap each one in a button that can be clicked. 
   --on click each button opens a modal for that specfic day. 
 */
-export default function CalendarDay({ day }) {
+export default function DayModal({ day }) {
 
   return (
 

@@ -9,13 +9,8 @@ export default function CalendarDay({ day }) {
 
     <div className='calendar-day'>
     
-
 {/*
   -add a button tag around each
-  --modal should be inside each button
-  -- ONCLICK: The date of the specific day clicked should show
-  Modal
-  -populate each plant 
     -- CONDITIONS:
       -Current Date - Last Watering Date % WateringFrequency = 0 
       -if (Fertilize = true) => Current Date - Last Fertilize Date % FertilizingFrequency = 0  
@@ -24,6 +19,7 @@ export default function CalendarDay({ day }) {
         --dots with be determined by the same conditions as the plant. 
       --<div> with plant icon  
 */}
+
 
 {/* Add div tag around date */}
       {day} {/*day should be on the bottom of the flex box so that the plants are sitting on top of each number/filler like a shelf so all other code goes above*/}
