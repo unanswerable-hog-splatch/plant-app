@@ -1,0 +1,39 @@
+.profile-menu {
+    height: 60em;
+    width: 100%;
+}
+
+.profile-list {
+    display: flex;
+    /* flex-direction: column; */
+    justify-self: center;
+    flex-wrap: wrap;
+    margin-left: 4em;
+    margin-top: 2em;
+}
+
+.ind-plant {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4em;
+    margin-right: 4em;
+    align-items: center;
+    text-align: center;
+    /* justify-content: space-between; */
+    height: 15em;
+    width: 16em;
+    background-color: rgba(85, 223, 85, 0.726);
+    border-top: solid 0.1em rgb(21, 73, 0);
+    border-bottom: solid 0.1em rgb(21, 73, 0);
+}
+
+.ind-plant-img {
+    width: 4em;
+    height: 4em;
+    margin-bottom: 1em;
+}
+
+
+/* .ind-plant .ind-plant-btn {
+    align-self: flex-end;
+} */

@@ -8,51 +8,65 @@ import {
     Select,
     DatePicker
 } from "antd";
+import useHook from '../../hooks/useHook'
+
 import { useMutation } from "@apollo/client";
 import { UPDATE_PLANT } from "../../utils/mutations";
 import GreenCardInfo from "./GreenCardInfo";
+import FrequencyForm from "./FrequencyForm";
+import LastWaterForm from "./LastWaterForm";
 
 export default function GreenCard({ plant }) {
+    const { selectIcon } = useHook();
+
     console.log(plant)
-    const [ updatePlant ] = useMutation(UPDATE_PLANT)
     const [ greenCardVisible, setGreenCardVisible ] = useState(false);
-    const frequencyUnits = ['day', 'week', 'month', 'year'];
-    const convertFrequency = (amount, unit) => {
-        let multiplier;
-        switch (unit) {
-          default: multiplier = 1;
-            break;
-          case ('week'): multiplier = 7;
-            break;
-          case ('month'): multiplier = 30;
-            break;
-          case ('year'): multiplier = 365;
-            break;
-        }
-        return multiplier * amount;
-    }
+    // const [ updatePlant ] = useMutation(UPDATE_PLANT)
+    // const frequencyUnits = ['day', 'week', 'month', 'year'];
+    // const convertFrequency = (amount, unit) => {
+    //     let multiplier;
+    //     switch (unit) {
+    //       default: multiplier = 1;
+    //         break;
+    //       case ('week'): multiplier = 7;
+    //         break;
+    //       case ('month'): multiplier = 30;
+    //         break;
+    //       case ('year'): multiplier = 365;
+    //         break;
+    //     }
+    //     return multiplier * amount;
+    // }
 
-    const onFinish = async (values) => {
+    // const onFinish = async (values) => {
+    //     console.log(values)
 
-        values.waterFrequency = convertFrequency(values.waterFrequency.amount, values.waterFrequency.unit)
-        
-        values.lastWaterDate = Number(values.lastWaterDate.startOf("day").format("X"))
+    //     values.waterFrequency = convertFrequency(values.waterFrequency.amount, values.waterFrequency.unit)
+    //     const waterFrequency = values.waterFrequency
+    //     if (values.lastWaterDate = !undefined) {
+    //         values.lastWaterDate = Number(values.lastWaterDate.startOf("day").format("X"))
+    //         return values.lastWaterDate
+    //     }
+
+
+    //     if (waterFrequency || values.lastWaterDate) {
             
-        console.log(values)
-        try {
-            await updatePlant({
-                variables: { ...values, _id: plant._id }
-            })
-        } catch (err) {
-            console.error(err)
-        }
+    //     console.log(values)
+    //     try {
+    //         await updatePlant({
+    //             variables: { ...values, _id: plant._id }
+    //         })
+    //     } catch (err) {
+    //         console.error(err)
+    //     }
+    // }
 
-        // setGreenCardVisible(!greenCardVisible);
-    }
+    //     // setGreenCardVisible(!greenCardVisible);
+    // }
 
-    const onFinishFailed = (errorInfo) => {
-        console.log('Failed', errorInfo)
-    };
+    // const onFinishFailed = (errorInfo) => {
+    //     console.log('Failed', errorInfo)
+    // };
 
     return (
         <>
@@ -67,7 +81,9 @@ export default function GreenCard({ plant }) {
                 onCancel={() => setGreenCardVisible(false)}
                 width={800}>
                 <GreenCardInfo plant={plant}/>
-                <Form
+                <FrequencyForm plant={plant} />
+                <LastWaterForm plant={plant} />
+                {/* <Form
                     labelCol={{ span: 6 }}
                     wrapperCol={{ span: 14 }}
                     layout="horizontal"
@@ -88,7 +104,7 @@ export default function GreenCard({ plant }) {
                             >
                                 <InputNumber />
                             </Form.Item>
-                            {/* <Form.Item
+                            <Form.Item
                                 name={["waterFrequency", "unit"]}
                                 noStyle
                             >
@@ -97,7 +113,7 @@ export default function GreenCard({ plant }) {
                                     noStyle>
                                     {frequencyUnits.map((unit, index) => <Select.Option key={index} value={unit}>{`${unit}`}</Select.Option>)}
                                 </Select>
-                            </Form.Item> */}
+                            </Form.Item>
                         </Input.Group>
                     </Form.Item>
                     <Form.Item
@@ -113,7 +129,8 @@ export default function GreenCard({ plant }) {
                                 Update Plant
                             </Button>
                     </Form.Item>
-                </Form>
+                </Form> */}
+                <img alt={plant.plantIcon} src={selectIcon(plant.plantIcon)} />
             </Modal>
         </>
     )
