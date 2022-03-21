@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Profile from './pages/profile/Profile';
 import NavBar from './components/nav/Navbar'
-
+import Footer from './components/footer/Footer';
 
 // COMMENT BACK IN WHEN USING HEROKU
 
@@ -58,6 +58,7 @@ function App() {
           />
         </Routes>
       </Router>
+      <Footer />
     </ApolloProvider>
   );
 }
