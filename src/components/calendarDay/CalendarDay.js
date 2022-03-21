@@ -26,7 +26,7 @@ export default function CalendarDay({ day, plantList, gardenerData }) {
       <Button className="day-modal-button" type="primary" onClick={() => { setCalendarDayVisible(true) }}>
         <div className="calendar-day-flex"> 
         {/* Changed the mapping of the plants to only grab the ones that have plants populating. Determined the type outside of loop */}
-           {plantListNoNull.slice(0,3).map(plant => {return (<img alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)}/>)})}
+           {plantListNoNull.slice(0,3).map((plant,i) => {return (<img alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)} key={i}/>)})}
           </div>
 
           <div className='plaque'>
