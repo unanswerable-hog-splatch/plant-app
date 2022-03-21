@@ -8,7 +8,7 @@ import { Button } from "antd";
 -Wrap each one in a button that can be clicked. 
   --on click each button opens a modal for that specfic day. 
 */
-export default function CalendarDay({ day, plantList }) {
+export default function CalendarDay({ day, plantList, gardenerData }) {
   const { selectIcon } = useHook()
   const plantListNoNull = []
 
@@ -35,7 +35,7 @@ export default function CalendarDay({ day, plantList }) {
        
       </Button>
 
-      <DayModal dailyPlantList={plantListNoNull} day={day} setCalendarDayVisible={setCalendarDayVisible} calendarDayVisible={calendarDayVisible}/>
+      <DayModal dailyPlantList={plantListNoNull} day={day} setCalendarDayVisible={setCalendarDayVisible} calendarDayVisible={calendarDayVisible} gardenerData={gardenerData}/>
       </div>
       
     </>

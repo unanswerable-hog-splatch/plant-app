@@ -1,30 +1,30 @@
 import ViewPlant from "./ViewPlant";
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 import { useState } from "react";
 import useHook from "../../hooks/useHook";
 
 
 
-export default function ViewPlantBtn({ plant, gardenerName}) {
-  const [greenCardVisible, setGreenCardVisible] = useState(false);
+export default function ViewPlantBtn({ plant, gardenerName , greenCardVisible, setGreenCardVisible }) {
+  // const [greenCardVisible, setGreenCardVisible] = useState(false);
   const { selectIcon } = useHook();
 
   // Sets modal to be visible
-  const onClick = (event) => {
-    event.preventDefault();
-    setGreenCardVisible(true)
-  }
-
+  // const onClick = (event) => {
+  //   event.preventDefault();
+  //   setGreenCardVisible(true)
+  // }
+  console.log('ViewPlantBtn', plant)
 
   return (
     //Image you need to click for ViewPlant modal to pop up
     <>
-      <img
+      {/* <img
         onClick={onClick}
         alt={plant.plantIcon}
         src={selectIcon(plant.plantIcon)}
         width={'20%'} 
-        />
+        /> */}
       <Modal
         title={`United Shelves of ${gardenerName}`}
         centered

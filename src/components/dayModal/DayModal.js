@@ -8,7 +8,7 @@ import DayModalInfo from '../dayModalInfo/DayModalInfo'
 -Wrap each one in a button that can be clicked. 
   --on click each button opens a modal for that specfic day. 
 */
-export default function DayModal({ dailyPlantList, day,setCalendarDayVisible, calendarDayVisible }) {
+export default function DayModal({ dailyPlantList, day,setCalendarDayVisible, calendarDayVisible, gardenerData }) {
   const { selectIcon } = useHook()
 
   const today = new Date()
@@ -41,7 +41,7 @@ export default function DayModal({ dailyPlantList, day,setCalendarDayVisible, ca
       okButtonProps={{ disabled: true }}
       onCancel={() => setCalendarDayVisible(false)}
       width={1500}>
-      <DayModalInfo dailyPlantList={dailyPlantList} />
+      <DayModalInfo dailyPlantList={dailyPlantList} gardenerData={gardenerData} />
     </Modal>
 </>
 
