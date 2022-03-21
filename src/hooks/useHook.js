@@ -1,6 +1,6 @@
 import cactus from '../img/cactus-1.png';
 import aloeVera from '../img/aloe-vera.png'
-import basil from '../img/basil.jpg';
+import basil from '../img/basil.png';
 import bonsaiTree from '../img/bonsai-tree.png';
 import snakePlant from '../img/snake-plant.png';
 import { useQuery } from '@apollo/client';

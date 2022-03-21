@@ -1,10 +1,11 @@
-import './view-plant.css'
 import GreenCardInfo from '../greenCard/GreenCardInfo';
-import { useState } from 'react';
+// import { useState } from 'react';
 import useHook from '../../hooks/useHook';
-import { Badge } from 'antd';
 import { useMutation } from '@apollo/client';
 import { UPDATE_PLANT } from '../../utils/mutations';
+
+import './view-plant.css'
+
 
 export default function ViewPlant({ plant }) {
   const { selectIcon } = useHook();
@@ -22,7 +23,6 @@ export default function ViewPlant({ plant }) {
     if (!watered) {
       watered = true;
 
-
       try {
         await updatePlant({
           variables: { _id: plant._id, watered }
@@ -30,6 +30,8 @@ export default function ViewPlant({ plant }) {
       } catch (err) {
         console.error(err);
       }
+
+
     }
   }
 
@@ -37,18 +39,15 @@ export default function ViewPlant({ plant }) {
     // Modal that pops up with plant info, plant image, and functionality
     <div className='view-plant'>
       <GreenCardInfo plant={plant} />
-      <Badge.Ribbon
-        text={watered ? 'Appreciate me!' : 'Water me!'}
-        placement={'start'}
-
-      >
+      <div className='water-me'>
+        {watered ? <h2 className='not-thirsty'> THANKS!</h2> : <h3 className='thirsty'> SO THIRSTY!</h3>}
         <img
-          alt={plantIcon}
+          className={!watered ? 'thirsty-img' : 'not-thirsty-img'}
           src={selectIcon(plantIcon)}
-          width={'45%'}
+          alt={plantIcon}
           onClick={onClick}
         />
-      </Badge.Ribbon>
+      </div>
       {/* Put functionality here so you can water/fertilize plants */}
     </div>
   )

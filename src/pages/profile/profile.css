@@ -6,7 +6,8 @@
 .profile-list {
     display: flex;
     /* flex-direction: column; */
-    justify-self: center;
+    justify-content: space-around;
+    align-items: center;
     flex-wrap: wrap;
     margin-left: 4em;
     margin-top: 2em;
@@ -15,7 +16,7 @@
 .ind-plant {
     display: flex;
     flex-direction: column;
-    margin-bottom: 4em;
+    margin-bottom: 1em;
     margin-right: 4em;
     align-items: center;
     text-align: center;

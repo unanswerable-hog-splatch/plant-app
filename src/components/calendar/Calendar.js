@@ -1,7 +1,9 @@
 import CalendarDay from "../calendarDay/CalendarDay"
 import './calendar.css'
+
 import { Modal, Button } from 'antd';
 import AddPlantButton from "../addPlantButton/AddPlantButton";
+
 import useHook from '../../hooks/useHook'
 export default function Calendar({ loading, gardenerData }) {
 
@@ -24,7 +26,6 @@ export default function Calendar({ loading, gardenerData }) {
   // Empty array full of empty arrays for each week
   const monthArray = [new Array(7), new Array(7), new Array(7), new Array(7), new Array(7), new Array(7)];
 /* ------------------------------- ADD PLANTS TO EACH CALENDAR DAY ---------------------------------*/
-
 
 /*-------------------------------- ADD NUMBERS TO EACH CALENDAR DAY -----------------------------------*/
 let plantList;  
@@ -74,7 +75,6 @@ plantList=1
   if (currentWeek < 5) monthArray[5].fill(<CalendarDay week={currentWeek} day={'filler'}  plantList={plantList} />)
   // currentWeek < 5 ? monthArray[5].fill('filler') : null
 
-
 /*------------------------------- CALENDAR JSX -------------------------------*/
   return (
     // Calendar class is a flex column
@@ -86,6 +86,7 @@ plantList=1
     
     */
     <>
+
       <div className="calendar-header">
         <div className="calendar-add"> 
        <AddPlantButton loading={loading} gardenerData={gardenerData} />
@@ -96,8 +97,8 @@ plantList=1
       <div className="calendar-day">
       {/* Add in the days of the week here in its own div so that the flex column align with the daily ones */}
         {monthArray.map(week => {
-        // Week class is a flex row
-        /* Would it make since to have the day be living ere and then within the created boxes have the plants and date stuff??? */ 
+          // Week class is a flex row
+          /* Would it make since to have the day be living ere and then within the created boxes have the plants and date stuff??? */
           return (<div className="week">
             {week}
           </div>
