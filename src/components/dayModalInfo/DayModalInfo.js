@@ -17,9 +17,7 @@ export default function DayModalInfo ({ dailyPlantList, gardenerData }) {
                 <div className='task-indicators'>
                   
                 </div>
-                <Button className='individual-plant-btn' onClick={() => { setGreenCardVisible(true) }}>
-                  <img className='individual-plant-img' alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)}/>
-                </Button>
+                  <img className='individual-plant-img' onClick={() => { setGreenCardVisible(true) }} alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)}/>
                 <ViewPlantBtn plant={dailyPlantList[0][0]} gardenerName={gardenerData.name} greenCardVisible={greenCardVisible} setGreenCardVisible={setGreenCardVisible}/>
               
               </div>

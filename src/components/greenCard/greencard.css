@@ -1,0 +1,27 @@
+.greencard-img {
+    width: 20em;
+    background-color: rgb(33, 201, 33);
+    padding: 2em;
+    padding-left: 3em;
+    padding-right: 3em;
+    border-radius: 10em;
+    border: solid .01em black;
+}
+
+.greencard-info {
+    display: flex;
+    /* justify-content: center; */
+}
+
+.freq-form {
+    display: flex;
+    justify-content: center;
+}
+
+.greencard-plant-name {
+    font-size: 320%;
+}
+
+.greencard-format {
+    display: flex;
+}
