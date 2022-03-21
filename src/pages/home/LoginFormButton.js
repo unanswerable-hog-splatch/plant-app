@@ -9,7 +9,7 @@ export default function LoginFormButton() {
     const [visible, setVisible] = useState(false);
     return (
         <>
-            <Button className="landing-buttons" type="primary" onClick={() => setVisible(true)}>
+            <Button  type="primary" onClick={() => setVisible(true)}>
                 Login
             </Button>
             <Modal

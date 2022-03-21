@@ -6,3 +6,17 @@
 .form-buttons button {
   background:rgb(31, 136, 96);
 }
+
+
+.form .ant-modal-header, .form .ant-modal-footer, .form .ant-modal-body {
+  background-color: rgb(183, 212, 216);
+  border: none;
+}
+
+.form .ant-modal-body {
+  display: flex;
+}
+
+.forn .ant-modal-centered {
+  width: 100%;
+}
