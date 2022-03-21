@@ -1,6 +1,7 @@
 import './calendarDay.css'
 // import 
 import useHook from '../../hooks/useHook'
+import DayModal from '../dayModal/DayModal'
 import { useState } from "react";
 import { 
   Modal, 
@@ -21,7 +22,7 @@ export default function CalendarDay({ day, plantList }) {
       <Button className="day-modal-button" type="primary" onClick={() => {
           setCalendarDayVisible(true);
           return(
-            <dayModal  />
+            <DayModal />
           )}}>
 
         <div className="calendar-day-flex"> 
