@@ -13,8 +13,9 @@ export default function Calendar({ loading, gardenerData }) {
   const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
 
   // List of month names to populate in front of number
-  // const monthList = ['Jan', 'Feb', 'March', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
+  const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  const currentMonthName = monthList[currentMonth].toUpperCase()
+  
   let currentWeek = 0;
   let currentDayOfWeek = firstDayOfWeek;
 
@@ -61,7 +62,7 @@ export default function Calendar({ loading, gardenerData }) {
     
     */
     <>
-
+      <div><h1 className="currentMonth">{currentMonthName}</h1></div>
       <div className="calendar">
       {/* Add in the days of the week here in its own div so that the flex column align with the daily ones */}
         {monthArray.map(week => {

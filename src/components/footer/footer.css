@@ -2,7 +2,10 @@ footer {
     display: flex;
     justify-content: center;
     padding: 1em;
- }
+    background-color: rgb(21, 92, 65);
+    color: rgb(239,223,170);
+}
+
 
  footer img {
      height: 1.6em;
