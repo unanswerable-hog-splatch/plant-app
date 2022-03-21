@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Shelf Care [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+Shelf Care is an application for houseplant gardeners.
 
-## Available Scripts
+Shelf Care is an easy to use application that assists gardeners keep track of their houseplants' well-being.
 
-In the project directory, you can run:
+Keep track of a plants watering schedule.
 
-### `npm start`
+Keep track of a plants fertilizing schedule.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+With Shelf Care, your plant will stay green and happy!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Enjoy!
 
-### `npm test`
+Links:
+Front End Repository: [https://github.com/unanswerable-hog-splatch/plant-app-frontend](https://github.com/unanswerable-hog-splatch/plant-app-frontend)<br/>
+Back End Repository: [https://github.com/unanswerable-hog-splatch/plant-app-backend](https://github.com/unanswerable-hog-splatch/plant-app-backend)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Deployed Front End: [https://shelf-care-uhs.herokuapp.com/](https://shelf-care-uhs.herokuapp.com/)<br/>
+Deployed Back End: [https://shelf-care-backend.herokuapp.com/](https://shelf-care-backend.herokuapp.com/)
 
-### `npm run build`
+## Table of Contents
+1. [Installation](#Installation)
+2. [Usage](#Usage)
+3. [Credits](#Credits)
+4. [Questions](#Questions)
+5. [Screenshots](#Screenshots)
+6. [License](#License)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
+No installation required. The application is deployed on Heroku.
+## Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Credits
+A lot of credit to my instructor, TAs, and my study group. This one was difficult, but fun. Thank you, beautiful people!
+## Questions
+Have any questions? <br/>
+Contact me at hur.john628.com. <br/>
+Github: https://github.com/jhur628/ <br/>
+## Screenshots
+![The Book Search Engine Homepage](./assets/home.jpg)
+![The Book Search Engine Search](./assets/search.jpg)
+![The Book Search Engine Saved Books](./assets/saved.jpg)
+![The Book Search Engine Saved Books Deleted](./assets/saved-empty.jpg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+MIT <br/> For more information on the MIT license, visit: https://opensource.org/licenses/MIT
