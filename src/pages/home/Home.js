@@ -22,17 +22,19 @@ export default function Home() {
 
   return (
 
-    <div className="landing-screen">
+    <div>
       {/* If user is logged in, the calendar is displayed. If not, Login and Sign Up buttons are displayed */}
       {Auth.isLoggedIn() ?
         <>
+        
           <div className="home-screen">
             <Calendar gardenerData={gardenerData} loading={loading} />
-           
-          </div>
+            </div>
+        
         </>
         : (
           <>
+           <div className="landing-screen">
     
               <div className="landing-title">              
                 <h1 >Shelf</h1>
@@ -47,7 +49,7 @@ export default function Home() {
                 < SignupFormButton />
 
               </div>
-          
+              </div>
           </>
         )
       }

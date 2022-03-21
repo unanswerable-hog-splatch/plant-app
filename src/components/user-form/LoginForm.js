@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import Auth from '../../utils/auth';
 import { LOGIN_GARDENER } from '../../utils/mutations';
+import '../../pages/home/form.css'
 // export default function SignupForm() {
 const LoginForm = () => {
 
@@ -39,6 +40,8 @@ const LoginForm = () => {
     };
 
     return (
+        <div >
+  
         <Form
             name="basic"
             labelCol={{
@@ -92,15 +95,17 @@ const LoginForm = () => {
                     span: 16,
                 }}
             >
+                <div className='form-buttons'>
                     <Button
-                        // disabled={!(gardenerFormData.name && gardenerFormData.email && gardenerFormData.password)}
-                    className="nav-buttons"
-                    type="primary"
-                    htmlType="submit">
+                     
+                     type="primary"
+                        htmlType="submit">
                     Submit
                 </Button>
+                </div>
             </Form.Item>
         </Form>
+        </div>
     );
 };
 

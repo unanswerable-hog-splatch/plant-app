@@ -1,0 +1,8 @@
+.login-form-container {
+  background-color:rgb(183, 212, 216) !important;
+  display: flex;
+}
+
+.form-buttons button {
+  background:rgb(31, 136, 96);
+}
