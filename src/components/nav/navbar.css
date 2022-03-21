@@ -3,6 +3,7 @@
     justify-content: space-between;
     margin: 1rem 1.5rem;
 
+
 }
 
 .main-nav h1 {
@@ -12,11 +13,13 @@
     margin: 0;
     color: rgb(44,163,113);
     text-shadow: 2px 2px rgb(31,118,70);
+    text-decoration: underline rgb(110,80,55);
 }
 
 .main-nav img {
     width:2.5rem;
     height:2.5rem;
+    align-self: flex-end;
 }
 .nav-buttons {
     background-color: green;

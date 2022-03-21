@@ -13,7 +13,7 @@ export default function NavBar() {
     const [visible, setVisible] = useState(false);
     return (
         <div className="main-nav">
-            <h1 ><span><img src={cacti} alt='Cactus'/></span>Shelf Care</h1>
+            <h1><img src={cacti} alt='Cactus'/>Shelf Care</h1>
             {Auth.isLoggedIn() ?
                 <>
                     < MainNav />
