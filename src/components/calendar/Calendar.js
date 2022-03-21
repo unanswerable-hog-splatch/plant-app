@@ -3,9 +3,8 @@ import './calendar.css'
 
 import { Modal, Button } from 'antd';
 import AddPlantButton from "../addPlantButton/AddPlantButton";
-
 import useHook from '../../hooks/useHook'
-export default function Calendar({ loading, gardenerData }) {
+export default function Calendar({ setGardenerData, loading, gardenerData }) {
 
   // Info from current month
   const today = new Date().setHours(0, 0, 0, 0);
@@ -87,7 +86,7 @@ plantList=1
     <>
       <div className="calendar-header">
         <div className="calendar-add"> 
-       <AddPlantButton loading={loading} gardenerData={gardenerData} />
+       <AddPlantButton setGardenerData={setGardenerData} loading={loading} gardenerData={gardenerData} />
             </div>
         <h1 className="currentMonth">{currentMonthName}</h1>
       </div>

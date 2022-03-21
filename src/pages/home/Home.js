@@ -5,7 +5,7 @@ import Auth from '../../utils/auth';
 import Calendar from '../../components/calendar/Calendar';
 
 import { Modal, Button } from 'antd';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import 'antd/dist/antd.css';
 // import AddPlantForm from '../../components/addPlant/AddPlantForm';
 
@@ -16,10 +16,17 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
 
 export default function Home() {
-
+  // const [gardenerData, setGardenerData] = useState({});
+  // const [loading, setLoading] = useState();
   const { loading, data } = useQuery(QUERY_ME);
-  const gardenerData = data?.me || [];
+  const userData = data?.me || [];
 
+  const [gardenerData, setGardenerData] = useState({});
+
+  useEffect(() => {
+  setGardenerData(userData);
+
+  }, [])
   return (
 
     <div className="landing-screen">
@@ -27,7 +34,7 @@ export default function Home() {
       {Auth.isLoggedIn() ?
         <>
           <div className="home-screen">
-            <Calendar gardenerData={gardenerData} loading={loading} />
+            <Calendar setGardenerData={setGardenerData} gardenerData={gardenerData} loading={loading} />
            
           </div>
         </>
