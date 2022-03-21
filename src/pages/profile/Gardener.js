@@ -3,10 +3,10 @@
 export default function Gardener({ gardener }) {
 
     return (
-        <div>
-            <h2>
+        <div className='my-info'>
+            <h3>
                 Name: {gardener.name}
-            </h2>
+            </h3>
             <h3>
                 Email: {gardener.email}
             </h3>
