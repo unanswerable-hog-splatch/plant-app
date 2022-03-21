@@ -1,5 +1,5 @@
 import GreenCardInfo from '../greenCard/GreenCardInfo';
-// import { useState } from 'react';
+
 import useHook from '../../hooks/useHook';
 import { useMutation } from '@apollo/client';
 import { UPDATE_PLANT } from '../../utils/mutations';
@@ -9,29 +9,29 @@ import './view-plant.css'
 
 export default function ViewPlant({ plant }) {
   const { selectIcon } = useHook();
-  // const []
+
   const [updatePlant] = useMutation(UPDATE_PLANT);
 
 
 
-  const { _id, species, plantIcon, category, nickname, dateAdded, fertilized, waterFrequency, fertilizeFrequency, lastWaterDate, lastFertilizeDate } = plant;
+  const { _id, plantIcon} = plant;
 
   let { watered } = plant;
 
   const onClick = async (e) => {
     e.preventDefault();
+    console.log(watered)
+    console.log(_id)
     if (!watered) {
       watered = true;
 
       try {
         await updatePlant({
-          variables: { _id: plant._id, watered }
+          variables: { _id: _id, watered }
         })
       } catch (err) {
         console.error(err);
       }
-
-
     }
   }
 
