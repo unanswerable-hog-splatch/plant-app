@@ -36,13 +36,11 @@ No installation required. The application is deployed on Heroku.
 A lot of credit to my instructor, TAs, and my study group. This one was difficult, but fun. Thank you, beautiful people!
 ## Questions
 Have any questions? <br/>
-Contact me at hur.john628.com. <br/>
-Github: https://github.com/jhur628/ <br/>
+Github: https://github.com/unanswerable-hog-splatch/plant-app-frontend <br/>
+Github: https://github.com/unanswerable-hog-splatch/plant-app-backend
 ## Screenshots
-![The Book Search Engine Homepage](./assets/home.jpg)
-![The Book Search Engine Search](./assets/search.jpg)
-![The Book Search Engine Saved Books](./assets/saved.jpg)
-![The Book Search Engine Saved Books Deleted](./assets/saved-empty.jpg)
+![]()
+
 
 ## License
-MIT <br/> For more information on the MIT license, visit: https://opensource.org/licenses/MIT
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)<br/> For more information on the MIT license, visit: https://opensource.org/licenses/MIT
