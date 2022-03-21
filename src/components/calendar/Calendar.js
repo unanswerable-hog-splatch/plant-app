@@ -1,5 +1,7 @@
 import CalendarDay from "../calendarDay/CalendarDay"
 import './calendar.css'
+import ViewPlantBtn from "../viewPlant/ViewPlantBtn";
+
 
 export default function Calendar({ loading, gardenerData }) {
 
@@ -21,7 +23,9 @@ export default function Calendar({ loading, gardenerData }) {
   // Empty array full of empty arrays for each week
   const monthArray = [new Array(7), new Array(7), new Array(7), new Array(7), new Array(7), new Array(7)];
 
-/*-------------------------------- ADD NUMBERS TO EACH CALENDAR DAY -----------------------------------*/
+
+
+  /*-------------------------------- ADD NUMBERS TO EACH CALENDAR DAY -----------------------------------*/
 
   // Fill first week with 'filler' until it hits the actual first day of the month
   monthArray[0].fill(<CalendarDay week={currentWeek} day={'filler'} />, 0, firstDayOfWeek)
@@ -49,8 +53,8 @@ export default function Calendar({ loading, gardenerData }) {
   console.log(monthArray)
   if (currentWeek < 5) monthArray[5].fill(<CalendarDay week={currentWeek} day={'filler'} />)
   // currentWeek < 5 ? monthArray[5].fill('filler') : null
-  
-/*------------------------------- CALENDAR JSX -------------------------------*/
+
+  /*------------------------------- CALENDAR JSX -------------------------------*/
   return (
     // Calendar class is a flex column
 
@@ -63,16 +67,21 @@ export default function Calendar({ loading, gardenerData }) {
     <>
 
       <div className="calendar">
-      {/* Add in the days of the week here in its own div so that the flex column align with the daily ones */}
+        {/* Add in the days of the week here in its own div so that the flex column align with the daily ones */}
         {monthArray.map(week => {
-        // Week class is a flex row
-        /* Would it make since to have the day be living ere and then within the created boxes have the plants and date stuff??? */ 
+          // Week class is a flex row
+          /* Would it make since to have the day be living ere and then within the created boxes have the plants and date stuff??? */
           return (<div className="week">
             {week}
           </div>
           )
         })}
       </div>
+      {loading ? 'Something wonderful is happening' :
+        gardenerData.plants.map(plant => <ViewPlantBtn
+          key={plant._id}
+          plant={plant}
+          gardenerName={gardenerData.name} />)}
     </>
   )
 }
