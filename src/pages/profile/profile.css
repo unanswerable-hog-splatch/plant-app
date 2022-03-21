@@ -1,6 +1,8 @@
 .profile-menu {
     height: 60em;
     width: 100%;
+    background-color: rgb(171, 224, 110) !important;
+    ;
 }
 
 .profile-list {
@@ -11,27 +13,36 @@
     flex-wrap: wrap;
     margin-left: 4em;
     margin-top: 2em;
+    overflow-y: scroll;
 }
 
 .ind-plant {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1em;
+    margin-bottom: 3em;
     margin-right: 4em;
     align-items: center;
     text-align: center;
     /* justify-content: space-between; */
-    height: 15em;
+    height: 15.5em;
     width: 16em;
-    background-color: rgba(85, 223, 85, 0.726);
-    border-top: solid 0.1em rgb(21, 73, 0);
-    border-bottom: solid 0.1em rgb(21, 73, 0);
+    background-color:rgb(235, 214, 181) !important;
+    ;
+    /* border-top: solid 0.1em rgba(21, 73, 0, 0.329);
+    border-bottom: solid 0.1em rgba(21, 73, 0, 0.329); */
+    border: solid 0.35em rgba(34, 117, 1, 0.705);
+    border-radius: .5em;
+    box-shadow: 0.75em 0.75em 0.75em rgb(73, 73, 73);
 }
 
 .ind-plant-img {
     width: 4em;
     height: 4em;
     margin-bottom: 1em;
+}
+
+.ind-plant-btn {
+    padding-bottom: .5em;
 }
 
 

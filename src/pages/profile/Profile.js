@@ -44,11 +44,11 @@ export default function Profile() {
         >
           <Menu.Divider />
           <Menu.Item key='gardener' onClick={() => chooseMenuSelection('gardener')}>
-            Gardener
+            My Info
           </Menu.Item>
           <Menu.Divider />
           <Menu.Item key='plants' onClick={() => chooseMenuSelection('plants')}>
-            Plants
+            My Plants
           </Menu.Item>
           <Menu.Divider />
 
