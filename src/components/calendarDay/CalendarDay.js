@@ -1,5 +1,10 @@
 import './calendarDay.css'
+// import 
 import useHook from '../../hooks/useHook'
+import { useState } from "react";
+import { 
+  Modal, 
+  Button } from "antd";
 /*
 -Wrap each one in a button that can be clicked. 
   --on click each button opens a modal for that specfic day. 
@@ -8,23 +13,32 @@ export default function CalendarDay({ day, plantList }) {
   const { selectIcon } = useHook()
   const plantIconList = []
 // console.log(plantList)
-
+  const [ calendarDayVisible, setCalendarDayVisible] = useState(false);
 
   return (
     <>
       <div className='calendar-day'>
-      <div className="calendar-day-flex"> 
-        {  
-          (typeof(plantList) !== 'number' ) ? 
-           plantList.slice(0,3).map(plant => {return (<img alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)}/>)}): null
-        }
-          
-          </div>
+      <Button className="day-modal-button" type="primary" onClick={() => {
+          setCalendarDayVisible(true);
+          return(
+            <dayModal  />
+          )}}>
 
-        <div className='plaque'>
-          <p>{day}</p> 
-        </div>{/*day should be on the bottom of the flex box so that the plants are sitting on top of each number/filler like a shelf so all other code goes above*/}
+        <div className="calendar-day-flex"> 
+          {  
+            (typeof(plantList) !== 'number' ) ? 
+            plantList.slice(0,3).map(plant => {return (<img alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)}/>)}): null
+          }
+            
+            </div>
+
+          <div className='plaque'>
+            <p>{day}</p> 
+          </div>{/*day should be on the bottom of the flex box so that the plants are sitting on top of each number/filler like a shelf so all other code goes above*/}
+       
+      </Button>
       </div>
+      
     </>
 
   )

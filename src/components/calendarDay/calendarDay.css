@@ -32,3 +32,12 @@ calendar-day-flex{
   display:flex;
   /* flex-direction: ; */
 }
+
+
+/* -------------- DAY MODAL BUTTON -------------- */ 
+.day-modal-button {
+  background-color: transparent !important;
+  border: none;
+  width:100% !important;
+  height:100% !important;
+}
