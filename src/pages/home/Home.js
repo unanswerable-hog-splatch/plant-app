@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 
 import Calendar from '../../components/calendar/Calendar';
-
+import cactus from '../../img/cactus-1.png'
 import { Modal, Button } from 'antd';
 import { useState } from 'react';
 import 'antd/dist/antd.css';
@@ -33,15 +33,21 @@ export default function Home() {
         </>
         : (
           <>
-            <div className="landing-title">
-              <h1 className="app-title">SHELF CARE</h1>
+    
+              <div className="landing-title">              
+                <h1 >Shelf</h1>
+                <img src={cactus}/>
+                <h1>Care</h1>
+
+              </div>
+
               <div className="landing-buttons">
                 < LoginFormButton />
 
                 < SignupFormButton />
 
               </div>
-            </div>
+          
           </>
         )
       }

@@ -7,9 +7,9 @@ import './home.css'
 export default function SignupFormButton() {
     const [visible, setVisible] = useState(false);
     return (
-        <div>
-            <Button className="sign-in-btn" type="primary" onClick={() => setVisible(true)}>
-                Get Gardening!
+        <>
+            <Button  type="primary" onClick={() => setVisible(true)}>
+                Sign Up
             </Button>
             <Modal
                 bodyStyle={{
@@ -28,6 +28,6 @@ export default function SignupFormButton() {
             >
                 < SignupForm />
             </Modal>
-        </div>
+        </>
     )
 }

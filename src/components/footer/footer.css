@@ -5,17 +5,14 @@ footer {
     background-color: rgb(21, 92, 65);
     color: rgb(239,223,170);
     align-self: flex-end;
-    /* margin-bottom: -50px; */
-    width: 100%;
-    /* margin-top: rem; */
+
+    /* width: 100%; */
+
     margin-top: 3em;
-    /* position: absolute;
-    vertical-align: bottom; */
-    /* position:fixed; */
     position:absolute;
-left:0;
-bottom:0;
-right:0;
+    left:0;
+    bottom:0;
+    right:0;
 }
 
 

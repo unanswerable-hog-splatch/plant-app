@@ -25,11 +25,6 @@ const SignupForm = () => {
     const [addGardener] = useMutation(ADD_GARDENER)
 
     const onFinish = async (values) => {
-        // event.preventDefault();
-        console.log(values)
-        // gardenerFormData = event
-        // console.log(gardenerFormData)
-
         try {
             const { data } = await addGardener({
                 variables: { ...values }
@@ -49,20 +44,6 @@ const SignupForm = () => {
 
     return (
         <>
-            {/* <p>Already have a shelf?</p>
-            <Button className="nav-buttons" type="primary" onClick={() => setVisible(true)}>
-                Login
-            </Button>
-            <Modal
-                title="Get back to being shelfish!"
-                centered
-                visible={visible}
-                onOk={() => setVisible(false)}
-                onCancel={() => setVisible(false)}
-                width={1000}
-            >
-                < LoginForm />
-            </Modal> */}
             <Form
                 name="basic"
                 labelCol={{
@@ -74,7 +55,6 @@ const SignupForm = () => {
                 initialValues={{
                     remember: true,
                 }}
-                // onSubmit={handleFormSubmit}
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
                 autoComplete="off"
@@ -131,7 +111,6 @@ const SignupForm = () => {
                     }}
                 >
                     <Button
-                        // disabled={!(gardenerFormData.name && gardenerFormData.email && gardenerFormData.password)}
                         className="nav-buttons"
                         type="primary"
                         htmlType="submit">
@@ -149,17 +128,6 @@ export default SignupForm;
 
 
 
-
-{/* <Form.Item
-                    name="remember"
-                    valuePropName="checked"
-                    wrapperCol={{
-                        offset: 8,
-                        span: 16,
-                    }}
-                >
-                    <Checkbox>Remember me</Checkbox>
-                </Form.Item> */}
 
 
 
