@@ -7,16 +7,14 @@ import useHook from '../../hooks/useHook'
 export default function CalendarDay({ day, plantList }) {
   const { selectIcon } = useHook()
   const plantIconList = []
-  
-  // for (let i =0 ; i< plantList.length; i++) {
-  console.log(plantList[0])
+
   return (
     <>
       <div className='calendar-day'>
       <div className="calendar-day-flex"> 
         {  
           (typeof(plantList) !== 'number' ) ? 
-           plantList.map(plant => {return (<img alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)}/>)}): null
+           plantList.slice(0,3).map(plant => {return (<img alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)}/>)}): null
         }
           
           </div>
