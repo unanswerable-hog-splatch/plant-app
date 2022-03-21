@@ -1,4 +1,4 @@
-import CalendarDay from "../day/CalendarDay"
+import CalendarDay from "../calendarDay/CalendarDay"
 import './calendar.css'
 
 export default function Calendar({ loading, gardenerData }) {
