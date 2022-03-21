@@ -13,12 +13,13 @@ export default function CalendarDay({ day, plantList }) {
   return (
     <>
       <div className='calendar-day'>
+      <div className="calendar-day-flex"> 
         {  
           (typeof(plantList) !== 'number' ) ? 
-           plantList.map(plant => {return (<div> <img alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)}/></div>)}): null
+           plantList.map(plant => {return (<img alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)}/>)}): null
         }
           
-        
+          </div>
 
         <div className='plaque'>
           <p>{day}</p> 

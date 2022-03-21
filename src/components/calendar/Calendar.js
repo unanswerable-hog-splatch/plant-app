@@ -94,7 +94,7 @@ plantList=1
         <h1 className="currentMonth">{currentMonthName}</h1>
       </div>
       
-      <div className="calendar-day">
+      <div className="calendar-day-day">
       {/* Add in the days of the week here in its own div so that the flex column align with the daily ones */}
         {monthArray.map(week => {
           // Week class is a flex row
