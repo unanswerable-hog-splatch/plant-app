@@ -12,6 +12,7 @@ export default function NavBar() {
     const [visible, setVisible] = useState(false);
     return (
         <div className="main-nav">
+            <h1>Shelf Care</h1>
             {Auth.isLoggedIn() ?
                 <>
                     < MainNav />

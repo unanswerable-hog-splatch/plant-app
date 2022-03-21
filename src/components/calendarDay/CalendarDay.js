@@ -6,9 +6,14 @@ import './calendarDay.css'
 export default function CalendarDay({ day }) {
 
   return (
+    <>
+      <div className='calendar-day'>
+        {day} {/*day should be on the bottom of the flex box so that the plants are sitting on top of each number/filler like a shelf so all other code goes above*/}
+      </div>
+    </>
 
-    <div className='calendar-day'>
-    
+  )
+}
 {/*
   -add a button tag around each
     -- CONDITIONS:
@@ -22,11 +27,6 @@ export default function CalendarDay({ day }) {
 
 
 {/* Add div tag around date */}
-      {day} {/*day should be on the bottom of the flex box so that the plants are sitting on top of each number/filler like a shelf so all other code goes above*/}
-    </div>
-  )
-}
-
 /*
   STYLING
     -add another div around the calendar day data so that we can add a border around the number 
