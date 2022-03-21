@@ -13,3 +13,11 @@ code {
     monospace;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ant-modal-root {
+  height: 0 !important;
+}

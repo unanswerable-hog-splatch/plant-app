@@ -31,7 +31,7 @@ export default function Calendar({ loading, gardenerData }) {
 let plantList;  
 plantList=1
   // Fill first week with 'filler' until it hits the actual first day of the month
-  monthArray[0].fill(<CalendarDay week={currentWeek} day={'filler'} plantList={1} gardenerData={gardenerData}/>, 0, firstDayOfWeek)
+  monthArray[0].fill(<CalendarDay week={currentWeek} day={'filler'} plantList={[]} gardenerData={gardenerData}/>, 0, firstDayOfWeek)
  
   const { dailyPlants } = useHook()
   // Loop until last day of month is hit
@@ -66,12 +66,12 @@ plantList=1
     }
     // If we hit the end of the month, fill in the rest of the current week array
     if (i + 1 === lastDayOfMonth) {
-      monthArray[currentWeek].fill(<CalendarDay week={currentWeek} day={'filler'} plantList= {1}  gardenerData={gardenerData}/>, currentDayOfWeek);
+      monthArray[currentWeek].fill(<CalendarDay week={currentWeek} day={'filler'} plantList= {[]}  gardenerData={gardenerData}/>, currentDayOfWeek);
     }
 
   }
   // console.log(monthArray)
-  if (currentWeek < 5) monthArray[5].fill(<CalendarDay week={currentWeek} day={'filler'}  plantList={1} gardenerData={gardenerData} />)
+  if (currentWeek < 5) monthArray[5].fill(<CalendarDay week={currentWeek} day={'filler'}  plantList={[]} gardenerData={gardenerData} />)
   // currentWeek < 5 ? monthArray[5].fill('filler') : null
 
 /*------------------------------- CALENDAR JSX -------------------------------*/

@@ -19,7 +19,8 @@ body {
 }
 
 .landing-title {
-    margin-top: 8em;
+    /* margin-top: 5rm; */
+    margin:7rem;
     border: solid .3em rgb(39, 22, 8);
     padding-bottom: 7em;
     padding-left: 11em;
