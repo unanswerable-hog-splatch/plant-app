@@ -38,9 +38,10 @@ export default function Profile() {
   }
 
   return (
-    <Layout className="profile-menu">
+    <Layout className='profile'>
       <Sider>
         <Menu
+          className='profile-menu'
           mode="inline"
           defaultSelectedKeys={'gardener'}
           style={{ height: '100%' }}
