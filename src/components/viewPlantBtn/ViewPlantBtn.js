@@ -1,4 +1,5 @@
-import ViewPlant from "./ViewPlant";
+import './viewPlantBtn.css'
+import ViewPlant from '../viewPlant/ViewPlant.js'
 import { useState } from "react";
 import { Modal, Button } from 'antd';
 import useHook from "../../hooks/useHook";

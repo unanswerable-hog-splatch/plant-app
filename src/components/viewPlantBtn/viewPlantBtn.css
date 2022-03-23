@@ -1,0 +1,10 @@
+.individual-plant-img {
+  width: 8em;
+  height: 10em;
+  margin-bottom: 1em;
+  margin-right: 3em;
+}
+
+.individual-plant-img:hover {
+  cursor: pointer;
+}
