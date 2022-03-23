@@ -20,7 +20,7 @@ export default function Plants({ plants }) {
                     {plant.species}
                     </h3>
                 </div>
-                <img className='ind-plant-img' src={selectIcon(plant.plantIcon)} />
+                <img alt={plant.plantIcon} className='ind-plant-img' src={selectIcon(plant.plantIcon)} />
                 <div className='ind-plant-footer'>
                     <h6>
                         Added to shelf on: {unixTime.toLocaleDateString("en-US")}
