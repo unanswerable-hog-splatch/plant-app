@@ -1,26 +1,26 @@
 import './dayModal.css'
-import  { Modal, Button } from 'antd'
+import { Modal, Button } from 'antd'
 import DayModalInfo from '../dayModalInfo/DayModalInfo'
 /*
 -Wrap each one in a button that can be clicked. 
   --on click each button opens a modal for that specfic day. 
 */
-export default function DayModal({ dailyPlantList, day,setCalendarDayVisible, calendarDayVisible, gardenerData }) {
+export default function DayModal({ dailyPlantList, day, setCalendarDayVisible, calendarDayVisible, gardenerData }) {
 
   const today = new Date()
   const currentMonth = new Date(today).getMonth();
   const currentYear = new Date(today).getFullYear();
   const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-  
-  const suffixesList = ['st','nd', 'rd', 'th']
+
+  const suffixesList = ['st', 'nd', 'rd', 'th']
   let suffix;
   const selectSuffix = (day) => {
-    switch(day) {
-      case (1 || 21 || 31) : suffix = suffixesList[0];
+    switch (day) {
+      case (1 || 21 || 31): suffix = suffixesList[0];
         break;
-      case (2 || 22) : suffix = suffixesList[1];
+      case (2 || 22): suffix = suffixesList[1];
         break;
-      case (3 || 33) : suffix = suffixesList[2];
+      case (3 || 33): suffix = suffixesList[2];
         break;
       default: suffix = suffixesList[3];
     }
@@ -34,22 +34,24 @@ export default function DayModal({ dailyPlantList, day,setCalendarDayVisible, ca
   }
 
   return (
-<>
-    <Modal 
-      title={dateTitle}
-      centered
-      visible={calendarDayVisible}
-      onOk={handleOk}
-      maskClosable={true}
-      closable={true}
-      footer={<Button key="submit" onClick={handleOk}>
-      Ok
-    </Button>}
-      width={1500}>
-      <DayModalInfo dailyPlantList={dailyPlantList} gardenerData={gardenerData} />
-    </Modal>
-</>
+    <>
+      <Modal
+        title={dateTitle}
+        centered
+        visible={calendarDayVisible}
+        onOk={handleOk}
+        maskClosable={true}
+        closable={true}
+        footer={<Button key="submit" onClick={handleOk}>
+          Ok
+        </Button>}
+        width={1500}>
+        <DayModalInfo dailyPlantList={dailyPlantList} gardenerData={gardenerData} />
+      </Modal>
+    </>
 
+  )
+}
 /*{/*
   -add a button tag around each
   --modal should be inside each button
@@ -65,8 +67,6 @@ export default function DayModal({ dailyPlantList, day,setCalendarDayVisible, ca
       --<div> with plant icon  
 */
 
-  )
-}
 
 /*
   STYLING
