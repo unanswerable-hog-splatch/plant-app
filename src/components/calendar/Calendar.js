@@ -60,7 +60,7 @@ export default function Calendar({ setGardenerData, loading, gardenerData }) {
     }
     // If we hit the end of the month, fill in the rest of the current week array
     if (i + 1 === lastDayOfMonth) {
-      for (let j = currentDayOfWeek; j < 7; j++) monthArray[currentWeek].push(<CalendarDay key={key++} week={currentWeek} day={'filler'} plantList={[]} gardenerData={gardenerData} />);
+      for (let j = currentDayOfWeek; j <= 6; j++) monthArray[currentWeek].push(<CalendarDay key={key++} week={currentWeek} day={'filler'} plantList={[]} gardenerData={gardenerData} />);
     }
 
   }
