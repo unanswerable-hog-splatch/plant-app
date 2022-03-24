@@ -57,7 +57,7 @@ export default function useHook() {
     
     for (let i =0 ; i < plantData.length ; i++) {
 
-      const watering = (((targetDate - plantData[i].lastWaterDate) / oneDay % plantData[i].waterFrequency) === 0) || (((targetDate - plantData[i].lastWaterDate + 3600) / oneDay % plantData[i].waterFrequency) === 0)
+      const watering = (((targetDate - plantData[i].lastWaterDate) / oneDay % plantData[i].waterFrequency) === 0) || (((targetDate - plantData[i].lastWaterDate +- 3600) / oneDay % plantData[i].waterFrequency) === 0)
       
       const fertilizing = plantData[i].fertilized ? ((targetDate - plantData[i].lastFertilizeDate) / oneDay % plantData[i].fertilizeFrequency) === 0 : false
 
