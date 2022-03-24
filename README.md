@@ -48,7 +48,9 @@ Have any questions? <br/>
 Github: https://github.com/unanswerable-hog-splatch/plant-app-frontend <br/>
 Github: https://github.com/unanswerable-hog-splatch/plant-app-backend
 ## Screenshots
-![]()
+![Shalf Care Landing Page](./assets/shelf-care-landing.jpg)
+![Shalf Care Home/Calendar](./assets/shelf-care-home.jpg)
+![Shalf Care Greenery](./assets/shelf-care-greenery.jpg)
 
 
 ## License
