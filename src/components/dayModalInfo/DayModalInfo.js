@@ -1,5 +1,5 @@
 import './dayModalInfo.css'
-import ViewPlantBtn from '../viewPlant/ViewPlantBtn'
+import ViewPlantBtn from '../viewPlantBtn/ViewPlantBtn'
 export default function DayModalInfo({ dailyPlantList, gardenerData }) {
 
 

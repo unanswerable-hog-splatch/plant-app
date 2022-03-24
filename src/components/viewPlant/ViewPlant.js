@@ -1,10 +1,10 @@
+import './viewPlant.css'
 import GreenCardInfo from '../greenCard/GreenCardInfo';
 
 import useHook from '../../hooks/useHook';
 import { useMutation } from '@apollo/client';
 import { UPDATE_PLANT } from '../../utils/mutations';
 
-import './view-plant.css'
 
 
 export default function ViewPlant({ plant }) {
