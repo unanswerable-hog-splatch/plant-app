@@ -31,6 +31,7 @@ export default function DayModal({ dailyPlantList, day, setIsModalVisible, isMod
   return (
     <>
       <Modal
+        className='day-modal'
         title={dateTitle}
         centered
         visible={isModalVisible}

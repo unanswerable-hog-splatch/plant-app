@@ -1,0 +1,9 @@
+.day-modal .ant-modal-header{
+    background: linear-gradient(rgb(104, 63, 29), rgb(85, 45, 12));
+  }
+.day-modal .ant-modal-body{
+    background-color: rgb(239,223,170);
+  }
+.day-modal .ant-modal-footer{
+    background: linear-gradient(rgb(85, 45, 12), rgb(104, 63, 29));
+  }
