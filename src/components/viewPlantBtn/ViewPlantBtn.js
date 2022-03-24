@@ -6,20 +6,26 @@ import useHook from "../../hooks/useHook";
 
 
 
-export default function ViewPlantBtn({ plantArr, gardenerName }) {
+export default function ViewPlantBtn({ plantArr, gardenerName, isModalVisible, setIsModalVisible }) {
   const [greenCardVisible, setGreenCardVisible] = useState(false);
   const { selectIcon } = useHook()
 
   const plant = plantArr[0];
 
-  const handleOk = (e) => {
-    e.preventDefault();
-    setGreenCardVisible(false);
-  }
+  // const handleOk = (e) => {
+  //   e.preventDefault();
+  //   setGreenCardVisible(false);
+  // }
 
   // const destroyAll = () => {
   //   Modal.destroyAll();
   // }
+
+const setFalse = () => {
+  setGreenCardVisible(false);
+  setIsModalVisible(false)
+}
+
 
   return (
     //Image you need to click for ViewPlant modal to pop up
@@ -32,14 +38,15 @@ export default function ViewPlantBtn({ plantArr, gardenerName }) {
         visible={greenCardVisible}
         maskClosable={true}
         closable={true}
-        onOk={handleOk}
-        footer={
-          // <Button key="back" onClick={destroyAll()}>
-          //   Return to Calendar
-          // </Button>,
-          <Button key="submit" onClick={handleOk}>
-            Ok
-          </Button>}
+        onCancel={() => setGreenCardVisible(false)}
+        onOk={() => setGreenCardVisible(false)}
+        footer={[
+          <Button key="back" onClick={() => setFalse()}>
+            Return to Calendar
+          </Button>,
+          <Button key="submit" onClick={() => setGreenCardVisible(false)}>
+            OK
+          </Button>]}
         width={'80%'}
       >
         <ViewPlant plant={plant} />

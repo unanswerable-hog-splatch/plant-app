@@ -19,7 +19,7 @@
   font-weight:bold;
   color:azure;
   text-shadow: 2px 2px 2px rgb(141, 105, 52);
-  justify-self: center;
+  text-align: center;
   width: 50%;
 }
 
