@@ -5,7 +5,7 @@ import DayModalInfo from '../dayModalInfo/DayModalInfo'
 -Wrap each one in a button that can be clicked. 
   --on click each button opens a modal for that specfic day. 
 */
-export default function DayModal({ dailyPlantList, day, setCalendarDayVisible, calendarDayVisible, gardenerData }) {
+export default function DayModal({ dailyPlantList, day, setIsModalVisible, isModalVisible, gardenerData }) {
 
   const today = new Date()
   const currentMonth = new Date(today).getMonth();
@@ -28,23 +28,17 @@ export default function DayModal({ dailyPlantList, day, setCalendarDayVisible, c
   }
   const dateTitle = `${monthList[currentMonth]} ${day}${selectSuffix(day)}, ${currentYear}`
 
-  const handleOk = (e) => {
-    e.preventDefault();
-    setCalendarDayVisible(false)
-  }
-
   return (
     <>
       <Modal
         title={dateTitle}
         centered
-        visible={calendarDayVisible}
-        onOk={handleOk}
+        visible={isModalVisible}
         maskClosable={true}
         closable={true}
-        onOk={() => setCalendarDayVisible(false)}
-        onCancel={() => setCalendarDayVisible(false)}
-        footer={<Button key="submit" onClick={handleOk}>
+        onOk={() => setIsModalVisible(false)}
+        onCancel={() => setIsModalVisible(false)}
+        footer={<Button key="submit" onClick={() => setIsModalVisible(false)}>
           Ok
         </Button>}
         width={1500}>

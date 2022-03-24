@@ -11,7 +11,7 @@ export default function CalendarDay({ day, plantList, gardenerData }) {
   const { selectIcon } = useHook()
   const dailyPlantList = []
 
-  const [ calendarDayVisible, setCalendarDayVisible] = useState(false);
+  const [ isModalVisible, setIsModalVisible] = useState(false);
 
   //added mapping up here to create new list with only plants in it and no nulls
   for (let i=0; i<plantList.length; i++) {
@@ -20,7 +20,7 @@ export default function CalendarDay({ day, plantList, gardenerData }) {
   return (
     <>
       <div className='calendar-day'>
-      <Button className="day-modal-button" type="primary" onClick={() => { setCalendarDayVisible(true) }}>
+      <Button className="day-modal-button" type="primary" onClick={() => { setIsModalVisible(true) }}>
         <div className="calendar-day-flex"> 
         {/* Changed the mapping of the plants to only grab the ones that have plants populating. Determined the type outside of loop */}
            {dailyPlantList.slice(0,3).map((plant,i) => {return (<img alt={plant[0].plantIcon} src={selectIcon(plant[0].plantIcon)} key={i}/>)})}
@@ -35,8 +35,8 @@ export default function CalendarDay({ day, plantList, gardenerData }) {
       <DayModal
       dailyPlantList={dailyPlantList}
       day={day}
-      setCalendarDayVisible={setCalendarDayVisible}
-      calendarDayVisible={calendarDayVisible}
+      setIsModalVisible={setIsModalVisible}
+      isModalVisible={isModalVisible}
       gardenerData={gardenerData}/>
       </div>
       
