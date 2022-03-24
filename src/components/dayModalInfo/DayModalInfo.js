@@ -1,6 +1,6 @@
 import './dayModalInfo.css'
 import ViewPlantBtn from '../viewPlantBtn/ViewPlantBtn'
-export default function DayModalInfo({ dailyPlantList, gardenerData }) {
+export default function DayModalInfo({ dailyPlantList, gardenerData, isModalVisible, setIsModalVisible }) {
 
 
 
@@ -10,7 +10,12 @@ export default function DayModalInfo({ dailyPlantList, gardenerData }) {
         <div className='task-indicators'>
 
         </div>
-        <ViewPlantBtn plantArr={plantArr} gardenerName={gardenerData.name} />
+        <ViewPlantBtn
+        plantArr={plantArr}
+        gardenerName={gardenerData.name}
+        isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+        />
       </div>
     )
   })

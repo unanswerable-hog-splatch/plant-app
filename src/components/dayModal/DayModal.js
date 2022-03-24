@@ -43,6 +43,8 @@ export default function DayModal({ dailyPlantList, day, setIsModalVisible, isMod
         </Button>}
         width={1500}>
         <DayModalInfo
+          isModalVisible={isModalVisible}
+          setIsModalVisible={setIsModalVisible}
           dailyPlantList={dailyPlantList}
           gardenerData={gardenerData}
            />
