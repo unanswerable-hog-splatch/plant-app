@@ -17,9 +17,9 @@ export default function ViewPlantBtn({ plantArr, gardenerName }) {
     setGreenCardVisible(false);
   }
 
-  // const destroyAll = () => {
-  //   Modal.destroyAll();
-  // }
+  const destroyAll = () => {
+    Modal.destroyAll();
+  }
 
   return (
     //Image you need to click for ViewPlant modal to pop up
@@ -32,14 +32,15 @@ export default function ViewPlantBtn({ plantArr, gardenerName }) {
         visible={greenCardVisible}
         maskClosable={true}
         closable={true}
+        onCancel={handleOk}
         onOk={handleOk}
-        footer={
-          // <Button key="back" onClick={destroyAll()}>
-          //   Return to Calendar
-          // </Button>,
+        footer={[
+          <Button key="back" onClick={destroyAll()}>
+            Return to Calendar
+          </Button>,
           <Button key="submit" onClick={handleOk}>
-            Ok
-          </Button>}
+            OK
+          </Button>]}
         width={'80%'}
       >
         <ViewPlant plant={plant} />

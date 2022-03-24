@@ -42,11 +42,16 @@ export default function DayModal({ dailyPlantList, day, setCalendarDayVisible, c
         onOk={handleOk}
         maskClosable={true}
         closable={true}
+        onOk={() => setCalendarDayVisible(false)}
+        onCancel={() => setCalendarDayVisible(false)}
         footer={<Button key="submit" onClick={handleOk}>
           Ok
         </Button>}
         width={1500}>
-        <DayModalInfo dailyPlantList={dailyPlantList} gardenerData={gardenerData} />
+        <DayModalInfo
+          dailyPlantList={dailyPlantList}
+          gardenerData={gardenerData}
+           />
       </Modal>
     </>
 
@@ -57,18 +62,18 @@ export default function DayModal({ dailyPlantList, day, setCalendarDayVisible, c
   --modal should be inside each button
   -- ONCLICK: The date of the specific day clicked should show
   Modal
-  -populate each plant 
+  -populate each plant
     -- CONDITIONS:
-      -Current Date - Last Watering Date % WateringFrequency = 0 
-      -if (Fertilize = true) => Current Date - Last Fertilize Date % FertilizingFrequency = 0  
+      -Current Date - Last Watering Date % WateringFrequency = 0
+      -if (Fertilize = true) => Current Date - Last Fertilize Date % FertilizingFrequency = 0
     --<button>
       --<div> with dots indicating if need water or fertiziler. </div>
-        --dots with be determined by the same conditions as the plant. 
-      --<div> with plant icon  
+        --dots with be determined by the same conditions as the plant.
+      --<div> with plant icon
 */
 
 
 /*
   STYLING
-    -add another div around the calendar day data so that we can add a border around the number 
+    -add another div around the calendar day data so that we can add a border around the number
 */

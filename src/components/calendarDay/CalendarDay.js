@@ -32,7 +32,12 @@ export default function CalendarDay({ day, plantList, gardenerData }) {
        
       </Button>
 
-      <DayModal dailyPlantList={dailyPlantList} day={day} setCalendarDayVisible={setCalendarDayVisible} calendarDayVisible={calendarDayVisible} gardenerData={gardenerData}/>
+      <DayModal
+      dailyPlantList={dailyPlantList}
+      day={day}
+      setCalendarDayVisible={setCalendarDayVisible}
+      calendarDayVisible={calendarDayVisible}
+      gardenerData={gardenerData}/>
       </div>
       
     </>
