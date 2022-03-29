@@ -9,15 +9,18 @@ import Auth from '../../utils/auth';
 export default function NavBar() {
     return (
         <div className="main-nav">
-        
+
             {Auth.isLoggedIn() ?
                 <>
-                    <h1><img src={cacti} alt='Cactus'/>Shelf Care</h1>
+                    <a href="/">
+                        <h1><img className='home-icon' src={cacti} alt='Cactus' />Shelf Care
+                        </h1>
+                    </a>
                     < MainNav />
                 </>
                 : (
                     <>
-                    {/* WHAT TO PUT IN NAV BAR WHEN LOGGED OUT */}
+                        {/* WHAT TO PUT IN NAV BAR WHEN LOGGED OUT */}
                     </>
                 )
             }

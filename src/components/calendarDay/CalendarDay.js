@@ -10,7 +10,6 @@ import { Button } from "antd";
 export default function CalendarDay({ day, plantList, gardenerData }) {
   const { selectIcon } = useHook()
   const dailyPlantList = []
-
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   //added mapping up here to create new list with only plants in it and no nulls
