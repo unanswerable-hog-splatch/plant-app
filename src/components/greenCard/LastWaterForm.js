@@ -12,7 +12,6 @@ import { useMutation } from "@apollo/client";
 import { UPDATE_PLANT } from "../../utils/mutations";
 
 export default function LastWaterForm({ plant }) {
-    console.log(plant)
     const [ updatePlant ] = useMutation(UPDATE_PLANT)
 
     const onFinish = async (values) => {
@@ -23,7 +22,6 @@ export default function LastWaterForm({ plant }) {
 
 
             
-        console.log(values)
         try {
             await updatePlant({
                 variables: { ...values, _id: plant._id }

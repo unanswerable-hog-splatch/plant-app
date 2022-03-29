@@ -14,7 +14,6 @@ import './greencard.css'
 
 
 export default function FrequencyForm({ plant }) {
-    console.log(plant)
     const [ updatePlant ] = useMutation(UPDATE_PLANT)
     // const [ greenCardVisible, setGreenCardVisible ] = useState(false);
     const frequencyUnits = ['day', 'week', 'month', 'year'];
@@ -34,11 +33,9 @@ export default function FrequencyForm({ plant }) {
     }
 
     const onFinish = async (values) => {
-        console.log(values)
 
         values.waterFrequency = convertFrequency(values.waterFrequency.amount, values.waterFrequency.unit)
             
-        console.log(values)
         try {
             await updatePlant({
                 variables: { ...values, _id: plant._id }
