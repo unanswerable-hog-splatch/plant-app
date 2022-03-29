@@ -1,12 +1,9 @@
-import { useState } from "react";
 import { 
-    Modal, 
     Button,
     Form,
     Input,
     InputNumber,
     Select,
-    DatePicker
 } from "antd";
 import { useMutation } from "@apollo/client";
 import { UPDATE_PLANT } from "../../utils/mutations";
@@ -15,7 +12,6 @@ import './greencard.css'
 
 export default function FrequencyForm({ plant }) {
     const [ updatePlant ] = useMutation(UPDATE_PLANT)
-    // const [ greenCardVisible, setGreenCardVisible ] = useState(false);
     const frequencyUnits = ['day', 'week', 'month', 'year'];
     const convertFrequency = (amount, unit) => {
         let multiplier;
@@ -45,7 +41,6 @@ export default function FrequencyForm({ plant }) {
         }
     
 
-        // setGreenCardVisible(!greenCardVisible);
     }
 
     const onFinishFailed = (errorInfo) => {

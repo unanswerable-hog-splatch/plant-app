@@ -22,9 +22,6 @@ export default function GreenCard({ plant }) {
             <Modal
                 bodyStyle={{
                     backgroundColor: 'rgb(98, 218, 98)',
-                    // display: 'flex',
-                    // justifyContent: 'center',
-                    // textAlign: 'center'
                 }}
                 title="Permanent Plant Residency"
                 centered
