@@ -1,8 +1,7 @@
-import React from 'react'
-import SignupForm from '../../components/user-form/SignupForm'
+import SignupForm from './SignupForm'
 import { Modal, Button } from 'antd';
 import { useState } from 'react';
-import './home.css'
+
 
 export default function SignupFormButton() {
     const [visible, setVisible] = useState(false);
@@ -12,13 +11,7 @@ export default function SignupFormButton() {
                 Sign Up
             </Button>
             <Modal
-                bodyStyle={{
-                    backgroundColor: 'rgb(98, 218, 98)',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    textAlign: 'center'
-                }}
-                className='signup-modal modal'
+                className='signup-modal modal form'
                 title="Sign up to start your shelf!"
                 centered
                 visible={visible}
