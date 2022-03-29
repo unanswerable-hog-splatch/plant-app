@@ -1,9 +1,8 @@
 import { useMutation } from '@apollo/client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import Auth from '../../utils/auth';
 import { ADD_GARDENER } from '../../utils/mutations';
-
 
 const SignupForm = () => {
 

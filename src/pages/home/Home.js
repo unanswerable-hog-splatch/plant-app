@@ -1,25 +1,27 @@
-
+import 'antd/dist/antd.css';
+import './home.css'
+import './form.css'
 import Auth from '../../utils/auth';
 
 import Calendar from '../../components/calendar/Calendar';
-import cactus from '../../img/cactus-1.png'
+import useHook from '../../hooks/useHook'
 import { useState, useEffect } from 'react';
-import 'antd/dist/antd.css';
 
-import LoginFormButton from './LoginFormButton'
-import './home.css'
-import SignupFormButton from './SignupFormButton';
+import LoginFormButton from '../../components/login/LoginFormButton'
+import SignupFormButton from '../../components/signup/SignupFormButton';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
 
 export default function Home() {
+  const { selectIcon } = useHook();
+
   const { loading, data } = useQuery(QUERY_ME);
   const userData = data?.me || [];
 
   const [gardenerData, setGardenerData] = useState({});
 
   useEffect(() => {
-  setGardenerData(userData);
+    setGardenerData(userData);
 
   }, [])
   return (
@@ -28,21 +30,21 @@ export default function Home() {
       {/* If user is logged in, the calendar is displayed. If not, Login and Sign Up buttons are displayed */}
       {Auth.isLoggedIn() ?
         <>
-        
+
           <div className="home-screen">
 
             <Calendar setGardenerData={setGardenerData} gardenerData={gardenerData} loading={loading} />
-           
+
           </div>
 
         </>
         : (
           <>
-           <div className="landing-screen">
-    
-              <div className="landing-title">              
+            <div className="landing-screen">
+
+              <div className="landing-title">
                 <h1 >Shelf</h1>
-                <img alt='A watered cactus' src={cactus}/>
+                <img alt='A watered cactus' src={selectIcon('cactus')} />
                 <h1>Care</h1>
 
               </div>
@@ -53,7 +55,7 @@ export default function Home() {
                 < SignupFormButton />
 
               </div>
-              </div>
+            </div>
           </>
         )
       }
