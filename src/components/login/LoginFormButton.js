@@ -1,9 +1,6 @@
-import React from 'react'
-import LoginForm from '../../components/user-form/LoginForm'
+import LoginForm from './LoginForm'
 import { Modal, Button } from 'antd';
 import { useState } from 'react';
-import './home.css'
-import './form.css'
 
 export default function LoginFormButton() {
     const [visible, setVisible] = useState(false);

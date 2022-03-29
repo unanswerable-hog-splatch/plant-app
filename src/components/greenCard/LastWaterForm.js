@@ -1,29 +1,17 @@
-import { useState } from "react";
 import { 
-    Modal, 
     Button,
     Form,
-    Input,
-    InputNumber,
-    Select,
+
     DatePicker
 } from "antd";
 import { useMutation } from "@apollo/client";
 import { UPDATE_PLANT } from "../../utils/mutations";
 
 export default function LastWaterForm({ plant }) {
-    console.log(plant)
     const [ updatePlant ] = useMutation(UPDATE_PLANT)
 
     const onFinish = async (values) => {
-
-
         values.lastWaterDate = Number(values.lastWaterDate.startOf("day").format("X"))
-
-
-
-            
-        console.log(values)
         try {
             await updatePlant({
                 variables: { ...values, _id: plant._id }
@@ -31,9 +19,6 @@ export default function LastWaterForm({ plant }) {
         } catch (err) {
             console.error(err)
         }
-    
-
-        // setGreenCardVisible(!greenCardVisible);
     }
 
     const onFinishFailed = (errorInfo) => {

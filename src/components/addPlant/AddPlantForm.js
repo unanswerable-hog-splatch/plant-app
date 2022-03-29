@@ -171,7 +171,8 @@ export default function AddPlantForm({ setGardenerData, addPlantVisible, setAddP
             <Form.Item
               name={["waterFrequency", "amount"]}
               placeholder="#"
-              noStyle>
+              noStyle
+              >
               <InputNumber />
             </Form.Item>
             <Form.Item
@@ -218,7 +219,8 @@ export default function AddPlantForm({ setGardenerData, addPlantVisible, setAddP
             <Form.Item
               name={["fertilizeFrequency", "amount"]}
               placeholder="#"
-              noStyle>
+              noStyle
+              >
               <InputNumber />
             </Form.Item>
             <Form.Item
