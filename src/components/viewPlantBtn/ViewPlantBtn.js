@@ -12,15 +12,6 @@ export default function ViewPlantBtn({ plantArr, gardenerName, isModalVisible, s
 
   const plant = plantArr[0];
 
-  // const handleOk = (e) => {
-  //   e.preventDefault();
-  //   setGreenCardVisible(false);
-  // }
-
-  // const destroyAll = () => {
-  //   Modal.destroyAll();
-  // }
-
 const setFalse = () => {
   setGreenCardVisible(false);
   setIsModalVisible(false)
@@ -54,15 +45,3 @@ const setFalse = () => {
     </>
   )
 }
-
-
-
-// ***************** YOU NEED THIS STUFF TO MAKE BUTTONS AND MODALS APPEAR
-
-// import ViewPlantBtn from "../viewPlant/ViewPlantBtn";
-
-// {loading ? 'Something wonderful is happening' :
-//   gardenerData.plants.map(plant=> <ViewPlantBtn 
-//   key={plant._id} 
-//   plant={plant}
-//   gardenerName={gardenerData.name} />)}
