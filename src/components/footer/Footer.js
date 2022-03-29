@@ -1,5 +1,4 @@
 import './footer.css'
-import cacti from '../../img/cactus-1.png'
 import useHook from '../../hooks/useHook'
 
 export default function Footer() {

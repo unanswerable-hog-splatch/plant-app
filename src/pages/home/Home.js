@@ -16,11 +16,11 @@ export default function Home() {
   const { selectIcon } = useHook();
 
   const { loading, data } = useQuery(QUERY_ME);
-  const userData = data?.me || [];
 
   const [gardenerData, setGardenerData] = useState({});
 
   useEffect(() => {
+    const userData = data?.me || [];
     setGardenerData(userData);
 
   }, [])
