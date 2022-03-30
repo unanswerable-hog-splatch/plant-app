@@ -13,7 +13,7 @@
 /* ====================== CALENDAR DAY NUMBER ------------------*/
 
 .calendar-day p {
-  background: linear-gradient( rgb(117, 76, 28), rgb(56, 33, 6));
+  background: rgb(105,66,21);
   /* padding: 0 !important; */
 }
 
@@ -21,7 +21,7 @@
   background-color: rgb(214, 189, 108);
 }
 .calendar-day:hover p {
-  background: linear-gradient(rgb(105, 66, 21), rgb(255, 140, 8));
+  background: rgb(255, 140, 8);
 }
 
 .plaque {
