@@ -1,0 +1,11 @@
+.day-modal .ant-modal-header{
+    background:  rgb(85, 45, 12);
+  }
+.day-modal .ant-modal-body{
+    background-color: rgb(239,223,170);
+    border-right: solid 5em rgb(85, 45, 12);
+    border-left: solid 5em rgb(85, 45, 12);
+  }
+.day-modal .ant-modal-footer{
+    background: rgb(104, 63, 29);
+  }
