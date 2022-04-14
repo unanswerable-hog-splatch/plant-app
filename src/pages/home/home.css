@@ -52,8 +52,8 @@ body {
 }
 
 .landing-buttons button {
-    margin: 3rem 5rem;
-    width: 100%;
+    margin: 3rem;
+    width: 5em;
     height: 5rem;
     font-size: 2rem;
     background: rgb(21, 92, 65);
@@ -90,3 +90,134 @@ body {
     background: linear-gradient(0.25turn, green, rgb(124, 182, 31), green);
     border: .1em solid rgb(255, 234, 45);
 } */
+
+
+@media screen and (max-width: 1150px) {
+
+    .landing-title {
+        display: flex;
+        justify-content:center;
+        
+        font-size: 2.5rem !important;
+        font-weight: bold;
+    
+        text-shadow: 3px 3px rgb(28, 107, 64);
+        text-decoration: 12px underline rgb(95, 69, 47);
+    
+        padding: 1rem;
+    }
+
+    .landing-title img {
+        width: 4rem;
+        height: 5rem;
+    }
+
+    .landing-buttons {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .landing-buttons Button {
+        margin: unset;
+        margin-top: 2em;
+        width: 8em;
+        height: 3.5rem;
+        font-size: 1.5rem;
+        background: rgb(21, 92, 65);
+        color: rgb(183, 212, 216);
+        border: 5px solid rgb(198,128,88);
+        border-radius: .25em;
+        text-align: center;
+        padding:0.15rem;
+      
+    }
+
+    .landing-screen {
+        margin:5em;
+
+    }
+
+
+
+}
+@media screen and (max-width: 768px) {
+    .landing-title {
+        display: flex;
+        justify-content:center;
+        
+        font-size: 2.5rem !important;
+        font-weight: bold;
+    
+        text-shadow: 3px 3px rgb(28, 107, 64);
+        text-decoration: 12px underline rgb(95, 69, 47);
+    
+        padding: 1rem;
+    }
+
+    .landing-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .landing-buttons Button {
+        margin: unset;
+        margin-top: 2em;
+        width: 20em;
+        height: 3.5rem;
+        font-size: 1.5rem;
+        background: rgb(21, 92, 65);
+        color: rgb(183, 212, 216);
+        border: 3px solid rgb(198,128,88);
+        border-radius: .25em;
+        box-shadow: .2em .2em .2em black;
+        text-align: center;
+        padding:0.15rem;
+      
+    }
+
+    .landing-screen {
+        margin:3em;
+
+    }
+
+    @media screen and (max-width: 575px) {
+        .landing-screen {
+            margin: 1.5em;
+    
+        }
+
+        .landing-title {
+            display: flex;
+            justify-content:center;
+            
+            font-size: 2.2rem !important;
+            font-weight: bold;
+        
+            text-shadow: 3px 3px rgb(28, 107, 64);
+            text-decoration: 12px underline rgb(95, 69, 47);
+        
+            padding: 1rem;
+        }
+
+        .landing-buttons Button {
+            margin: unset;
+            margin-top: 2em;
+            width: 15em;
+            height: 3.5rem;
+            font-size: 1.5rem;
+            background: rgb(21, 92, 65);
+            color: rgb(183, 212, 216);
+            border: 3px solid rgb(198,128,88);
+            border-radius: .25em;
+            box-shadow: .2em .2em .2em black;
+            text-align: center;
+            padding:0.15rem;
+          
+        }
+
+    }
+
+}
