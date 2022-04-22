@@ -53,7 +53,7 @@ body {
 
 .landing-buttons button {
     margin: 3rem;
-    width: 5em;
+    width: 20rem;
     height: 5rem;
     font-size: 2rem;
     background: rgb(21, 92, 65);
@@ -90,6 +90,7 @@ body {
     background: linear-gradient(0.25turn, green, rgb(124, 182, 31), green);
     border: .1em solid rgb(255, 234, 45);
 } */
+
 
 
 @media screen and (max-width: 1150px) {
